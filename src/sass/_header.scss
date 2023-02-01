@@ -1,0 +1,44 @@
+// HOME
+.header-home {
+    background-image: url("../images/header-home.svg");
+    background-size: cover;
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+// LIBRARY
+.header-library {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/header-library.svg");
+    background-size: cover;
+}
+.buttons-header-nav-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+// For all
+.header-home,
+.header-library {
+    height: 216px;
+    display: flex;
+    flex-direction: column;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+.nav-list {
+    display: flex;
+}
+
+//adapt
+@media screen and (min-width: 480px) {
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1280px) {
+}
