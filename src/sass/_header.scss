@@ -4,36 +4,114 @@
     background-size: cover;
 }
 
-.form-wrapper {
-    display: flex;
-    justify-content: center;
-}
-// LIBRARY
-.header-library {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/header-library.svg");
-    background-size: cover;
-}
-.buttons-header-nav-wrapper {
-    display: flex;
-    justify-content: center;
-}
-
-// For all
-.header-home,
-.header-library {
-    height: 216px;
+.header-wrapper {
     display: flex;
     flex-direction: column;
+    row-gap: 56px;
 }
+
 .nav {
     display: flex;
     justify-content: space-between;
 }
 .nav-list {
     display: flex;
+    column-gap: 40px;
+}
+.nav-list__link {
+    text-transform: uppercase;
+    color: white;
+}
+.nav-list__link:visited {
+    color: white;
 }
 
-//adapt
+.form-wrapper {
+    position: relative;
+    justify-content: normal;
+}
+
+.input-query {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 4px;
+    width: 100%;
+}
+.input-query::placeholder {
+    color: white;
+}
+
+.submit-search-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    background-color: transparent;
+}
+
+// LIBRARY
+.header-library {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/header-library.svg");
+    background-size: cover;
+}
+
+.header-library-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 66px;
+}
+
+.buttons-header-nav-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.button-watched,
+.button-queue {
+    height: 44px;
+    width: 130px;
+    border: none;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+    transition: all 500ms ease;
+}
+.button-watched:hover,
+.button-queue:hover,
+.button-watched:focus,
+.button-queue:focus {
+    background: #ff6b01;
+    box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+    border: none;
+}
+
+// For all
+.header-home,
+.header-library {
+    padding: 22px 0;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-img {
+    height: 24px;
+    width: 24px;
+}
+
+.logo-text {
+    display: none;
+}
+
+// -- adapt
 @media screen and (min-width: 480px) {
 }
 
