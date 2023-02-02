@@ -1,4 +1,4 @@
-.films-gallery {
+.movie-gallery {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -23,7 +23,7 @@
 
 }
 
-.films-gallery__item {
+.movie-gallery__item {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -40,7 +40,7 @@
     }
 }
 
-.films-gallery__poster {
+.movie-gallery__poster {
     margin-bottom: 10px;
 
     @media screen and (min-width: 768px) {
@@ -52,7 +52,7 @@
     }
 }
 
-.films-gallery__photo {
+.movie-gallery__photo {
     width: 280px;
     height: 402px;
     border-radius: 5px;
@@ -71,7 +71,7 @@
     }
 }
 
-.films-gallery__wrap {
+.movie-gallery__wrap {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
@@ -87,7 +87,7 @@
 
 }
 
-.film-info {
+.movie-info {
     display: flex;
     color: #FF6B08
 }
