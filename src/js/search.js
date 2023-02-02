@@ -1,6 +1,7 @@
 import { getAxiosSearchFilms } from './axios';
 import { refs } from './DOM';
-import { genresAll } from './genres';
+import { makeGalleryMarkup } from './make-home-gallery';
+import { makeErrorMassage } from './arror-mass-header';
 
 export async function getFilmsFromInput(e) {
   e.preventDefault();
@@ -18,27 +19,14 @@ export async function getFilmsFromInput(e) {
   }
   refs.inputAnswerParEl.innerHTML = '';
 
-  console.log(searchFilms.results);
+  const { results } = searchFilms;
+  const films = [...results];
 
-  function makeGalleryInput() {
-    searchFilms.results.map(film => {
-      const { id, poster_path, title, genres, release_date } = film;
+  const galleryMarkup = makeGalleryMarkup(films);
 
-      // console.log(typeOf(release_date))
-      //   console.log(newGenres);
-      return id, poster_path, title, genres, release_date.slice(0, 4);
-    });
-  }
-
-  const galleryData = makeGalleryInput();
-}
-
-// refs.filmGalleryHomeEl.innerHTML = markupGallery
-
-function makeErrorMassage() {
-  refs.inputAnswerParEl.innerHTML =
-    'Search result not successful. Enter the correct movie name and';
+  refs.filmGalleryHomeEl.innerHTML = galleryMarkup;
 }
 
 // потім
+
 // localStorage.setItem('query', q)
