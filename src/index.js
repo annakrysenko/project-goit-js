@@ -7,7 +7,8 @@ import { createPopularMarkup } from './js/popularMarkup'
 refs.homeBTN.addEventListener('click', async (e) => {
     e.preventDefault()
     const films = await getAxiosPopularFilms()
-    console.log(films);
+    const popularMarkup = await createPopularMarkup(films)
+    console.log(popularMarkup);
 })
 
 

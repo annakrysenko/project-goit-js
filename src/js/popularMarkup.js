@@ -1,7 +1,9 @@
 import { getAxiosPopularFilms } from "module";
+import { libraryMovieMarkup } from "./libraryMovieMarkup";
 
 export async function createPopularMarkup(films) {
     films.results.map(film => {
-    return `<`
- })
+        const popularMarkup = libraryMovieMarkup(film).join('')
+        return popularMarkup
+    })
 }
