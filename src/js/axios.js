@@ -14,16 +14,7 @@ export async function getAxiosSearchFilms(query, page = 1) {
   } catch (err) {
     console.log(err);
   }
-  try {
-    const response = await axios.get(
-      `${BASE_URL}/search/movie?api_key=${KEY_ANNA_K}&page=${page}&language=en-US&query=${query}`
-    );
-    const data = response.data;
-    console.log(data);
-    return data;
-  } catch (err) {
-    console.log(err);
-  }
+
 }
 
 //---------ДОПИСУЄМО СВОЇ КЛЮЧІ І ФУНКЦІЇ СЮДИ!---------//
@@ -42,5 +33,15 @@ export async function getAxiosPopularFilms(page = 1) {
 }
 
 // Детальна інфа
+export async function getMovieByID(movieId) {
+    try {
+        const response = await axios.get(`${BASE_URL}/movie/${movieId}?api_key=${KEY_ANNA_K}&language=en-US`)
+       return response.data
+    }
+    catch (err) {
+        console.log('there is no such ID')
+    }
+}
+
 
 // Чи є на ютубі трейлер

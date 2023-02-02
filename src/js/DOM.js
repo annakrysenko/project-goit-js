@@ -3,5 +3,6 @@ export const refs = {
     formEl: document.querySelector('.form-search'),
     mainHomeEl: document.querySelector('#main-home'),
     inputAnswerParEl: document.querySelector('.input-answer'),
-    homeBTN: document.querySelector('.home')
+    filmGalleryHomeEl: document.querySelector('.films-gallery__poster'),
+    homeBTN: document.querySelector('.home'),
 }
