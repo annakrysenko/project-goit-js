@@ -1,10 +1,12 @@
-export function libraryMovieMarkup({
+export function cardMovieMarkup({
   id,
   poster_path,
   title,
   genre_ids,
   release_date,
+  vote_average,
 }) {
+  const rating = vote_average.toFixed(1);
   let markup = `
    <li class="movie-gallery__item" data-id="${id}">
     <div class="movie-gallery__poster">
@@ -20,6 +22,7 @@ export function libraryMovieMarkup({
         <p class="movie-info__genre">${genre_ids} |</p>
         <span class="movie-info__slash> | </span>
         <p class="movie-info__year">${release_date}</p>
+         <span class="movie-info__vote">${rating}</span>
       </div>
     </div>
   </li>`;
