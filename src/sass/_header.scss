@@ -1,28 +1,61 @@
-// HOME
 .header-home {
     background-color: #0000008f;
-    background-image: url("../images/header-home.svg");
+    background-image: url("../images/header-home-mobile.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+}
+
+.header-library {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/header-library.svg");
     background-size: cover;
 }
 
-.header-wrapper {
+.header-home,
+.header-library {
+    height: 230px;
     display: flex;
     flex-direction: column;
-    row-gap: 56px;
+    padding: 40px 0 45px 0;
+}
+
+.header-wrapper,
+.header-library-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
 }
 
 .nav {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
+
 .nav-list {
     display: flex;
     column-gap: 40px;
+    height: 100%;
 }
+
+.nav-list__item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list__link.current {
+    border-bottom: 3px solid #ff001b;
+}
+
 .nav-list__link {
     text-transform: uppercase;
     color: white;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
 }
+
 .nav-list__link:visited {
     color: white;
 }
@@ -30,24 +63,42 @@
 .form-wrapper {
     position: relative;
     justify-content: normal;
+    margin-top: 54px;
 }
-
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+input[data-autocompleted] {
+    background-color: transparent !important;
+}
 .input-query {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid white;
-    padding: 4px;
+    font-size: 14px;
+    line-height: 1.16;
     width: 100%;
+    outline: none;
+    color: white;
 }
 .input-query::placeholder {
     color: white;
 }
 
+.input-answer {
+    color: #ff001b;
+    margin: 16px auto 0 auto;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.16;
+}
+
 .submit-search-button {
     position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    right: 6;
+    // top: 0;
+    bottom: -5;
     width: 30px;
     height: 30px;
 
@@ -55,22 +106,11 @@
     background-color: transparent;
 }
 
-// LIBRARY
-.header-library {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/header-library.svg");
-    background-size: cover;
-}
-
-.header-library-wrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 66px;
-}
-
 .buttons-header-nav-wrapper {
     display: flex;
     justify-content: center;
     gap: 20px;
+    margin-top: 62px;
 }
 
 .button-watched,
@@ -94,30 +134,83 @@
     border: none;
 }
 
-// For all
-.header-home,
-.header-library {
-    padding: 22px 0;
-    height: 230px;
+.logo {
     display: flex;
-    flex-direction: column;
+    column-gap: 8px;
+    align-items: center;
 }
 
 .logo-img {
     height: 24px;
     width: 24px;
 }
-
 .logo-text {
     display: none;
+    text-transform: none;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.16;
 }
 
 // -- adapt
 @media screen and (min-width: 480px) {
+    .form-wrapper {
+        width: 336px;
+        margin: 0 auto;
+    }
+    .form-wrapper {
+        width: 336px;
+    }
+    .header-home {
+        margin: 0 auto;
+    }
+    .header-wrapper,
+    .header-library-wrapper {
+        padding: 0 32px;
+    }
 }
 
 @media screen and (min-width: 768px) {
+    .header-home {
+        background-image: url("../images/header-home-tablet.svg");
+        height: 216px;
+    }
+    .form-wrapper {
+        margin-top: 40;
+    }
+
+    .logo-text {
+        display: block;
+    }
+
+    .buttons-header-nav-wrapper {
+        margin-top: 40px;
+        gap: 32px;
+    }
+
+    .button-watched,
+    .button-queue {
+        width: 152px;
+    }
 }
 
 @media screen and (min-width: 1280px) {
+    .header-home {
+        background-image: url("../images/header-home.svg");
+    }
+    .header-home,
+    .header-library {
+        padding: 50px 0 44px 0;
+    }
+    .form-wrapper {
+        width: 394px;
+    }
+    .button-watched,
+    .button-queue {
+        width: 147px;
+        height: 42px;
+    }
+    .buttons-header-nav-wrapper {
+        gap: 16px;
+    }
 }

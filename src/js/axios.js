@@ -14,6 +14,16 @@ export async function getAxiosSearchFilms(query, page = 1) {
   } catch (err) {
     console.log(err);
   }
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/search/movie?api_key=${KEY_ANNA_K}&page=${page}&language=en-US&query=${query}`
+    );
+    const data = response.data;
+    console.log(data);
+    return data;
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 //---------ДОПИСУЄМО СВОЇ КЛЮЧІ І ФУНКЦІЇ СЮДИ!---------//
