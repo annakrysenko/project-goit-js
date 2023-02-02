@@ -1,0 +1,93 @@
+.films-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    // flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (min-width: 768px) {
+        width: 100%;
+        flex-basis: calc((100% - 1 * 32px) / 2);
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        gap: 16px;
+        flex-basis: calc((100% - 2 * 16px) / 3);
+
+    }
+
+}
+
+.films-gallery__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    max-width: 280px;
+
+    @media screen and (min-width: 768px) {
+        max-width: 336px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        max-width: 394px;
+        margin-bottom: 16px;
+    }
+}
+
+.films-gallery__poster {
+    margin-bottom: 10px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 8px
+    }
+
+    @media screen and (min-width: 1280px) {
+        margin-bottom: 12px
+    }
+}
+
+.films-gallery__photo {
+    width: 280px;
+    height: 402px;
+    border-radius: 5px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+
+    @media screen and (min-width: 768px) {
+        width: 336px;
+        height: 455px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 395px;
+        height: 574px;
+    }
+}
+
+.films-gallery__wrap {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(14/12);
+    text-transform: uppercase;
+    color: #000000;
+
+    @media screen and (min-width: 1280px) {
+        font-size: 20px;
+        line-height: calc(24/20)
+    }
+
+}
+
+.film-info {
+    display: flex;
+    color: #FF6B08
+}
