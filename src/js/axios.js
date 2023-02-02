@@ -24,7 +24,7 @@ export async function getAxiosSearchFilms(query, page = 1) {
 export async function getAxiosPopularFilms(page = 1) {
     try {
         const response = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=2a9019ab3cb7c560ad73000751e89f97&page=${page}&language=en-US`)
-        const data = response.data
+      const data = response.data
         return data
     }
     catch (err) {
