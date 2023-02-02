@@ -1,7 +1,7 @@
 import { getAxiosSearchFilms } from './axios'
 import { refs } from './DOM';
 
-export  async function getQueryValue(e) {
+export  async function getFilmsFromInput(e) {
     e.preventDefault()
     const query = e.target.elements.input.value;
 
@@ -15,10 +15,12 @@ export  async function getQueryValue(e) {
         return
     }
     refs.inputAnswerParEl.innerHTML = ''
-    
-    return searchFilms
+
+     return searchFilms
    
 }
+export { searchFilms }
+
 
 function makeErrorMassage() {
     refs.inputAnswerParEl.innerHTML = 'Search result not successful. Enter the correct movie name and'
