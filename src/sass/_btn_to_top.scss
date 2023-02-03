@@ -1,6 +1,5 @@
 .btn-to-top {
   position: fixed;
-  bottom: 3vh;
   right: 1vw;
   z-index: 1000;
   width: 50px;
@@ -25,4 +24,27 @@
 .btn-to-top:hover {
   background-color: #0f0f0f;
   transition: all 0.3s;
+}
+@media screen and (min-width: 480px) {
+  .btn-to-top {
+    bottom: 35vh;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .btn-to-top {
+    bottom: 25vh;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .btn-to-top {
+    bottom: 15vh;
+    width: 50px;
+    height: 50px;
+  }
 }
