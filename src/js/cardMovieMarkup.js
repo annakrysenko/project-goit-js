@@ -10,7 +10,6 @@ export function cardMovieMarkup(
   release_date,
   vote_average
 ) {
-  console.log(genre_ids);
   let genresNames = genre_ids.map(genre => genresAll[genre]).join(', ');
   let releaseDate = release_date.slice(0, 4);
   let markup = `
