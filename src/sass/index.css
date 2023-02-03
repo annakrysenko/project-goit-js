@@ -1154,16 +1154,13 @@ body.show-modal .team-modal {
     height: 50px;
   }
 }
-.loader-wrap {
-  display: flex;
-  justify-content: center;
-}
-
-.loader {
+.loader,
+.loader-dark {
   opacity: 0.5;
   width: 30vh;
 }
 
-.loader.hidden {
+.loader.hidden,
+.loader-dark {
   display: none;
 }/*# sourceMappingURL=index.css.map */
