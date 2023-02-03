@@ -16,7 +16,6 @@
     height: 230px;
     display: flex;
     flex-direction: column;
-    align-item: center;
     padding: 40px 0 45px 0;
 }
 
@@ -173,6 +172,7 @@ input[data-autocompleted] {
     .header-library-wrapper {
         padding: 0 32px;
         width: 480px;
+      margin: 0 auto;
         
     }
 }
@@ -203,7 +203,7 @@ input[data-autocompleted] {
     .header-library-wrapper {
         padding: 0 32px;
         width: 768px;
-        
+        margin: 0 auto;
     }
 }
 
@@ -229,5 +229,6 @@ input[data-autocompleted] {
    .header-wrapper,
     .header-library-wrapper{
   width:1280px
+    margin: 0 auto;
   }
 }
