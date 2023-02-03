@@ -1,7 +1,7 @@
-import { getQueryValue } from './js/search';
+import './js/team-modal';
+
 import { refs } from './js/DOM';
-import { getFilmsFromInput } from './js/search';
-import { getGenres } from './js/genres';
+import { getFilmsFromInput } from './js/search-query-fetch';
 import { getPopularFilms } from './js/getPopularFilms';
 
 
@@ -12,7 +12,8 @@ refs.homeBTN.addEventListener('click',async (e) => {
 })
 
 
-// Пошук по інпуту
+
+
 if (refs.formEl) {
   refs.formEl.addEventListener('submit', e => getFilmsFromInput(e));
 }
