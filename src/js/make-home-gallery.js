@@ -14,14 +14,14 @@ export function makeGalleryMarkup(films) {
       } = film;
 
 
-       const releaseDate = release_date.slice(0, 4)
+      
 
       return cardMovieMarkup(
         id,
         poster_path,
         original_title,
         genres_id,
-        releaseDate,
+        release_date,
         vote_average
       );
     })
