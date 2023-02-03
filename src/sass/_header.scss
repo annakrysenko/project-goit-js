@@ -16,6 +16,7 @@
     height: 230px;
     display: flex;
     flex-direction: column;
+    align-item: center;
     padding: 40px 0 45px 0;
 }
 
@@ -171,6 +172,8 @@ input[data-autocompleted] {
     .header-wrapper,
     .header-library-wrapper {
         padding: 0 32px;
+        width: 480px;
+        
     }
 }
 
@@ -196,6 +199,12 @@ input[data-autocompleted] {
     .button-queue {
         width: 152px;
     }
+      .header-wrapper,
+    .header-library-wrapper {
+        padding: 0 32px;
+        width: 768px;
+        
+    }
 }
 
 @media screen and (min-width: 1280px) {
@@ -217,4 +226,8 @@ input[data-autocompleted] {
     .buttons-header-nav-wrapper {
         gap: 16px;
     }
+   .header-wrapper,
+    .header-library-wrapper{
+  width:1280px
+  }
 }
