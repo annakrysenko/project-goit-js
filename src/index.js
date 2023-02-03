@@ -2,9 +2,9 @@ import './js/team-modal';
 
 import { refs } from './js/DOM';
 import { getFilmsFromInput } from './js/search-query-fetch';
-import { getPopularFilms } from './js/getPopularFilms';
+import { getPopularFilms } from './js/get-popular-films';
 
-import { onScroll, onTopBtn } from './js/scroll';
+import './js/scroll';
 
 getPopularFilms();
 
