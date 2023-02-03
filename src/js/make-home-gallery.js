@@ -3,6 +3,7 @@ import { cardMovieMarkup } from './cardMovieMarkup';
 export function makeGalleryMarkup(films) {
   const markup = films
     .map(film => {
+
       const {
         id,
         poster_path,
@@ -12,15 +13,19 @@ export function makeGalleryMarkup(films) {
         vote_average,
       } = film;
 
+
+       const releaseDate = release_date.slice(0, 4)
+
       return cardMovieMarkup(
         id,
         poster_path,
         original_title,
         genres_id,
-        release_date,
+        releaseDate,
         vote_average
       );
     })
     .join('');
+  
   return markup;
 }

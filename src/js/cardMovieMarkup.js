@@ -22,8 +22,8 @@ export function cardMovieMarkup({
       <div class="movie-info">
         <p class="movie-info__genre">${genre_ids} |</p>
         <span class="movie-info__slash> | </span>
-        <p class="movie-info__year">${release_date}</p>
-         <span class="movie-info__vote">${vote_average}</span>
+        <p class="movie-info__year"> ${release_date}</p>
+         <span class="movie-info__vote">IMDb: ${vote_average}</span>
       </div>
     </div>
   </li>`;
