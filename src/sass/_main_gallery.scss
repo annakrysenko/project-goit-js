@@ -20,7 +20,6 @@
         row-gap: 32px;
         column-gap: 16px;
         flex-basis: calc((100% - 2 * 16px) / 3);
-
     }
 }
 
@@ -51,7 +50,6 @@
     position: relative;
     margin-bottom: 10px;
 
-
     @media screen and (min-width: 768px) {
         margin-bottom: 8px;
     }
@@ -68,7 +66,6 @@
     display: block;
     object-fit: cover;
     object-position: center;
-
 
     @media screen and (min-width: 768px) {
         width: 336px;
@@ -90,7 +87,6 @@
     text-transform: uppercase;
     color: #000000;
 
-
     @media screen and (min-width: 1280px) {
         font-size: 20px;
         line-height: calc(24 / 20);
@@ -100,7 +96,7 @@
 .movie-info {
     font-weight: 400;
     font-size: 14px;
-    line-height: calc(16/14);
+    line-height: calc(16 / 14);
     display: flex;
     gap: 5px;
     color: #ff6b08;
@@ -122,7 +118,7 @@
     align-items: center;
     text-align: center;
     text-transform: uppercase;
-    background-color: #FF6B01;
+    background-color: #ff6b01;
 
     color: #ffffff;
 }
