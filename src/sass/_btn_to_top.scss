@@ -25,9 +25,14 @@
   background-color: #0f0f0f;
   transition: all 0.3s;
 }
+.btn-to-top {
+  bottom: 110px;
+  width: 30px;
+  height: 30px;
+}
 @media screen and (min-width: 480px) {
   .btn-to-top {
-    bottom: 35vh;
+    bottom: 110px;
     width: 30px;
     height: 30px;
   }
@@ -35,7 +40,7 @@
 
 @media screen and (min-width: 768px) {
   .btn-to-top {
-    bottom: 25vh;
+    bottom: 100px;
     width: 40px;
     height: 40px;
   }
@@ -43,7 +48,7 @@
 
 @media screen and (min-width: 1280px) {
   .btn-to-top {
-    bottom: 15vh;
+    bottom: 100px;
     width: 50px;
     height: 50px;
   }
