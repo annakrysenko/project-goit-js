@@ -6,17 +6,26 @@ export const refs = {
 
   homeBTN: document.querySelector('.home'),
 
+  //galleries
   filmGalleryHomeEl: document.querySelector('.movie-gallery'),
   filmGalleryLibraryEl: document.querySelector('movie-gallery-library'),
 
+  //modal footer
   openModalBtn: document.querySelector('[data-action="open-modal"]'),
   closeModalBtn: document.querySelector('[data-action="close-modal"]'),
   backdrop: document.querySelector('.js-team-backdrop'),
 
   //Модалка Максима
-  modal: document.querySelector('.modal'),
+  modalEl: document.querySelector('.modal'),
+  watchedBtnEl: document.querySelector('.watched'),
+  queueBtnEl: document.querySelector('.queue'),
 
-
+  //loader spiner
   loaderEl: document.querySelector('.loader'),
 
+  // зміна теми
+  themeButtonEl: document.querySelector('.theme__on'), // Кнопка теми
+  resetThemeButtonEl: document.querySelector('.theme__reset'), // Кнопка скидання налаштувань користувача
+  htmlEl: document.documentElement, // HTML root element (корневий елемент)
+  themeContainerEl: document.querySelector('.theme-container'),
 };

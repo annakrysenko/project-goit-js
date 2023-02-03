@@ -1,7 +1,7 @@
-import { getAxiosSearchFilms } from './axios';
-import { refs } from './DOM';
-import { makeGalleryMarkup } from './make-home-gallery';
-import { makeErrorMassage } from './arror-mass-header';
+import { getAxiosSearchFilms } from '../axios';
+import { refs } from '../DOM';
+import { makeGalleryMarkup } from '../create-gallery/make-home-gallery';
+import { makeErrorMassage } from '../header/arror-mass-header';
 
 export async function getFilmsFromInput(e) {
   e.preventDefault();
