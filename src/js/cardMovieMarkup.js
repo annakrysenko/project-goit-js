@@ -1,3 +1,5 @@
+import { genresAll } from './genres';
+
 const BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 export function cardMovieMarkup(
