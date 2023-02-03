@@ -1,13 +1,14 @@
 const BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
-export function cardMovieMarkup({
+
+export function cardMovieMarkup(
   id,
   poster_path,
   original_title,
   genre_ids,
   release_date,
   vote_average,
-}) {
+) {
   let markup = `
    <li class="movie-gallery__item" data-id="${id}">
     <div class="movie-gallery__poster">
