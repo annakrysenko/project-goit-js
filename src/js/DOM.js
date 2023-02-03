@@ -15,7 +15,7 @@ export const refs = {
 
   modal: document.querySelector('.modal'),
   wachedBtn: document.querySelector('.watched'),
-  queueBtn: document.querySelector('.queue')
+  queueBtn: document.querySelector('.queue'),
 
   loaderEl: document.querySelector('.loader'),
 
