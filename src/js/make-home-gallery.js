@@ -1,7 +1,6 @@
 import { cardMovieMarkup } from './cardMovieMarkup';
 
 export function makeGalleryMarkup(films) {
-  console.log(films);
   const markup = films
     .map(film => {
       const {
