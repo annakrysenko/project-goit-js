@@ -1,4 +1,5 @@
 const BASE_URL = 'https://image.tmdb.org/t/p/w500';
+
 export function cardMovieMarkup(
   id,
   poster_path,
