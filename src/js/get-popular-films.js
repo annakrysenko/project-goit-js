@@ -8,10 +8,10 @@ export async function getPopularFilms() {
 
   const searchPopularFilms = await getAxiosPopularFilms(1);
 
-  refs.loaderEl.classList.add('hidden');
+  // refs.loaderEl.classList.add('hidden');
 
   const { results } = searchPopularFilms;
   const popularFilms = [...results];
   const popularFilmsMarkup = makeGalleryMarkup(popularFilms);
-  refs.filmGalleryHomeEl.innerHTML = popularFilmsMarkup;
+  // refs.filmGalleryHomeEl.innerHTML = popularFilmsMarkup;
 }
