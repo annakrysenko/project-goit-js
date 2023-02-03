@@ -1,8 +1,10 @@
 import { refs } from './DOM';
 
-refs.openModalBtn.addEventListener('click', onOpenModal);
-refs.closeModalBtn.addEventListener('click', onCloseModal);
-refs.backdrop.addEventListener('click', onBackdropClick);
+if (refs.openModalBtn) {
+  refs.openModalBtn.addEventListener('click', onOpenModal);
+  refs.closeModalBtn.addEventListener('click', onCloseModal);
+  refs.backdrop.addEventListener('click', onBackdropClick);
+}
 
 function onOpenModal() {
   window.addEventListener('keydown', onEscKeyPress);
