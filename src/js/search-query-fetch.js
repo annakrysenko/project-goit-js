@@ -11,7 +11,12 @@ export async function getFilmsFromInput(e) {
     makeErrorMassage();
     return;
   }
+  refs.filmGalleryHomeEl.innerHTML = '';
+  refs.loaderEl.classList.remove('hidden');
+
   const searchFilms = await getAxiosSearchFilms(query);
+
+  refs.loaderEl.classList.add('hidden');
 
   if (searchFilms.total_results === 0) {
     makeErrorMassage();

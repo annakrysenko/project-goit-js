@@ -1,0 +1,10 @@
+.loader,
+.loader-dark {
+    opacity: 0.5;
+    width: 30vh;
+}
+
+.loader.hidden,
+.loader-dark {
+    display: none;
+}
