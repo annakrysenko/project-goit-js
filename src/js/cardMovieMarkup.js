@@ -1,23 +1,25 @@
 const BASE_URL = 'https://image.tmdb.org/t/p/w500';
+
+
 export function cardMovieMarkup(
   id,
   poster_path,
-  title,
+  original_title,
   genre_ids,
   release_date,
-  vote_average
+  vote_average,
 ) {
-  const markup = `
+  let markup = `
    <li class="movie-gallery__item" data-id="${id}">
     <div class="movie-gallery__poster">
       <img
         class="movie-gallery__photo"
         src="${BASE_URL}${poster_path}"
-        alt="${title}"
+        alt="${original_title}"
       />
     </div>
     <div class="movie-gallery__wrap">
-      <h2 class="movie-gallery__title">${title}</h2>
+      <h2 class="movie-gallery__title">${original_title}</h2>
       <div class="movie-info">
         <p class="movie-info__genre">${genre_ids} |</p>
         <span class="movie-info__slash> | </span>
