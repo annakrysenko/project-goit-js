@@ -11,7 +11,7 @@ function createMovieIframe(e) {
         const id = data.results[1].key;
         console.log(id);
         const instance = basicLightbox.create(
-          `<iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" frameborder="0"></iframe>`,
+          `<iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
           {
             onShow: instance => {
               document.addEventListener('keydown', closeMovieTrailer);
