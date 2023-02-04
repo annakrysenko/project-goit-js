@@ -10,6 +10,8 @@ refs.filmGalleryHomeEl.addEventListener('click', e => onFilmPosterClick(e));
 
 
 if (!localStorage.getItem('add-to-watch')){ localStorage.setItem('add-to-watch', JSON.stringify([])) }
+if (!localStorage.getItem('add-to-queue')){ localStorage.setItem('add-to-queue', JSON.stringify([])) }
+
 
 async function onFilmPosterClick(e) {
   // if e.target.offsetParent.dataset.id
