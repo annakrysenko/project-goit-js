@@ -11,6 +11,7 @@ refs.modalEl.addEventListener('click', createMovieIframe);
 //     return;
 //   }
 // }
+//
 
 function createMovieIframe(e) {
   if (e.target.className === 'trailers') {
