@@ -11,8 +11,8 @@ export function modalMarkup(movie) {
   <p>Genre ${genresName}</p>
   <h3>About </h3>
   <p>${movie.overview}</p>
-  <button class="watched" type="button">add to Watched</button>
-  <button class="queue" type="button">add to queue</button>
+  <button class="watched" id="watched" type="button">add to Watched</button>
+  <button class="queue" id="queue" type="button">add to queue</button>
 
-`
+`;
 }
