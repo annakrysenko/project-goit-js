@@ -12,8 +12,8 @@ refs.filmGalleryHomeEl.addEventListener('click', e => onFilmPosterClick(e));
 
 async function onFilmPosterClick(e) {
   // if e.target.offsetParent.dataset.id
+  refs.backdropEl.classList.remove('is-hiden');
   const filmId = e.target.offsetParent.dataset.id;
-  console.dir(filmId)
 
   const moviePromise = await getMovieByID(filmId);
   const { poster_path, genres, overview, id, vote_average, vote_count, popularity, original_title, } = moviePromise;
