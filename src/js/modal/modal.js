@@ -22,6 +22,7 @@ async function onFilmPosterClick(e) {
   console.log("onFilmPosterClick ~ movie", movie)
   const markup = modalMarkup(movie);
   refs.modalEl.innerHTML = markup;
+  console.dir(refs.modalEl);
   //   // функція для запису в local storage по кліку на кнопку add to queue
 refs.modalEl.addEventListener('click', addToWatched);
   //   refs.modal.addEventListener('click', queueBtn);
