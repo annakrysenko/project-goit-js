@@ -5,13 +5,16 @@ import { addToWatched } from './add-to-watched-btn';
 import { addToQueue } from './queue-btn';
 import { modalMarkup } from './modal-markup';
 
-refs.filmGalleryHomeEl.addEventListener('click', e => onFilmPosterClick(e));
+if (filmGalleryHomeEl) {
+  refs.filmGalleryHomeEl.addEventListener('click', e => onFilmPosterClick(e));
+}
 
-
-
-if (!localStorage.getItem('add-to-watch')){ localStorage.setItem('add-to-watch', JSON.stringify([])) }
-if (!localStorage.getItem('add-to-queue')){ localStorage.setItem('add-to-queue', JSON.stringify([])) }
-
+if (!localStorage.getItem('add-to-watch')) {
+  localStorage.setItem('add-to-watch', JSON.stringify([]));
+}
+if (!localStorage.getItem('add-to-queue')) {
+  localStorage.setItem('add-to-queue', JSON.stringify([]));
+}
 
 async function onFilmPosterClick(e) {
   // if e.target.offsetParent.dataset.id
@@ -19,7 +22,7 @@ async function onFilmPosterClick(e) {
   const filmId = e.target.offsetParent.dataset.id;
 
   const moviePromise = await getMovieByID(filmId);
-  console.log()
+  console.log();
   const {
     poster_path,
     genres,
@@ -45,30 +48,32 @@ async function onFilmPosterClick(e) {
   refs.modalEl.innerHTML = markup;
   console.dir(refs.modalEl);
   //   // функція для запису в local storage по кліку на кнопку add to queue
-refs.modalEl.addEventListener('click', addToWatched);
+  refs.modalEl.addEventListener('click', addToWatched);
   //   refs.modal.addEventListener('click', queueBtn);
 
   //   // функція для запису в local storage по кліку на кнопку add to watch
-  refs.modalEl.addEventListener('click', addToWatched)
+  refs.modalEl.addEventListener('click', addToWatched);
   function addToWatched(e) {
     if (e.target.className === 'watched') {
-    const getArrayForWached = JSON.parse(localStorage.getItem('add-to-watch'));
-      getArrayForWached.push(id)
+      const getArrayForWached = JSON.parse(
+        localStorage.getItem('add-to-watch')
+      );
+      getArrayForWached.push(id);
       let uniq = [...new Set(getArrayForWached)];
-      localStorage.setItem('add-to-watch', JSON.stringify(uniq))
-      refs.modalEl.removeEventListener('click', addToWatched)
+      localStorage.setItem('add-to-watch', JSON.stringify(uniq));
+      refs.modalEl.removeEventListener('click', addToWatched);
     }
   }
 
-    //   // функція для запису в local storage по кліку на кнопку queue
-  refs.modalEl.addEventListener('click',queueBtn)
-    function queueBtn(e) {
-      if (e.target.className === 'queue') {
+  //   // функція для запису в local storage по кліку на кнопку queue
+  refs.modalEl.addEventListener('click', queueBtn);
+  function queueBtn(e) {
+    if (e.target.className === 'queue') {
       const getArrayForQueue = JSON.parse(localStorage.getItem('add-to-queue'));
-        getArrayForQueue.push(id)
-        let uniq = [...new Set(getArrayForQueue)];
-      localStorage.setItem('add-to-queue', JSON.stringify(uniq))
-        refs.modalEl.removeEventListener('click', queueBtn)   
-  }
+      getArrayForQueue.push(id);
+      let uniq = [...new Set(getArrayForQueue)];
+      localStorage.setItem('add-to-queue', JSON.stringify(uniq));
+      refs.modalEl.removeEventListener('click', queueBtn);
     }
   }
+}
