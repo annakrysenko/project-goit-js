@@ -1,39 +1,70 @@
 import { refs } from "./DOM"
-import { getPopularFilms } from "./get-popular-films"
-import { getAxiosPopularFilms } from "./axios"
-import { makeGalleryMarkup } from "./make-home-gallery"
+import { getPopularFilms } from "./create-gallery/get-popular-films"
+import { getAxiosPopularFilms, getAxiosSearchFilms } from "./axios"
+import { makeGalleryMarkup } from "./create-gallery/make-home-gallery"
 import { createPaginationBtns } from "./pagination-buttons"
 
-let page = 1
+
 
 export async function paginationPopular(e) {
-    
-    if (e.target.nodeName !== 'BUTTON') {
+    let page = 1
+    if (e.target.nodeName === 'UL') {
     return
-    } if (e.target.nodeName === 'BUTTON') {
+    } if (e.target.nodeName !== 'UL') {
         refs.filmGalleryHomeEl.innerHTML = '';
         refs.loaderEl.classList.remove('hidden');
 
-        if (e.target.classList.contains('next')) {
-            page += 1
-        }if (e.target.classList.contains('previos')) {
+        if (e.target.classList.contains('previos')) {
             page -= 1
+        }else if (e.target.classList.contains('next')) {
+            page += 1
         } else {
             page = Number(e.target.textContent)
         }
-        console.log(page);
+        
         const searchPopularFilms = await getAxiosPopularFilms(page);
 
         refs.loaderEl.classList.add('hidden');
 
         const { results } = searchPopularFilms;
-        const totalPages = searchPopularFilms.total_pages
+        const totalPages = 99
         const currentPage = searchPopularFilms.page
         const popularFilms = [...results];
         const popularFilmsMarkup = makeGalleryMarkup(popularFilms);
-console.log(currentPage);
-
+        
         refs.filmGalleryHomeEl.innerHTML = popularFilmsMarkup;
+        createPaginationBtns(currentPage, totalPages)
+    }
+    
+}
+
+export async function paginationInput(ev, query) {
+    let page = 1
+    if (ev.target.nodeName === 'UL') {
+    return
+    } if (ev.target.nodeName !== 'UL') {
+        refs.filmGalleryHomeEl.innerHTML = '';
+        refs.loaderEl.classList.remove('hidden');
+
+        if (ev.target.classList.contains('previos')) {
+            page -= 1
+        }else if (ev.target.classList.contains('next')) {
+            page += 1
+        } else {
+            page = Number(ev.target.textContent)
+        }
+        
+        const searchFilms = await getAxiosSearchFilms(query, page);
+
+        refs.loaderEl.classList.add('hidden');
+
+        const { results } = searchFilms;
+        const totalPages = 99
+        const currentPage = searchFilms.page
+        const popularFilms = [...results];
+        const filmsMarkup = makeGalleryMarkup(popularFilms);
+        
+        refs.filmGalleryHomeEl.innerHTML = filmsMarkup;
         createPaginationBtns(currentPage, totalPages)
     }
     

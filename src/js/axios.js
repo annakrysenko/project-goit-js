@@ -28,7 +28,6 @@ export async function getAxiosPopularFilms(page = 1) {
       `https://api.themoviedb.org/3/movie/popular?api_key=2a9019ab3cb7c560ad73000751e89f97&page=${page}&language=en-US`
     );
     const data = response.data;
-    console.log(data)
     return data;
   } catch (err) {
     console.log(err);

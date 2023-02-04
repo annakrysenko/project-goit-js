@@ -1,4 +1,4 @@
-import * as basicLightbox from 'basiclightbox';
+import basicLightbox from 'basiclightbox';
 import { getMovieTrailerByID } from './axios';
 import { refs } from './DOM';
 

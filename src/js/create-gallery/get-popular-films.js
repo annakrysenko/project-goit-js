@@ -1,8 +1,8 @@
 import { getAxiosPopularFilms } from '../axios';
 import { refs } from '../DOM';
 import { makeGalleryMarkup } from './make-home-gallery';
-import { createPaginationBtns } from './pagination-buttons';
-import { paginationPopular } from './pagination';
+import { createPaginationBtns } from '../pagination-buttons';
+import { paginationPopular } from '../pagination';
 
 export async function getPopularFilms() {
   refs.filmGalleryHomeEl.innerHTML = '';
@@ -14,9 +14,10 @@ export async function getPopularFilms() {
 
   const { results } = searchPopularFilms;
   const currentPage = searchPopularFilms.page;
-  const totalPages = searchPopularFilms.total_pages
+  const totalPages = 99
   const popularFilms = [...results];
   const popularFilmsMarkup = makeGalleryMarkup(popularFilms);
+  
   refs.filmGalleryHomeEl.innerHTML = popularFilmsMarkup;
   createPaginationBtns(currentPage, totalPages)
   refs.pageBtns.addEventListener('click', e => paginationPopular(e))
