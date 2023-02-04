@@ -11,6 +11,7 @@ export async function getAxiosSearchFilms(query, page = 1) {
       `${BASE_URL}/search/movie?api_key=${KEY_ANNA_K}&page=${page}&language=en-US&query=${query}`
     );
     const data = response.data;
+    
     return data;
   } catch (err) {
     console.log(err);
@@ -27,6 +28,7 @@ export async function getAxiosPopularFilms(page = 1) {
       `https://api.themoviedb.org/3/movie/popular?api_key=2a9019ab3cb7c560ad73000751e89f97&page=${page}&language=en-US`
     );
     const data = response.data;
+    console.log(data)
     return data;
   } catch (err) {
     console.log(err);
