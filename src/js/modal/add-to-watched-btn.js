@@ -1,4 +1,5 @@
 import { refs } from '../DOM';
+
 export function addToWatched(e, movie) {
   if (e.target.className === 'watched') {
     const getArrayForWatched = JSON.parse(localStorage.getItem('add-to-watch'));
