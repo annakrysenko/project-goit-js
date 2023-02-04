@@ -47,24 +47,3 @@
     border: none;
     background: transparent;
 }
-
-// Зміни відносно налаштувань компʼютера ====
-html.dark body {
-    background-color: black;
-    color: white;
-}
-
-html.light body {
-    background-color: white;
-    color: black;
-}
-
-html.dark .theme__on {
-    background-image: url(../images/sun.svg);
-    background-size: contain;
-}
-
-html.light .theme__on {
-    background-image: url(../images/moon.svg);
-    background-size: contain;
-}
