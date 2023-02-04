@@ -5,7 +5,7 @@ import { addToWatched } from './add-to-watched-btn';
 import { addToQueue } from './queue-btn';
 import { modalMarkup } from './modal-markup';
 
-if (filmGalleryHomeEl) {
+if (refs.filmGalleryHomeEl) {
   refs.filmGalleryHomeEl.addEventListener('click', e => onFilmPosterClick(e));
 }
 
