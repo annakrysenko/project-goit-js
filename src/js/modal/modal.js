@@ -34,6 +34,10 @@ async function onFilmPosterClick(e) {
   };
   const markup = modalMarkup(movie);
   refs.modalEl.innerHTML = markup;
+  console.dir(refs.modalEl);
+  //   // функція для запису в local storage по кліку на кнопку add to queue
+refs.modalEl.addEventListener('click', addToWatched);
+  //   refs.modal.addEventListener('click', queueBtn);
 
   //   // функція для запису в local storage по кліку на кнопку add to watch
   if (refs.modalEl) {
