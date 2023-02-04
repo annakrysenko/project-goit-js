@@ -1,4 +1,4 @@
-import { cardMovieMarkup } from './cardMovieMarkup';
+import { cardMovieMarkup } from '../create-gallery/cardMovieMarkup';
 
 export function makeGalleryMarkup(films) {
   const markup = films

@@ -1,5 +1,5 @@
-import { getAxiosPopularFilms } from './axios';
-import { refs } from './DOM';
+import { getAxiosPopularFilms } from '../axios';
+import { refs } from '../DOM';
 import { makeGalleryMarkup } from './make-home-gallery';
 import { createPaginationBtns } from './pagination-buttons';
 import { paginationPopular } from './pagination';

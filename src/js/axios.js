@@ -48,3 +48,13 @@ export async function getMovieByID(movieId) {
 }
 
 // Чи є на ютубі трейлер
+export async function getMovieTrailerByID(movieId) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/movie/${movieId}/videos?api_key=${KEY_ANNA_K}&language=en-US`
+    );
+    return response.data;
+  } catch (err) {
+    console.log('there is no such ID');
+  }
+}
