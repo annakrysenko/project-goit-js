@@ -13,8 +13,8 @@ export function cardMovieMarkup(
   let genresNames = genre_ids.map(genre => genresAll[genre]).join(', ');
   let releaseDate = release_date.slice(0, 4);
   let markup = `
-   <li class="movie-gallery__item" data-id="${id}">
-    <div class="movie-gallery__poster">
+   <li class="movie-gallery__item" >
+    <div class="movie-gallery__poster" data-id="${id}">
       <img
         class="movie-gallery__photo"
         src="${BASE_URL}${poster_path}"
