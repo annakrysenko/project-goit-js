@@ -1,0 +1,34 @@
+// Зміни відносно налаштувань компʼютера ====
+html.dark .theme__on {
+    background-image: url(../images/sun.svg);
+    background-size: contain;
+}
+
+html.light .theme__on {
+    background-image: url(../images/moon.svg);
+    background-size: contain;
+}
+
+html.dark body {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+html.light body {
+    background-color: white;
+    color: black;
+}
+
+html.dark .movie-gallery__title {
+    color: white;
+}
+
+html.dark .footer {
+    color: white;
+    background-color: rgb(38, 38, 38);
+}
+
+html.dark .loader {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}

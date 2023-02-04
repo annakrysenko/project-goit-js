@@ -1,10 +1,13 @@
-.loader,
-.loader-dark {
+.loader-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.loader {
     opacity: 0.5;
     width: 30vh;
 }
 
-.loader.hidden,
-.loader-dark {
+.loader.hidden {
     display: none;
 }
