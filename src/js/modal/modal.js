@@ -32,6 +32,7 @@ async function onFilmPosterClick(e) {
     vote_count,
     popularity,
     original_title,
+    title,
   } = moviePromise;
   const genresArr = [...genres].map(genre => genre.name);
   const movie = {
@@ -43,6 +44,7 @@ async function onFilmPosterClick(e) {
     vote_count,
     popularity,
     original_title,
+    title,
   };
   const markup = modalMarkup(movie);
   refs.modalEl.innerHTML = markup;
