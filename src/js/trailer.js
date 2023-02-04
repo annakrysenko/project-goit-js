@@ -1,11 +1,14 @@
 import * as basicLightbox from 'basiclightbox';
+import { getMovieTrailerByID } from './axios';
+import { refs } from './DOM';
 
 const body = document.querySelector('body');
 const btn = document.createElement('button');
 btn.textContent = 'Click';
 body.append(btn);
 btn.addEventListener('click', createMovieIframe);
-function createMovieIframe() {
+function createMovieIframe(e) {
+    console.log(e);
   const ApiKey = '1256f1c895c40ff76f99ba50b7102dca';
   const url = `https://api.themoviedb.org/3/movie/315162/videos?api_key=${ApiKey}&language=en-US`;
   fetch(url)

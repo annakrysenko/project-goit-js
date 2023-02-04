@@ -14,3 +14,4 @@ if (refs.homeBTN.classList.contains('current')) {
 if (refs.formEl) {
   refs.formEl.addEventListener('submit', e => getFilmsFromInput(e));
 }
+import './js/trailer'
