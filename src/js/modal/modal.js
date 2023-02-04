@@ -7,10 +7,17 @@ import { modalMarkup } from './modal-markup';
 
 refs.filmGalleryHomeEl.addEventListener('click', e => onFilmPosterClick(e));
 
+
+
+if (!localStorage.getItem('add-to-watch')){ localStorage.setItem('add-to-watch', JSON.stringify([])) }
+
 async function onFilmPosterClick(e) {
+  // if e.target.offsetParent.dataset.id
+  refs.backdropEl.classList.remove('is-hiden');
   const filmId = e.target.offsetParent.dataset.id;
 
   const moviePromise = await getMovieByID(filmId);
+  console.log()
   const {
     poster_path,
     genres,
@@ -40,15 +47,26 @@ refs.modalEl.addEventListener('click', addToWatched);
   //   refs.modal.addEventListener('click', queueBtn);
 
   //   // функція для запису в local storage по кліку на кнопку add to watch
-  if (refs.modalEl) {
-    refs.modalEl.addEventListener('click', e => {
-      if (e.target.id === 'watched') {
-        addToWatched(+filmId);
-      }
-      if (e.target.id === 'queue') {
-        addToQueue(+filmId);
-      }
-    });
-    //   // функція для запису в local storage по кліку на кнопку queue
+  refs.modalEl.addEventListener('click', addToWatched)
+  function addToWatched(e) {
+    if (e.target.className === 'watched') {
+    const getArrayForWached = JSON.parse(localStorage.getItem('add-to-watch'));
+      getArrayForWached.push(id)
+      let uniq = [...new Set(getArrayForWached)];
+      localStorage.setItem('add-to-watch', JSON.stringify(uniq))
+      refs.modalEl.removeEventListener('click', addToWatched)
+    }
   }
-}
+
+    //   // функція для запису в local storage по кліку на кнопку queue
+  refs.modalEl.addEventListener('click',queueBtn)
+    function queueBtn(e) {
+      if (e.target.className === 'queue') {
+      const getArrayForQueue = JSON.parse(localStorage.getItem('add-to-queue'));
+        getArrayForQueue.push(id)
+        let uniq = [...new Set(getArrayForQueue)];
+      localStorage.setItem('add-to-queue', JSON.stringify(uniq))
+        refs.modalEl.removeEventListener('click', queueBtn)   
+  }
+    }
+  }

@@ -18,8 +18,7 @@ export const refs = {
 
   //Модалка Максима
   modalEl: document.querySelector('.modal'),
-  onWatchedBtnEl: document.querySelector('.watched'),
-  onQueueBtnEl: document.querySelector('.queue'),
+  backdropEl: document.querySelector('.backdrop'),
 
   //loader spiner
   loaderEl: document.querySelector('.loader'),
