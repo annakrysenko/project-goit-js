@@ -8,7 +8,7 @@ export function modalMarkup(movie) {
   <p>Vote / Votes ${movie.vote_average}/${movie.vote_count}</p>
   <p>Popularity ${movie.popularity}</p>
   <p>Original Title ${movie.original_title} </p>
-  <p>Genre ${genresName}</p>
+  // <p>Genre ${genresName}</p>
   <h3>About </h3>
   <p>${movie.overview}</p>
   <button class="watched" type="button">add to Watched</button>
