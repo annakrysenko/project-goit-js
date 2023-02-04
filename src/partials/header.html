@@ -2,9 +2,17 @@
   <div class="header-wrapper">
     <nav class="nav">
       <a href="#" class="logo nav-list__link"
-        ><img src="./images/logo.svg" class="logo-img" />
+        ><svg class="header__icon_logo" width="24" height="26">
+          <use href="./images/sprite.svg#icon-film"></use>
+        </svg>
         <span class="logo-text">Filmoteka</span>
       </a>
+      <div class="theme-container">
+        <div class="theme">
+          <button type="button" class="theme__on"></button>
+          <button type="button" class="theme__reset"></button>
+        </div>
+      </div>
       <ul class="nav-list">
         <li class="nav-list__item">
           <a href="./index.html" class="home nav-list__link current">Home</a>
