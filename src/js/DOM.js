@@ -28,4 +28,9 @@ export const refs = {
   resetThemeButtonEl: document.querySelector('.theme__reset'), // Кнопка скидання налаштувань користувача
   htmlEl: document.documentElement, // HTML root element (корневий елемент)
   themeContainerEl: document.querySelector('.theme-container'),
+
+  //библиотека
+  watchedBtn: document.querySelector('.button-watched'),
+  queueBtn: document.querySelector('.button-queue'),
+  headerLibrary: document.querySelector('.header-library'),
 };

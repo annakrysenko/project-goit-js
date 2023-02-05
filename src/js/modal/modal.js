@@ -4,7 +4,7 @@ import { getMovieByID } from '../axios';
 import { addToWatched } from './add-to-watched-btn';
 import { addToQueue } from './queue-btn';
 import { modalMarkup } from './modal-markup';
-
+// import { renderMoviesinWatchedLibrary } from '../library/add-to-watched';
 if (refs.filmGalleryHomeEl) {
   refs.filmGalleryHomeEl.addEventListener('click', e => onFilmPosterClick(e));
 }
@@ -55,9 +55,7 @@ async function onFilmPosterClick(e) {
   refs.modalEl.addEventListener('click', addToWatched);
   function addToWatched(e) {
     if (e.target.className === 'watched') {
-      const getArrayForWached = JSON.parse(
-        localStorage.getItem('add-to-watch')
-      );
+      const getArrayForWached = JSON.parse(localStorage.getItem('add-to-watch'));
       getArrayForWached.push(id);
       let uniq = [...new Set(getArrayForWached)];
       localStorage.setItem('add-to-watch', JSON.stringify(uniq));

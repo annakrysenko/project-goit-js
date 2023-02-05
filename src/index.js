@@ -2,6 +2,7 @@ import './js/team-modal';
 import './js/scroll';
 import './js/header/theme-btn';
 import './js/modal/modal';
+import './js/library/add-to-watched';
 
 import { refs } from './js/DOM';
 import { getFilmsFromInput } from './js/header/search-query-fetch';
@@ -14,4 +15,4 @@ if (refs.homeBTN.classList.contains('current')) {
 if (refs.formEl) {
   refs.formEl.addEventListener('submit', e => getFilmsFromInput(e));
 }
-import './js/trailer'
+import './js/trailer';
