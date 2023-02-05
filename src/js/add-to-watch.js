@@ -6,10 +6,16 @@ import { refs } from './DOM';
 if (document.querySelector('.button-watched')) {
   document
     .querySelector('.button-watched')
-    .addEventListener('click', createLibrary);
+    .addEventListener('click', createWatched);
 }
 
-function getMoviesFromAPI() {
+function createWatched() {
+  const markup = getMovies();
+
+  refs.filmGalleryLibraryEl.innerHTML = markup;
+}
+
+function getMovies() {
   const saveMovie = localStorage.getItem('add-to-watch');
   //   console.log(saveMovie);
   const parseMovie = JSON.parse(saveMovie);
@@ -43,12 +49,4 @@ function getMoviesFromAPI() {
     markupForLibrary += markup;
     return markupForLibrary;
   }
-}
-
-function createLibrary() {
-  const markup = getMoviesFromAPI();
-  console.log(typeof markup);
-  console.dir(refs.filmGalleryLibraryEl);
-  //   refs.loaderEl.classList.add(hidden);
-  refs.filmGalleryLibraryEl.innerHTML = markup;
 }
