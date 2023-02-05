@@ -2,8 +2,8 @@ import { getAxiosSearchFilms } from '../axios';
 import { refs } from '../DOM';
 import { makeGalleryMarkup } from '../create-gallery/make-home-gallery';
 import { makeErrorMassage } from '../header/arror-mass-header';
-import { paginationInput, } from '../pagination';
-import { createPaginationBtns } from '../pagination-buttons';
+import { paginationInput } from '../pagination/pagination-input';
+import { createPaginationBtns } from '../pagination/pagination-buttons';
 
 export async function getFilmsFromInput(e) {
   e.preventDefault();
@@ -33,7 +33,7 @@ export async function getFilmsFromInput(e) {
   const galleryMarkup = makeGalleryMarkup(films);
 
   refs.filmGalleryHomeEl.innerHTML = galleryMarkup;
-  // refs.pageBtns.innerHTML = ''
+  
   createPaginationBtns(currentPage, totalPages)
   refs.pageBtns.addEventListener('click', ev => paginationInput(ev, query))
 }

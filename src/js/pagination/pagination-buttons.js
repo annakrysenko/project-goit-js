@@ -1,4 +1,4 @@
-import { refs } from "./DOM"
+import { refs } from "../DOM"
 
 
 export function createPaginationBtns(currentPage, totalPages) {
