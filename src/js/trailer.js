@@ -1,68 +1,50 @@
-import basicLightbox from 'basiclightbox';
 import { getMovieTrailerByID } from './axios';
 import { refs } from './DOM';
 
 refs.modalEl.addEventListener('click', createMovieIframe);
-// function createMovieIframe(e) {
-//   if (e.target.className === 'trailers') {
-//     const movieId = e.target.dataset.id;
-//     console.log(movieId);
-//   } else {
-//     return;
-//   }
-// }
-
-function createMovieIframe(e) {
-  if (e.target.className === 'trailers') {
-    const movieId = e.target.dataset.id;
-    console.log(movieId);
-    getMovieTrailerByID(movieId)
-      .then(data => {
-        console.log();
-        const id = data.results[0].key;
-        console.log(id);
-        const instance = basicLightbox.create(
-          `<iframe width="560" height="315" src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
-          {
-            onShow: instance => {
-              document.addEventListener('keydown', closeMovieTrailer);
-            },
-            onClose: instance => {
-              document.removeEventListener('keydown', closeMovieTrailer);
-            },
-          }
-        );
-        instance.show();
-        function closeMovieTrailer(event) {
-          if (event.key === 'Escape') {
-            instance.close();
-          }
-        }
-      })
-      .catch(() => {
-        const instance = basicLightbox.create(
-          `
-    <iframe width="560" height="315" src='http://www.youtube.com/embed/zwBpUdZ0lrQ' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      `,
-          {
-            onShow: instance => {
-              document.addEventListener('keydown', closeMovieTrailer);
-            },
-            onClose: instance => {
-              document.removeEventListener('keydown', closeMovieTrailer);
-            },
-          }
-        );
-
-        instance.show();
-        function closeMovieTrailer(event) {
-          if (event.key === 'Escape') {
-            instance.close();
-          }
-        }
-      });
-  } else {
+async function createMovieIframe(e) {
+  if (e.target.className !== 'trailers') {
     return;
   }
+  refs.trailerBackdrop.classList.remove('is-hidden');
+  const movieId = e.target.dataset.id;
+  try {
+    const resp = await getMovieTrailerByID(movieId);
+    const { results } = resp;
+    const movie = [...results];
+    const id = movie[0].key;
+    const murkupTrailer = `
+    <iframe class='trailer-iframe' width="auto" height="auto" src='https://www.youtube.com/embed/${id}' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+     `;
+    refs.boxIframe.innerHTML = murkupTrailer;
+  } catch (er) {
+    const error = `
+    <iframe class='trailer-iframe' width="auto" height="auto" src='https://www.youtube.com/embed/zwBpUdZ0lrQ' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      `;
+    refs.boxIframe.innerHTML = error;
+    closeBackdrop();
+  }
 }
-console.log('hi');
+if (refs.trailerBackdrop) {
+  refs.trailerBtnClose.addEventListener('click', closeBackdrop);
+}
+
+function closeBackdrop() {
+  refs.trailerBackdrop.classList.add('is-hidden');
+  refs.boxIframe.innerHTML = '';
+}
+window.addEventListener('keydown', closeMovieTrailer);
+function closeMovieTrailer(e) {
+  if (e.key === 'Escape') {
+    refs.trailerBackdrop.classList.add('is-hidden');
+    refs.boxIframe.innerHTML = '';
+  }
+}
+refs.trailerBackdrop.addEventListener('click', closeBackdropOnClick);
+function closeBackdropOnClick(e) {
+  if (e.target.className !== 'trailer-backdrop') {
+    return
+  }
+  refs.trailerBackdrop.classList.add('is-hidden');
+  refs.boxIframe.innerHTML = '';
+}

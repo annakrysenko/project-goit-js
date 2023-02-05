@@ -1,5 +1,7 @@
 import { refs } from '../DOM';
 
+refs.themeListEl.classList.add('hidden');
+
 function inLocalStorageTheme() {
   return localStorage.getItem('user-theme');
 } // Отримаємо збережену тему
@@ -13,55 +15,71 @@ function windowLoad() {
     // якщо локал сторедж пустий
     listenerOsThemeOn();
   }
-  if (refs.homeBTN.classList.contains('current')) {
-    refs.themeButtonEl.addEventListener('click', () => {
-      listenerOsThemeOff();
-      changeTheme();
-    });
-    refs.resetThemeButtonEl.addEventListener('click', () => {
-      listenerOsThemeOn();
-      setOsTheme();
-    });
+  if (!inLocalStorageTheme()) {
+    //
   }
-}
+  refs.themeButtonEl.addEventListener('click', onClickThemeBtn);
 
-function listenerOsThemeOn() {
-  window
-    .matchMedia('(prefers-color-scheme: dark)')
-    .addEventListener('change', () => {
-      if (inLocalStorageTheme() === null) {
+  function onClickThemeBtn() {
+    // refs.themeButtonEl.removeEventListener('click', onClickThemeBtn);
+    refs.themeListEl.classList.toggle('hidden');
+
+    refs.themeListEl.addEventListener('click', e => {
+      if (e.target.classList.contains('light-theme-btn')) {
+        removeAllCurrent();
+
+        changeOnLightTheme(e);
+        listenerOsThemeOff;
+        refs.themeListEl.classList.add('hidden');
+
+        // changeTheme();
+      } else if (e.target.classList.contains('dark-theme-btn')) {
+        removeAllCurrent();
+        changeOnDarkTheme(e);
+        listenerOsThemeOff;
+        refs.themeListEl.classList.add('hidden');
+
+        // changeTheme();
+      } else if (e.target.classList.contains('reset-theme-btn')) {
+        removeAllCurrent();
+        refs.themeListEl.classList.add('hidden');
+
         setOsTheme();
       }
     });
-}
-
-function listenerOsThemeOff() {
-  window
-    .matchMedia('(prefers-color-scheme: dark)')
-    .removeEventListener('change', setOsTheme);
-}
-
-function changeTheme() {
-  let currentTheme = refs.htmlEl.classList.contains('light') ? 'light' : 'dark';
-  let newTheme;
-
-  if (currentTheme === 'light') {
-    newTheme = 'dark';
-  } else if (currentTheme === 'dark') {
-    newTheme = 'light';
   }
+}
+function removeAllCurrent() {
+  refs.lightThemeButtonEl.classList.remove('current-theme');
+  refs.darkThemeButtonEl.classList.remove('current-theme');
+  refs.defaultThemeButtonEl.classList.remove('current-theme');
+}
 
-  refs.htmlEl.classList.remove(currentTheme);
-  refs.htmlEl.classList.add(newTheme);
+function changeOnLightTheme(e) {
+  refs.htmlEl.classList.remove('light', 'dark');
+  refs.htmlEl.classList.add('light');
 
-  localStorage.setItem('user-theme', newTheme);
-  refs.resetThemeButtonEl.classList.add('active');
+  refs.lightThemeButtonEl.classList.add('current-theme');
+
+  localStorage.setItem('user-theme', 'light');
+}
+function changeOnDarkTheme() {
+  refs.htmlEl.classList.remove('light', 'dark');
+  refs.htmlEl.classList.add('dark');
+
+  refs.darkThemeButtonEl.classList.add('current-theme');
+
+  localStorage.setItem('user-theme', 'dark');
 }
 
 function setThemeClass() {
   if (inLocalStorageTheme()) {
     refs.htmlEl.classList.add(inLocalStorageTheme());
-    refs.resetThemeButtonEl.classList.add('active');
+    if (inLocalStorageTheme() === 'light') {
+      refs.lightThemeButtonEl.classList.add('current-theme');
+    } else if (inLocalStorageTheme() === 'dark') {
+      refs.darkThemeButtonEl.classList.add('current-theme');
+    }
   } else {
     setOsTheme();
   }
@@ -78,7 +96,20 @@ function setOsTheme() {
 
   refs.htmlEl.classList.add(userThemeOS);
 
-  refs.homeBTN.classList.contains('current')
-    ? refs.resetThemeButtonEl.classList.remove('active')
-    : null;
+  refs.defaultThemeButtonEl.classList.add('current-theme');
+}
+function listenerOsThemeOn() {
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', () => {
+      if (inLocalStorageTheme() === null) {
+        setOsTheme();
+      }
+    });
+}
+
+function listenerOsThemeOff() {
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .removeEventListener('change', setOsTheme);
 }
