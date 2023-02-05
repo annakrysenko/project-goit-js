@@ -19,6 +19,7 @@ function windowLoad() {
     //
   }
   refs.themeButtonEl.addEventListener('click', onClickThemeBtn);
+
   function onClickThemeBtn() {
     // refs.themeButtonEl.removeEventListener('click', onClickThemeBtn);
     refs.themeListEl.classList.toggle('hidden');
