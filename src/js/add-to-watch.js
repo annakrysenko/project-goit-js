@@ -6,7 +6,7 @@ import { refs } from './DOM';
 if (document.querySelector('.button-watched')) {
   document
     .querySelector('.button-watched')
-    .addEventListener('click', getMoviesFromAPI);
+    .addEventListener('click', createLibrary);
 }
 
 function getMoviesFromAPI() {
@@ -41,8 +41,14 @@ function getMoviesFromAPI() {
   </li>`;
     // console.log(markup);
     markupForLibrary += markup;
+    return markupForLibrary;
   }
+}
 
-  console.log('markupForLibrary===>>>', markupForLibrary);
-  refs.filmGalleryLibraryEl.innerHTML = markupForLibrary;
+function createLibrary() {
+  const markup = getMoviesFromAPI();
+  console.log(typeof markup);
+  console.dir(refs.filmGalleryLibraryEl);
+  //   refs.loaderEl.classList.add(hidden);
+  refs.filmGalleryLibraryEl.innerHTML = markup;
 }
