@@ -4,6 +4,7 @@ import { makeGalleryMarkup } from './make-home-gallery';
 import { createPaginationBtns } from '../pagination/pagination-buttons';
 import { paginationPopular } from '../pagination/pagination-popular';
 
+
 export async function getPopularFilms() {
   refs.filmGalleryHomeEl.innerHTML = '';
   refs.loaderEl.classList.remove('hidden');
@@ -22,5 +23,7 @@ export async function getPopularFilms() {
   const buttonsMurkup = createPaginationBtns(currentPage, totalPages)
         refs.pageBtnsInput.innerHTML = ''
         refs.pageBtns.innerHTML = buttonsMurkup
+
+
   refs.pageBtns.addEventListener('click', e => paginationPopular(e))
 }

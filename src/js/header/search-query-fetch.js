@@ -5,6 +5,7 @@ import { makeErrorMassage } from '../header/arror-mass-header';
 import { paginationInput } from '../pagination/pagination-input';
 import { createPaginationBtns } from '../pagination/pagination-buttons';
 
+
 export async function getFilmsFromInput(e) {
   e.preventDefault();
   const query = e.target.elements.input.value;
@@ -17,7 +18,7 @@ export async function getFilmsFromInput(e) {
   refs.loaderEl.classList.remove('hidden');
 
   const searchFilms = await getAxiosSearchFilms(query);
-
+  console.log(searchFilms);
   refs.loaderEl.classList.add('hidden');
 
   if (searchFilms.total_results === 0) {
@@ -46,6 +47,7 @@ export async function getFilmsFromInput(e) {
   refs.pageBtns.innerHTML = ''
   refs.pageBtnsInput.innerHTML = buttonsMurkup
   refs.pageBtnsInput.addEventListener('click', ev => paginationInput(ev, query, totalPages))
+
 }
 
 // потім

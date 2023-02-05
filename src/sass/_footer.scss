@@ -43,12 +43,12 @@
 
 .footer-link {
   color: #545454;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-link:hover,
 .footer-link:focus {
   color: #ff6b08;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-underline {

@@ -1,5 +1,5 @@
-import { refs } from '../DOM';
+// import { refs } from '../DOM';
 
-export function addToQueue(filmId) {
-  console.log(filmId);
-}
+// export function addToQueue(filmId) {
+//   console.log(filmId);
+// }

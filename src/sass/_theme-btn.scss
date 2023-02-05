@@ -1,49 +1,123 @@
 .theme-container {
-    // position: absolute;
-    // top: 0;
-    // z-index: 3;
+    width: 100px;
+
+    right: 0;
+    bottom: -2rem;
+    position: absolute;
+    @media screen and (max-width: 480px) {
+        top: 0.33rem;
+        left: -8rem;
+    }
 }
 
 .theme {
-    display: flex;
-    position: relative;
-}
-
-// Кнопка скидання теми
-.theme__reset {
-    opacity: 0;
-    visibility: hidden;
-
-    background: none;
+    width: 100%;
     border: none;
-}
-
-.theme__reset.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.theme__reset::before {
-    content: "x";
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    font-size: 6px;
+    background-color: transparent;
     color: white;
-    background-color: black;
-    line-height: 7px;
-    text-align: center;
+    font-size: 12px;
+    display: flex;
+    justify-content: end;
+    gap: 3px;
+    padding: 3px;
 }
 
-// Кнопка
-.theme__on {
-    padding: 15px 15px;
-    margin: auto;
+.theme::before {
+    content: "";
+    background-image: url("../images/theme.png");
+
+    background-size: contain;
+    width: 12px;
+    height: 12px;
+    display: block;
+}
+
+.theme__list {
+    width: 70px;
+    // border-radius: 5px;
+    // border: 0.5px solid white;
+    border-radius: 5px;
+    background-color: rgb(42, 42, 42);
+    // position: absolute;
+
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    // @media screen and (min-width: 480px) {
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    // }
+}
+
+.theme__list.hidden {
+    display: none;
+}
+
+.theme__list-item {
+    width: 100%;
+}
+
+.theme-btn {
+    width: 100%;
     border: none;
-    background: transparent;
+    background-color: transparent;
+    color: white;
+    transition: background-color 300ms ease;
+    // transition: color 300ms ease;
+    display: flex;
+    justify-content: flex-end;
+    gap: 3px;
+    padding: 3px;
+
+    border-radius: 5px;
+}
+
+.theme-btn:hover,
+.theme-btn:focus,
+.current-theme {
+    background-color: white;
+    color: black;
+}
+
+.light-theme-btn::before {
+    content: "";
+    background-image: url("../images/sun.svg");
+
+    background-size: contain;
+    width: 12px;
+    height: 12px;
+    display: block;
+}
+
+.dark-theme-btn::before {
+    content: "";
+    background-image: url("../images/moon.svg");
+    background-size: contain;
+    width: 12px;
+    height: 12px;
+    display: block;
+}
+
+.light-theme-btn:hover.light-theme-btn::before,
+.light-theme-btn:focus.light-theme-btn::before,
+.current-theme.light-theme-btn::before {
+    content: "";
+    background-image: url("../images/sun-dark.svg");
+    background-size: contain;
+    width: 12px;
+    height: 12px;
+    display: block;
+}
+
+.dark-theme-btn:hover.dark-theme-btn::before,
+.dark-theme-btn:focus.dark-theme-btn::before,
+.current-theme.dark-theme-btn::before {
+    content: "";
+    background-image: url("../images/moon-dark.svg");
+    background-size: contain;
+    width: 12px;
+    height: 12px;
+    display: block;
 }
