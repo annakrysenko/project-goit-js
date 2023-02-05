@@ -26,12 +26,12 @@ async function createMovieIframe(e) {
     const movie = [...results];
     const id = movie[0].key;
     const murkupTrailer = `
-    <iframe width="560" height="315" src='http://www.youtube.com/embed/${id}' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src='https://www.youtube.com/embed/${id}' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
      `;
     refs.trailerBox.insertAdjacentHTML('afterbegin', murkupTrailer);
   } catch (er) {
     const error = `
-    <iframe width="560" height="315" src='http://www.youtube.com/embed/zwBpUdZ0lrQ' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src='https://www.youtube.com/embed/zwBpUdZ0lrQ' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       `;
     refs.trailerBox.insertAdjacentHTML('afterbegin', error);
     closeBackdrop();
