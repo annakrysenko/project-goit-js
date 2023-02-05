@@ -44,7 +44,6 @@
     }
 }
 
-//test
 
 .movie-gallery__poster {
     position: relative;
@@ -78,12 +77,10 @@
     }
 }
 
-.movie-gallery__wrap {
-    // font-family: "Roboto";
-    // font-style: normal;
+.movie-gallery__title {
     font-weight: 500;
     font-size: 12px;
-    line-height: calc(14 / 12);
+    line-height: calc(16 / 12);
     text-transform: uppercase;
     color: #000000;
 
@@ -94,12 +91,18 @@
 }
 
 .movie-info {
-    font-weight: 400;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(16/12);
     font-size: 14px;
-    line-height: calc(16 / 14);
     display: flex;
     gap: 5px;
     color: #ff6b08;
+
+    @media screen and (min-width: 1280px) {
+        font-size: 16px;
+        line-height: calc(20/16);
+    }
 }
 
 .movie-info__vote {
@@ -108,8 +111,6 @@
     left: 0;
     max-width: 40px;
     min-height: 20px;
-    // font-family: "Roboto";
-    // font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: calc(14 / 12);

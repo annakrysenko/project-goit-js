@@ -2,6 +2,15 @@ import { getMovieTrailerByID } from './axios';
 import { refs } from './DOM';
 
 refs.modalEl.addEventListener('click', createMovieIframe);
+// function createMovieIframe(e) {
+//   if (e.target.className === 'trailers') {
+//     const movieId = e.target.dataset.id;
+//     console.log(movieId);
+//   } else {
+//     return;
+//   }
+// }
+//
 window.addEventListener('keydown', closeMovieTrailer);
 
 async function createMovieIframe(e) {
@@ -39,3 +48,4 @@ function closeMovieTrailer(e) {
     refs.trailerBackdrop.classList.add('is-hidden');
   }
 }
+console.log('hi');
