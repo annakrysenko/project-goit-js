@@ -28,4 +28,10 @@ export const refs = {
   resetThemeButtonEl: document.querySelector('.theme__reset'), // Кнопка скидання налаштувань користувача
   htmlEl: document.documentElement, // HTML root element (корневий елемент)
   themeContainerEl: document.querySelector('.theme-container'),
+
+  // модалка для трейлера
+  trailerBackdrop: document.querySelector('.trailer-backdrop'),
+  trailerBox: document.querySelector('.trailer-box'),
+  trailerBtnClose: document.querySelector('.trailer-btn__close'),
+  trailerBtnOpen: document.querySelector('[data-modal-open]'),
 };
