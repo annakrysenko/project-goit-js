@@ -27,9 +27,17 @@ export async function getFilmsFromInput(e) {
   refs.inputAnswerParEl.innerHTML = '';
 
   const { results } = searchFilms;
+  console.log(searchFilms);
   const films = [...results];
   const currentPage = searchFilms.page;
-  const totalPages = 99
+  let totalPages;
+
+  if (searchFilms.total_pages > 99) {
+            totalPages = 99
+        } else {
+            totalPages = searchFilms.total_pages
+        }
+
   const galleryMarkup = makeGalleryMarkup(films);
 
   refs.filmGalleryHomeEl.innerHTML = galleryMarkup;

@@ -31,7 +31,9 @@ export async function paginationPopular(e) {
         refs.loaderEl.classList.add('hidden');
 
         const { results } = searchPopularFilms;
-        const totalPages = 99
+
+        let totalPages = 99; 
+        
         const currentPage = searchPopularFilms.page
         const popularFilms = [...results];
         const popularFilmsMarkup = makeGalleryMarkup(popularFilms);

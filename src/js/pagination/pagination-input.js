@@ -1,14 +1,11 @@
-import { refs } from "../DOM"
-import { getPopularFilms } from "../create-gallery/get-popular-films"
-import { getAxiosPopularFilms, getAxiosSearchFilms } from "../axios"
-import { makeGalleryMarkup } from "../create-gallery/make-home-gallery"
-import { createPaginationBtns } from "./pagination-buttons"
+
 
 
 let page = 1
-let request = ''
+let request;
 
 export async function paginationInput(ev, query) {
+    
     request = query
     
     if (ev.target.nodeName === 'UL' && ev.target.nodeName === 'SPAN') {
