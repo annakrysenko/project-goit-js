@@ -33,22 +33,7 @@
         border: none;
         font-size: 0;
                 }
-        @media screen and (min-width: 768px) {
-        .modal-container{
-        display: flex;
-        gap: 68
-
-        &__img{
-                width: 255px;
-                height: 275px;
-        }
-        &__fullInfo{
-                display: flex;
-                flex-direction: column;
-        }
-}
-                        
-        }
+      
         }
         
 .modal-container{
@@ -141,7 +126,8 @@
         &:hover,
         &:focus{
            color: #fff;
-           background-color:#FF6B01;;
+           background-color:#FF6B01;
+           border: none;
         }
 }
 .queue {
@@ -158,6 +144,7 @@
         &:focus {
                 color: #fff;
                 background-color: #FF6B01;
+                border: none;
                 }
 }
 
@@ -176,3 +163,39 @@
         width: 36px;
         height: 16px;
 }
+
+  @media screen and (min-width: 768px) {
+          .modal {
+                left: 47%;
+                  &__close-btn {
+                          right: -3%
+                  }
+          }
+
+          .modal-container {
+                  display: flex;
+                  gap: 68;
+                  padding-left: 36px;
+                  padding-right: 72px;
+
+                  &__img {
+                          height: 375px;
+                  }
+
+                  &__fullInfo {
+                          display: flex;
+                          flex-direction: column;
+                  }
+                  &__title{
+                        margin-top: 0;
+                  }
+          }
+
+          .watched {
+                  width: 125px;
+          }
+
+          .queue {
+                  width: 125px;
+          }
+  }

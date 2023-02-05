@@ -1,4 +1,4 @@
-@import '~node_modules/modern-normalize/modern-normalize.css';
+@import "~node_modules/modern-normalize/modern-normalize.css";
 
 html,
 body,
@@ -135,7 +135,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -154,7 +154,7 @@ a {
 
 body,
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

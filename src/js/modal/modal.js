@@ -55,7 +55,17 @@ async function onFilmPosterClick(e) {
       const getArrayForWached = JSON.parse(
         localStorage.getItem('add-to-watch')
       );
-      getArrayForWached.push(id);
+      getArrayForWached.push({
+        poster_path,
+        genresArr,
+        overview,
+        id,
+        vote_average,
+        vote_count,
+        popularity,
+        original_title,
+        title,
+      });
       let uniq = [...new Set(getArrayForWached)];
       localStorage.setItem('add-to-watch', JSON.stringify(uniq));
       refs.modalEl.removeEventListener('click', addToWatched);
@@ -67,7 +77,17 @@ async function onFilmPosterClick(e) {
   function queueBtn(e) {
     if (e.target.className === 'queue') {
       const getArrayForQueue = JSON.parse(localStorage.getItem('add-to-queue'));
-      getArrayForQueue.push(id);
+      getArrayForQueue.push({
+        poster_path,
+        genresArr,
+        overview,
+        id,
+        vote_average,
+        vote_count,
+        popularity,
+        original_title,
+        title,
+      });
       let uniq = [...new Set(getArrayForQueue)];
       localStorage.setItem('add-to-queue', JSON.stringify(uniq));
       refs.modalEl.removeEventListener('click', queueBtn);
@@ -75,5 +95,7 @@ async function onFilmPosterClick(e) {
   }
 
   //закриття модалки
-  refs.modalCloseBtn.addEventListener('click', e => {refs.backdropEl.classList.add('is-hiden')})
+  refs.modalCloseBtn.addEventListener('click', e => {
+    refs.backdropEl.classList.add('is-hiden');
+  });
 }

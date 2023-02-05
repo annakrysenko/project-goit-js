@@ -19,9 +19,10 @@ function windowLoad() {
     //
   }
   refs.themeButtonEl.addEventListener('click', onClickThemeBtn);
+
   function onClickThemeBtn() {
     // refs.themeButtonEl.removeEventListener('click', onClickThemeBtn);
-    refs.themeListEl.classList.remove('hidden');
+    refs.themeListEl.classList.toggle('hidden');
 
     refs.themeListEl.addEventListener('click', e => {
       if (e.target.classList.contains('light-theme-btn')) {
