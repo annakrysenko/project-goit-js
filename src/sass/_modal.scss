@@ -33,6 +33,7 @@
         border: none;
         font-size: 0;
                 }
+        }
         
 .modal-container{
                 width: 100%;
@@ -53,7 +54,7 @@
         &__title{
                 font-weight: 500;
                 font-size: 20px;
-                line-height: calc(20/23);
+                line-height: calc(23/20);
                 margin-top: 20px;
                 margin-bottom: 20px;
         }
@@ -65,53 +66,54 @@
        &--key{
         width: 120px;}
 
-        &--text{
-                font-weight: 500;
-                font-size: 12px;
-                line-height: calc(12/16);}
         &--keytext{
                 color: #8C8C8C;
                 font-size: 12px;
                 font-weight: 500;
-                line-height: calc(12/16);
+                line-height: calc(16/12);
                 margin-bottom: 8px;}
         &--valuetext{
                 font-size: 12px;
                 font-weight: 500;
-                line-height: calc(12/16);
+                line-height: calc(16/12);
                 margin-bottom: 8px;}
         }
        
-       &__second-title{
-        font-weight: 500;
-        font-size: 12px;
-        line-height: calc(12/16);
-        margin-bottom: 8px;
+       
+       &__second-title {
+               font-weight: 500;
+               font-size: 12px;
+               line-height: calc(16/12);
+               margin-bottom: 8px;
        }
-       &__description{
-        font-weight: 500;
-        font-size: 12px;
-        line-height: calc(12/20);
-        margin-bottom: 12px;
+
+       &__description {
+               font-weight: 500;
+               font-size: 12px;
+               line-height: calc(20/12);
+               margin-bottom: 20px;
        }
-       }
-       &__trailers-btn{
+       
+
+}
+
+.trailers {
+        padding: 40px;
         position: absolute;
         bottom: 0%;
         right: 0;
         background: transparent;
         border: none;
         font-size: 0;
-       
-       }
-.watched{
+
+}
+
+.watched {
         width: 110px;
         height: 44px;
         background-color: #fff;
         border: 1px solid #000000;
         border-radius: 5px;
-}
-
 }
 .avarage-effects{
         display: inline-block;
