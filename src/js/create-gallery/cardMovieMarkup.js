@@ -32,9 +32,7 @@ export function cardMovieMarkup(
     <div class="movie-gallery__wrap">
       <h2 class="movie-gallery__title">${title}</h2>
       <div class="movie-info">
-        <p class="movie-info__genre">${genresNames} |</p>
-        <span class="movie-info__slash> | </span>
-        <p class="movie-info__year"> ${releaseDate}</p>
+        <p class="movie-info__genre">${genresNames} | ${releaseDate}</p>
          <span class="movie-info__vote">IMDb: ${vote_average}</span>
       </div>
     </div>
@@ -42,3 +40,6 @@ export function cardMovieMarkup(
 
   return markup;
 }
+
+//  <span class="movie-info__slash> | </span>
+//         <p class="movie-info__year"> ${releaseDate}</p>
