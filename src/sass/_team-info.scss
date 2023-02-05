@@ -8,6 +8,10 @@ body.show-modal .team-modal {
   transform: scale(1);
 }
 
+body.show-modal {
+  overflow: hidden;
+}
+
 .team-backdrop {
   display: flex;
   justify-content: center;
@@ -17,7 +21,6 @@ body.show-modal .team-modal {
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow-y: scroll;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 
