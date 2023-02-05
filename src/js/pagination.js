@@ -4,13 +4,14 @@ import { getAxiosPopularFilms, getAxiosSearchFilms } from "./axios"
 import { makeGalleryMarkup } from "./create-gallery/make-home-gallery"
 import { createPaginationBtns } from "./pagination-buttons"
 
-
+let page = 1
+let request = ''
 
 export async function paginationPopular(e) {
-    let page = 1
-    if (e.target.nodeName === 'UL') {
+    
+    if (e.target.nodeName === 'UL' && e.target.nodeName === 'SPAN') {
     return
-    } if (e.target.nodeName !== 'UL') {
+    } if (e.target.nodeName !== 'UL' && e.target.nodeName !== 'SPAN') {
         refs.filmGalleryHomeEl.innerHTML = '';
         refs.loaderEl.classList.remove('hidden');
 
@@ -39,10 +40,10 @@ export async function paginationPopular(e) {
 }
 
 export async function paginationInput(ev, query) {
-    let page = 1
-    if (ev.target.nodeName === 'UL') {
+    request = query
+    if (ev.target.nodeName === 'UL' && ev.target.nodeName === 'SPAN') {
     return
-    } if (ev.target.nodeName !== 'UL') {
+    } if (ev.target.nodeName !== 'UL' && ev.target.nodeName !== 'SPAN') {
         refs.filmGalleryHomeEl.innerHTML = '';
         refs.loaderEl.classList.remove('hidden');
 
@@ -54,7 +55,7 @@ export async function paginationInput(ev, query) {
             page = Number(ev.target.textContent)
         }
         
-        const searchFilms = await getAxiosSearchFilms(query, page);
+        const searchFilms = await getAxiosSearchFilms(request, page);
 
         refs.loaderEl.classList.add('hidden');
 
@@ -62,9 +63,9 @@ export async function paginationInput(ev, query) {
         const totalPages = 99
         const currentPage = searchFilms.page
         const popularFilms = [...results];
-        const filmsMarkup = makeGalleryMarkup(popularFilms);
+        const searchFilmsMarkup = makeGalleryMarkup(popularFilms);
         
-        refs.filmGalleryHomeEl.innerHTML = filmsMarkup;
+        refs.filmGalleryHomeEl.innerHTML = searchFilmsMarkup;
         createPaginationBtns(currentPage, totalPages)
     }
     

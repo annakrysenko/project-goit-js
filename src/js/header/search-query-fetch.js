@@ -33,6 +33,7 @@ export async function getFilmsFromInput(e) {
   const galleryMarkup = makeGalleryMarkup(films);
 
   refs.filmGalleryHomeEl.innerHTML = galleryMarkup;
+  // refs.pageBtns.innerHTML = ''
   createPaginationBtns(currentPage, totalPages)
   refs.pageBtns.addEventListener('click', ev => paginationInput(ev, query))
 }
