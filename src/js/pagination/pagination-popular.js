@@ -40,7 +40,9 @@ export async function paginationPopular(e) {
         
         refs.filmGalleryHomeEl.innerHTML = popularFilmsMarkup;
         refs
-        createPaginationBtns(currentPage, totalPages)
+        const buttonsMurkup = createPaginationBtns(currentPage, totalPages)
+        refs.pageBtnsInput.innerHTML = ''
+        refs.pageBtns.innerHTML = buttonsMurkup
     }
     
 }

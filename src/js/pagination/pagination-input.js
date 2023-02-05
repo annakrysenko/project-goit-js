@@ -1,10 +1,14 @@
 
-
+import { refs } from "../DOM"
+import { getPopularFilms } from "../create-gallery/get-popular-films"
+import { getAxiosPopularFilms, getAxiosSearchFilms } from "../axios"
+import { makeGalleryMarkup } from "../create-gallery/make-home-gallery"
+import { createPaginationBtns } from "./pagination-buttons"
 
 let page = 1
 let request;
 
-export async function paginationInput(ev, query) {
+export async function paginationInput(ev, query ,totalPages) {
     
     request = query
     
@@ -27,13 +31,16 @@ export async function paginationInput(ev, query) {
         refs.loaderEl.classList.add('hidden');
 
         const { results } = searchFilms;
-        const totalPages = 99
+        
         const currentPage = searchFilms.page
         const popularFilms = [...results];
         const searchFilmsMarkup = makeGalleryMarkup(popularFilms);
         
         refs.filmGalleryHomeEl.innerHTML = searchFilmsMarkup;
-        createPaginationBtns(currentPage, totalPages)
+        const buttonsMurkup = createPaginationBtns(currentPage, totalPages)
+        refs.pageBtns.innerHTML = ''
+        refs.pageBtnsInput.innerHTML = buttonsMurkup
+        
     }
     
 }

@@ -42,8 +42,10 @@ export async function getFilmsFromInput(e) {
 
   refs.filmGalleryHomeEl.innerHTML = galleryMarkup;
   
-  createPaginationBtns(currentPage, totalPages)
-  refs.pageBtns.addEventListener('click', ev => paginationInput(ev, query))
+  const buttonsMurkup = createPaginationBtns(currentPage, totalPages)
+  refs.pageBtns.innerHTML = ''
+  refs.pageBtnsInput.innerHTML = buttonsMurkup
+  refs.pageBtnsInput.addEventListener('click', ev => paginationInput(ev, query, totalPages))
 }
 
 // потім

@@ -19,6 +19,8 @@ export async function getPopularFilms() {
   const popularFilmsMarkup = makeGalleryMarkup(popularFilms);
 
   refs.filmGalleryHomeEl.innerHTML = popularFilmsMarkup;
-  createPaginationBtns(currentPage, totalPages)
+  const buttonsMurkup = createPaginationBtns(currentPage, totalPages)
+        refs.pageBtnsInput.innerHTML = ''
+        refs.pageBtns.innerHTML = buttonsMurkup
   refs.pageBtns.addEventListener('click', e => paginationPopular(e))
 }

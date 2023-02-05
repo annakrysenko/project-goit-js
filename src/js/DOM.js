@@ -6,6 +6,7 @@ export const refs = {
 
   homeBTN: document.querySelector('.home'),
   pageBtns: document.querySelector('.pagination-list'),
+  pageBtnsInput: document.querySelector('.paginatio-input-list'),
 
   //galleries
   filmGalleryHomeEl: document.querySelector('.movie-gallery'),

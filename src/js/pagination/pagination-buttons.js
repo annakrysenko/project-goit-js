@@ -159,18 +159,21 @@ if (totalPages > 9) {
     if (currentPage === 1) {
         paginationMarkup = `<button class="pgn-current pgn-btn" type="button" disabled>${currentPage}</button>
         <button class="pgn-btn" type="button">2</button>
-        <button class="pgn-btn" type="button">3</button>`
+        <button class="pgn-btn" type="button">3</button>
+        <button class="pgn-btn" type="button">4</button>`
     } if (currentPage === 2) {
         paginationMarkup = `
         <button class="pgn-btn" type="button">1</button>
         <button class="pgn-current pgn-btn" type="button" disabled>${currentPage}</button>
-        <button class="pgn-btn" type="button">3</button>`
+        <button class="pgn-btn" type="button">3</button>
+        <button class="pgn-btn" type="button">4</button>`
     } if (currentPage === 3) {
         paginationMarkup = `
         <button class="pgn-btn" type="button">1</button>
         <button class="pgn-btn" type="button">2</button>
+        <button class="pgn-btn" type="button">3</button>
         <button class="pgn-current pgn-btn" type="button" disabled>${currentPage}</button>`
     }
 }
-    refs.pageBtns.innerHTML = paginationMarkup
+    return paginationMarkup
 }
