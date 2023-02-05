@@ -18,6 +18,7 @@ async function createMovieIframe(e) {
     return;
   }
   refs.trailerBackdrop.classList.remove('is-hidden');
+  console.dir(e.target)
   const movieId = e.target.dataset.id;
   try {
     const resp = await getMovieTrailerByID(movieId);
@@ -37,8 +38,9 @@ async function createMovieIframe(e) {
     closeBackdrop();
   }
 }
-//
-refs.trailerBtnClose.addEventListener('click', closeBackdrop);
+if (refs.trailerBackdrop) {
+  refs.trailerBtnClose.addEventListener('click', closeBackdrop);
+}
 
 function closeBackdrop() {
   refs.trailerBackdrop.classList.add('is-hidden');

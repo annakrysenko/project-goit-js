@@ -19,6 +19,8 @@ export const refs = {
   //Модалка Максима
   modalEl: document.querySelector('.modal'),
   backdropEl: document.querySelector('.backdrop'),
+  containerEl: document.querySelector('.modal-container'),
+  modalCloseBtn: document.querySelector('.modal__close-btn'),
 
   //loader spiner
   loaderEl: document.querySelector('.loader'),
