@@ -40,7 +40,8 @@ function closeMovieTrailer(e) {
     refs.boxIframe.innerHTML = '';
   }
 }
-refs.trailerBackdrop.addEventListener('click', closeBackdropOnClick);
+if (refs.trailerBackdrop){refs.trailerBackdrop.addEventListener('click', closeBackdropOnClick);}
+
 function closeBackdropOnClick(e) {
   if (e.target.className !== 'trailer-backdrop') {
     return
