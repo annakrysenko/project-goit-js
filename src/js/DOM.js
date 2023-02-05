@@ -9,7 +9,7 @@ export const refs = {
 
   //galleries
   filmGalleryHomeEl: document.querySelector('.movie-gallery'),
-  filmGalleryLibraryEl: document.querySelector('movie-gallery-library'),
+  filmGalleryLibraryEl: document.querySelector('.movie-gallery-library'),
 
   //modal footer
   openModalBtn: document.querySelector('[data-action="open-modal"]'),
