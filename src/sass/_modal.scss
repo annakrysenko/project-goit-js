@@ -33,6 +33,22 @@
         border: none;
         font-size: 0;
                 }
+        @media screen and (min-width: 768px) {
+        .modal-container{
+        display: flex;
+        gap: 68
+
+        &__img{
+                width: 255px;
+                height: 275px;
+        }
+        &__fullInfo{
+                display: flex;
+                flex-direction: column;
+        }
+}
+                        
+        }
         }
         
 .modal-container{
@@ -98,7 +114,6 @@
 }
 
 .trailers {
-        padding: 40px;
         position: absolute;
         bottom: 0%;
         right: 0;
@@ -108,13 +123,44 @@
 
 }
 
+.btn-container{
+        display: flex;
+        justify-content: space-between;
+}
+
 .watched {
         width: 110px;
         height: 44px;
         background-color: #fff;
         border: 1px solid #000000;
         border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: calc(16/12);
+        &:hover,
+        &:focus{
+           color: #fff;
+           background-color:#FF6B01;;
+        }
 }
+.queue {
+        width: 110px;
+        height: 44px;
+        background-color: #fff;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: calc(16/12);
+        &:hover,
+        &:focus {
+                color: #fff;
+                background-color: #FF6B01;
+                }
+}
+
 .avarage-effects{
         display: inline-block;
         background-color: #FF6B01;
