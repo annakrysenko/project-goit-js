@@ -20,8 +20,8 @@ function windowLoad() {
   }
   refs.themeButtonEl.addEventListener('click', onClickThemeBtn);
   function onClickThemeBtn() {
-    refs.themeListEl.classList.toggle('hidden');
     // refs.themeButtonEl.removeEventListener('click', onClickThemeBtn);
+    refs.themeListEl.classList.toggle('hidden');
 
     refs.themeListEl.addEventListener('click', e => {
       if (e.target.classList.contains('light-theme-btn')) {
@@ -29,14 +29,19 @@ function windowLoad() {
 
         changeOnLightTheme(e);
         listenerOsThemeOff;
+        refs.themeListEl.classList.add('hidden');
+
         // changeTheme();
       } else if (e.target.classList.contains('dark-theme-btn')) {
         removeAllCurrent();
         changeOnDarkTheme(e);
         listenerOsThemeOff;
+        refs.themeListEl.classList.add('hidden');
+
         // changeTheme();
       } else if (e.target.classList.contains('reset-theme-btn')) {
         removeAllCurrent();
+        refs.themeListEl.classList.add('hidden');
 
         setOsTheme();
       }

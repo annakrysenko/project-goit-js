@@ -1,6 +1,13 @@
 .theme-container {
     width: 100px;
-    position: relative;
+
+    right: 0;
+    bottom: -2rem;
+    position: absolute;
+    @media screen and (max-width: 480px) {
+        top: 0.33rem;
+        left: -8rem;
+    }
 }
 
 .theme {
@@ -10,6 +17,7 @@
     color: white;
     font-size: 12px;
     display: flex;
+    justify-content: end;
     gap: 3px;
     padding: 3px;
 }
@@ -25,11 +33,22 @@
 }
 
 .theme__list {
-    width: 100px;
+    width: 70px;
     // border-radius: 5px;
-    border: 0.5px solid white;
+    // border: 0.5px solid white;
+    border-radius: 5px;
+    background-color: rgb(42, 42, 42);
+    // position: absolute;
+
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    // @media screen and (min-width: 480px) {
     position: absolute;
+    right: 0;
     font-size: 12px;
+    // }
 }
 
 .theme__list.hidden {
@@ -48,8 +67,11 @@
     transition: background-color 300ms ease;
     // transition: color 300ms ease;
     display: flex;
+    justify-content: flex-end;
     gap: 3px;
     padding: 3px;
+
+    border-radius: 5px;
 }
 
 .theme-btn:hover,
