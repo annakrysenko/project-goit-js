@@ -11,7 +11,7 @@ export function modalMarkup(movie) {
   // <p>Genre ${genresName}</p>
   <h3>About </h3>
   <p>${movie.overview}</p>
-  <button data-id="${movie.id}" class="trailers" type="button">Watch trailer</button>
+  <button data-id="${movie.id}" class="trailers" type="button" data-modal-open>Watch trailer</button>
   <button class="watched" type="button">add to Watched</button>
   <button class="queue" type="button">add to queue</button>
 

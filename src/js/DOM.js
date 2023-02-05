@@ -31,4 +31,10 @@ export const refs = {
   darkThemeButtonEl: document.querySelector('.dark-theme-btn'), // темна тема
   htmlEl: document.documentElement, // HTML root element (корневий елемент)
   themeContainerEl: document.querySelector('.theme-container'),
+
+  // модалка для трейлера
+  trailerBackdrop: document.querySelector('.trailer-backdrop'),
+  trailerBox: document.querySelector('.trailer-box'),
+  trailerBtnClose: document.querySelector('.trailer-btn__close'),
+  trailerBtnOpen: document.querySelector('[data-modal-open]'),
 };
