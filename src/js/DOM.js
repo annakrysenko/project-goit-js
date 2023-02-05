@@ -24,8 +24,11 @@ export const refs = {
   loaderEl: document.querySelector('.loader'),
 
   // зміна теми
-  themeButtonEl: document.querySelector('.theme__on'), // Кнопка теми
-  resetThemeButtonEl: document.querySelector('.theme__reset'), // Кнопка скидання налаштувань користувача
+  themeButtonEl: document.querySelector('.theme'), // Кнопка теми
+  themeListEl: document.querySelector('.theme__list'),
+  defaultThemeButtonEl: document.querySelector('.reset-theme-btn'), // Кнопка скидання налаштувань користувача
+  lightThemeButtonEl: document.querySelector('.light-theme-btn'), //світла тема
+  darkThemeButtonEl: document.querySelector('.dark-theme-btn'), // темна тема
   htmlEl: document.documentElement, // HTML root element (корневий елемент)
   themeContainerEl: document.querySelector('.theme-container'),
 };
