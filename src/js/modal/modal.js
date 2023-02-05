@@ -22,7 +22,6 @@ async function onFilmPosterClick(e) {
   const filmId = e.target.offsetParent.dataset.id;
 
   const moviePromise = await getMovieByID(filmId);
-  console.log();
   const {
     poster_path,
     genres,
@@ -47,11 +46,7 @@ async function onFilmPosterClick(e) {
     title,
   };
   const markup = modalMarkup(movie);
-  refs.modalEl.innerHTML = markup;
-  console.dir(refs.modalEl);
-  //   // функція для запису в local storage по кліку на кнопку add to queue
-  refs.modalEl.addEventListener('click', addToWatched);
-  //   refs.modal.addEventListener('click', queueBtn);
+  refs.containerEl.innerHTML = markup;
 
   //   // функція для запису в local storage по кліку на кнопку add to watch
   refs.modalEl.addEventListener('click', addToWatched);
@@ -78,4 +73,7 @@ async function onFilmPosterClick(e) {
       refs.modalEl.removeEventListener('click', queueBtn);
     }
   }
+
+  //закриття модалки
+  refs.modalCloseBtn.addEventListener('click', e => {refs.backdropEl.classList.add('is-hiden')})
 }
