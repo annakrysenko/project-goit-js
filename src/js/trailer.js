@@ -28,8 +28,9 @@ async function createMovieIframe(e) {
     closeBackdrop();
   }
 }
-//
-refs.trailerBtnClose.addEventListener('click', closeBackdrop);
+if (refs.trailerBackdrop) {
+  refs.trailerBtnClose.addEventListener('click', closeBackdrop);
+}
 
 function closeBackdrop() {
   refs.trailerBackdrop.classList.add('is-hidden');
