@@ -46,6 +46,7 @@ function windowLoad() {
         setOsTheme();
       }
     });
+    refs.themeListEl.classList.toggle('hidden');
   }
 }
 function removeAllCurrent() {
