@@ -42,4 +42,5 @@ export const refs = {
   trailerBtnClose: document.querySelector('.trailer-btn__close'),
   trailerBtnOpen: document.querySelector('[data-modal-open]'),
   boxIframe: document.querySelector('.box-iframe'),
+  pop: document.querySelectorAll('.pop'),
 };
