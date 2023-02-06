@@ -31,13 +31,21 @@ function getMoviesQueue() {
       const { id, poster_path, title, genresArr, release_date, vote_average } =
         film;
       // console.log(genresArr);
-      const BASE_URL = 'https://image.tmdb.org/t/p/w500';
+      console.log('poster_path', poster_path);
+      let URL;
+      if (poster_path) {
+        URL = `https://image.tmdb.org/t/p/w500${poster_path}`;
+      } else if (!poster_path) {
+        URL =
+          'https://images.pexels.com/photos/65128/pexels-photo-65128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
+      }
+
       const markupCard = `
    <li class="movie-gallery__item" >
     <div class="movie-gallery__poster" data-id="${id}">
       <img
         class="movie-gallery__photo"
-        src="${BASE_URL}${poster_path}"
+        src="${URL}"
         alt="${title}"
       />
     </div>

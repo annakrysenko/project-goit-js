@@ -6,13 +6,18 @@ import { paginationInput } from '../pagination/pagination-input';
 import { createPaginationBtns } from '../pagination/pagination-buttons';
 
 
+let page;
+let currentPage;
+let query;
+let totalPages;
+let containerPaginationInputEl;
 export async function getFilmsFromInput(e) {
 e.preventDefault();
+  
+refs.pageBtns.innerHTML = '';
+refs.pageBtnsInput.innerHTML = '';
 
-  refs.pageBtns.innerHTML = ''
-        refs.pageBtnsInput.innerHTML = ''
-
-  const query = e.target.elements.input.value;
+const query = e.target.elements.input.value;
 
   if (query.trim() === '') {
     makeErrorMassage();
@@ -22,7 +27,8 @@ e.preventDefault();
   refs.loaderEl.classList.remove('hidden');
 
   const searchFilms = await getAxiosSearchFilms(query);
-  console.log(searchFilms);
+  page = 1;
+  currentPage = 1;
   refs.loaderEl.classList.add('hidden');
 
   if (searchFilms.total_results === 0) {
@@ -51,7 +57,6 @@ e.preventDefault();
   refs.pageBtns.innerHTML = ''
   refs.pageBtnsInput.innerHTML = buttonsMurkup
   refs.pageBtnsInput.addEventListener('click', ev => paginationInput(ev, query, totalPages))
-
 }
 
 // потім
