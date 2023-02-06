@@ -1,9 +1,13 @@
+
 import { getMovieTrailerByID } from './axios';
 import { refs } from './DOM';
 
 refs.modalEl.addEventListener('click', createMovieIframe);
 async function createMovieIframe(e) {
-  if (e.target.className !== 'trailers') {
+  if (
+    e.target.className !== 'trailers' &&
+    e.target.className !== 'icon-youtube'
+  ) {
     return;
   }
   refs.trailerBackdrop.classList.remove('is-hidden');
@@ -40,11 +44,13 @@ function closeMovieTrailer(e) {
     refs.boxIframe.innerHTML = '';
   }
 }
-if (refs.trailerBackdrop){refs.trailerBackdrop.addEventListener('click', closeBackdropOnClick);}
+if (refs.trailerBackdrop) {
+  refs.trailerBackdrop.addEventListener('click', closeBackdropOnClick);
+}
 
 function closeBackdropOnClick(e) {
   if (e.target.className !== 'trailer-backdrop') {
-    return
+    return;
   }
   refs.trailerBackdrop.classList.add('is-hidden');
   refs.boxIframe.innerHTML = '';

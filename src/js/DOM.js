@@ -5,7 +5,9 @@ export const refs = {
   inputAnswerParEl: document.querySelector('.input-answer'),
 
   homeBTN: document.querySelector('.home'),
+  libraryCurrentBntEl: document.querySelector('.my-library .current'),
   pageBtns: document.querySelector('.pagination-list'),
+  pageBtnsInput: document.querySelector('.paginatio-input-list'),
 
   //galleries
   filmGalleryHomeEl: document.querySelector('.movie-gallery'),
