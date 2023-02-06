@@ -12,6 +12,7 @@ let totalPages;
 let containerPaginationInputEl;
 export async function getFilmsFromInput(e) {
   e.preventDefault();
+  if (document.querySelector('.pagination-list-popular')) {
   query = e.target.elements.input.value;
   console.log('query', query);
 
