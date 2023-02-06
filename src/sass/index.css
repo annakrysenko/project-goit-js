@@ -189,8 +189,14 @@ html {
     margin: 0 auto;
   }
 }
+
 .header-main {
   background: rgba(0, 0, 0, 0.56);
+
+.header-home {
+  background-color: rgba(0, 0, 0, 0.5607843137);
+  background-image: url("./images/header-home-mobile.svg");
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -227,11 +233,13 @@ html {
 }
 
 .header-library {
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/header-library.svg");
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/library/liba-320.png");
+
   background-size: cover;
 }
 @media screen and (min-device-pixel-ratio: 2), screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
@@ -1857,3 +1865,4 @@ html.dark .loader {
     min-height: 480px;
   }
 }/*# sourceMappingURL=index.css.map */
+
