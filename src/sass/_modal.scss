@@ -7,21 +7,23 @@
         background-color: rgba(0, 0, 0, 0.2);
         opacity: 1;
 }
+//Phone styles
 
 .modal {
         position: absolute;
         background-color: #fff;
         width: 90%;
         height: 90%;
+        max-height: 940px;
         margin: 20px;
         transform: translate(-50%, -50%);
-        top: 50%;
+        top: 45%;
         left: 45%;
         &__close-btn {
                 position: absolute;
                 transform: translate(-50%, -50%);
-                right: -4%;
-                top: 4%;
+                right: -2%;
+                top: 3%;
                 background: transparent;
                 border: none;
                 font-size: 0;
@@ -35,7 +37,8 @@
         padding-bottom: 40px;
         padding-left: 20px;
         padding-right: 20px;
-        overflow-y: scroll;
+        overflow-y: auto;
+        
 
         &__img {
                 object-fit: contain;
@@ -68,7 +71,7 @@
                 &--valuetext {
                         font-size: 12px;
                         font-weight: 500;
-                        line-height: calc(16 / 12);
+                        line-height: calc(14 / 12);
                         margin-bottom: 8px;
                 }
         }
@@ -84,10 +87,11 @@
                 font-weight: 500;
                 font-size: 12px;
                 line-height: calc(20 / 12);
-                margin-bottom: 20px;
+                margin-bottom: 35px;
         }
 }
 
+// trailers btn in modal
 .trailers {
         position: absolute;
         bottom: 0%;
@@ -97,11 +101,13 @@
         font-size: 0;
 }
 
+// container for buttons 'Add to watched' and 'queue'
 .btn-container {
         display: flex;
         justify-content: space-between;
 }
 
+// Efects for buttons 'Add to watched' and 'queue'
 .watched {
         width: 110px;
         height: 44px;
@@ -137,8 +143,10 @@
         }
 }
 
+// effects for votes
 .avarage-effects {
         display: inline-block;
+        color: #fff;
         background-color: #ff6b01;
         border-radius: 5px;
         width: 36px;
@@ -153,12 +161,13 @@
         height: 16px;
 }
 
+//Tablet styles
 @media screen and (min-width: 768px) {
         .modal {
                 left: 47%;
-                &__close-btn {
-                        right: -3%;
-                }
+                height: fit-content;
+                max-height: 552px;
+                
         }
 
         .modal-container {
@@ -187,6 +196,37 @@
         .queue {
                 width: 125px;
         }
+
+// desktop styles        
+@media screen and (min-width: 1280px){
+                .modal{
+                width: 806px;
+                &__close-btn{
+                        right: -1%;
+                }
+                }
+                .modal-container{
+                        padding-top: 40px;
+                        padding-bottom: 40px;
+                        padding-left: 12px;
+                        padding-right: 12px;
+                        gap: 16;
+                        &__img{
+                        width: 375px;
+                        height: 415px;
+                        }
+                        &__title{
+                        font-size: 30px;
+                        line-height: calc(35/30);
+                        }
+                }
+                .btn-container {
+                display: flex;
+                justify-content: flex-start;
+                gap: 15;
+                padding-left: 8px;;
+                }
+  }
 }
 .is-hidden {
         position: absolute;

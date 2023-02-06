@@ -9,6 +9,10 @@ if (refs.filmGalleryHomeEl) {
   refs.filmGalleryHomeEl.addEventListener('click', e => onFilmPosterClick(e)),
     false;
 }
+if (refs.filmGalleryLibraryEl) {
+  refs.filmGalleryLibraryEl.addEventListener('click', e => onFilmPosterClick(e)),
+    false;
+}
 
 // if (!localStorage.getItem('add-to-watch')) {
 //   localStorage.setItem('add-to-watch', JSON.stringify([]));
@@ -20,7 +24,6 @@ let movie;
 async function onFilmPosterClick(e) {
   // if e.target.offsetParent.dataset.id
   e.stopPropagation;
-
   refs.backdropEl.classList.remove('is-hidden');
   const filmId = e.target.offsetParent.dataset.id;
 
@@ -52,11 +55,13 @@ async function onFilmPosterClick(e) {
   const markup = modalMarkup(movie);
   refs.containerEl.innerHTML = markup;
 }
+  
 
 // function addToWatched(e) {}
 
 // function queueBtn(e) {}
 if (refs.modalEl) {
+
   refs.modalEl.addEventListener('click', e => {
     // функція для запису в local storage по кліку на кнопку add to watch
     if (e.target.innerText === 'ADD TO WATCHED') {
@@ -91,7 +96,7 @@ if (refs.modalEl) {
       );
       // const uniq1 = new Set([movie, getArrayForWatched]);
       console.log('getArrayForWatched', getArrayForWatched);
-      uniq1.add(getArrayForWatched);
+      // uniq1.add(getArrayForWatched);
       // console.log(movie);
       if (getArrayForWatched) {
         getArrayForWatched.push({ ...movie });
@@ -111,4 +116,9 @@ if (refs.modalEl) {
       refs.backdropEl.classList.add('is-hidden');
     }
   });
+  refs.modalEl.addEventListener('keydown', e => {
+    
+    refs.backdropEl.classList.add('is-hidden');
+    
+  })
 }
