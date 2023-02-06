@@ -6,6 +6,8 @@ export function modalMarkup(movie) {
   const popularity = movie.popularity.toFixed(1);
   const movieTitle = movie.title.toUpperCase();
   return `
+  <button data-id="${movie.id}" class="trailers" type="button" data-modal-open><img data-id="${movie.id}" class="icon-youtube" src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="logo"/>Watch trailer 
+</button>;
   <img class = 'modal-container__img' src="${BASE_URL}${movie.poster_path}" alt="movie-poster" /></a>
   <div class = 'modal-container__fullInfo'>
   <h2 class = 'modal-container__title'>${movieTitle}</h2>
@@ -29,8 +31,7 @@ export function modalMarkup(movie) {
   <button class="watched" id='watched-modal' type="button">add to Watched</button>
   <button class="queue" id='queue-modal' type="button">add to queue</button>
   </div>
-  <button data-id="${movie.id}" class="trailers" type="button" data-modal-open>Watch trailer
-  <img src="./images/trailer.svg" width="30" height="30" />
-  </button>
+  
+
   `;
 }
