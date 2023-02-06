@@ -29,6 +29,7 @@
   min-width: 40;
   height: 40;
 }
+
 .pgn-btn:hover,
 .pgn-btn:focus,
 .next:hover,
@@ -39,17 +40,6 @@
   color: white;
   fill: #ffffff;
 }
-.pgn-dots {
-  // display: none;
-}
-
-.last-number {
-  // display: none;
-}
-
-.first-number {
-  // display: none;
-}
 
 @media screen and (min-width: 768px) {
   .pgn-dots {
@@ -59,15 +49,12 @@
     text-align: center;
     font-size: 24;
   }
-
   .last-number {
     display: block;
   }
-
   .first-number {
     display: block;
   }
-
   .pgn-mobile {
     display: none;
   }
@@ -76,12 +63,4 @@
   background-color: #ff6b08;
   color: #ffffff;
   border: none;
-}
-// @media screen and (min-width: 1280px) {
-//     .container {
-//         width: 1280px;
-//         padding-left: 32px;
-//         padding-right: 32px;
-//         margin: 0 auto;
-//     }
-// }
+}/*# sourceMappingURL=paginaton-btns.css.map */
