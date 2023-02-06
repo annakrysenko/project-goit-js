@@ -17,18 +17,22 @@ function createWatched() {
 
 function getMovies() {
   const saveMovie = localStorage.getItem('add-to-watch');
+  if (!saveMovie) {
+    return '<p>Nothing here yet</p>';
+  }
   //   console.log(saveMovie);
   const parseMovie = JSON.parse(saveMovie);
-  //   console.log(parseMovie);
+  console.log('parseMovie', parseMovie);
 
   //   console.log(typeof parseMovie);
-  let markupForLibrary = '';
-  for (let film of parseMovie) {
-    const { id, poster_path, title, genresArr, release_date, vote_average } =
-      film;
-    // console.log(genresArr);
-    const BASE_URL = 'https://image.tmdb.org/t/p/w500';
-    const markup = `
+  // let markupForLibrary = '';
+  const markup = parseMovie
+    .map(film => {
+      const { id, poster_path, title, genresArr, release_date, vote_average } =
+        film;
+      // console.log(genresArr);
+      const BASE_URL = 'https://image.tmdb.org/t/p/w500';
+      const markupCard = `
    <li class="movie-gallery__item" >
     <div class="movie-gallery__poster" data-id="${id}">
       <img
@@ -45,8 +49,11 @@ function getMovies() {
       </div>
     </div>
   </li>`;
-    // console.log(markup);
-    markupForLibrary += markup;
-    return markupForLibrary;
-  }
+      // console.log(markup);
+      // markupForLibrary += markup;
+      // return markupForLibrary;
+      return markupCard;
+    })
+    .join('');
+  return markup;
 }
