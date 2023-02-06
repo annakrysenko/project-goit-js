@@ -61,7 +61,6 @@ async function onFilmPosterClick(e) {
 
 // function queueBtn(e) {}
 if (refs.modalEl) {
-
   refs.modalEl.addEventListener('click', e => {
     // функція для запису в local storage по кліку на кнопку add to watch
     if (e.target.innerText === 'ADD TO WATCHED') {
@@ -70,8 +69,8 @@ if (refs.modalEl) {
       const getArrayForWatched = JSON.parse(
         localStorage.getItem('add-to-watch')
       );
+      
       // const uniq1 = new Set([movie, getArrayForWatched]);
-      console.log('getArrayForWatched', getArrayForWatched);
       // uniq1.add(getArrayForWatched);
       // console.log(movie);
       if (getArrayForWatched) {
@@ -116,9 +115,4 @@ if (refs.modalEl) {
       refs.backdropEl.classList.add('is-hidden');
     }
   });
-  refs.modalEl.addEventListener('keydown', e => {
-    
-    refs.backdropEl.classList.add('is-hidden');
-    
-  })
 }
