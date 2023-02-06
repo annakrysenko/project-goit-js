@@ -4,7 +4,7 @@ export function modalMarkup(movie) {
   const genresName = movie.genresArr.join(', ');
   const avarage = movie.vote_average.toFixed(1);
   const popularity = movie.popularity.toFixed(1);
-  const movieTitle = movie.title.toUpperCase()
+  const movieTitle = movie.title.toUpperCase();
   return `
   <img class = 'modal-container__img' src="${BASE_URL}${movie.poster_path}" alt="movie-poster" /></a>
   <div class = 'modal-container__fullInfo'>
@@ -26,11 +26,11 @@ export function modalMarkup(movie) {
   <h3 class = 'modal-container__second-title'>ABOUT</h3>
   <p class = 'modal-container__description'>${movie.overview}</p>
   <div class = 'btn-container'>
-  <button class="watched" type="button">add to Watched</button>
-  <button class="queue" type="button">add to queue</button>
+  <button class="watched" id='watched-modal' type="button">add to Watched</button>
+  <button class="queue" id='queue-modal' type="button">add to queue</button>
   </div>
   <button data-id="${movie.id}" class="trailers" type="button" data-modal-open>Watch trailer
   <img src="./images/trailer.svg" width="30" height="30" />
   </button>
-  `
+  `;
 }

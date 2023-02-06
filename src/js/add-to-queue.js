@@ -3,24 +3,24 @@ import { refs } from './DOM';
 // import { makeGalleryMarkup } from './create-gallery/make-home-gallery';
 // import { cardMovieMarkup } from './create-gallery/cardMovieMarkup';
 
-if (document.querySelector('.button-watched')) {
+if (document.querySelector('.button-queue')) {
   document
-    .querySelector('.button-watched')
-    .addEventListener('click', createWatched);
+    .querySelector('.button-queue')
+    .addEventListener('click', createQueue);
 }
 
-function createWatched() {
-  const markup = getMovies();
-
+function createQueue() {
+  const markup = getMoviesQueue();
   refs.filmGalleryLibraryEl.innerHTML = markup;
 }
 
-function getMovies() {
-  const saveMovie = localStorage.getItem('add-to-watch');
+function getMoviesQueue() {
+  const saveMovie = localStorage.getItem('add-to-queue');
   if (!saveMovie) {
+    console.log('nothing');
     return '<p>Nothing here yet</p>';
   }
-  //   console.log(saveMovie);
+  console.log('saveMovie', saveMovie);
   const parseMovie = JSON.parse(saveMovie);
   console.log('parseMovie', parseMovie);
 
