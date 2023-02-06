@@ -6,6 +6,9 @@ import { paginationPopular } from '../pagination/pagination-popular';
 
 
 export async function getPopularFilms() {
+refs.pageBtns.innerHTML = ''
+        refs.pageBtnsInput.innerHTML = ''
+
   refs.filmGalleryHomeEl.innerHTML = '';
   refs.loaderEl.classList.remove('hidden');
 

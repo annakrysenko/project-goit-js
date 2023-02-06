@@ -7,7 +7,11 @@ import { createPaginationBtns } from '../pagination/pagination-buttons';
 
 
 export async function getFilmsFromInput(e) {
-  e.preventDefault();
+e.preventDefault();
+
+  refs.pageBtns.innerHTML = ''
+        refs.pageBtnsInput.innerHTML = ''
+
   const query = e.target.elements.input.value;
 
   if (query.trim() === '') {
