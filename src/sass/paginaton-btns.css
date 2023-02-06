@@ -63,4 +63,14 @@
   background-color: #ff6b08;
   color: #ffffff;
   border: none;
+}
+
+html.dark .next,
+html.dark .previos {
+  fill: #ffffff;
+  background-color: #000000;
+}
+
+html.dark .pgn-btn {
+  color: white;
 }/*# sourceMappingURL=paginaton-btns.css.map */
