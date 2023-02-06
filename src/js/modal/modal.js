@@ -91,7 +91,6 @@ if (refs.modalEl) {
       );
       // const uniq1 = new Set([movie, getArrayForWatched]);
       console.log('getArrayForWatched', getArrayForWatched);
-      uniq1.add(getArrayForWatched);
       // console.log(movie);
       if (getArrayForWatched) {
         getArrayForWatched.push({ ...movie });
