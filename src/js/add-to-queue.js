@@ -3,20 +3,14 @@ import { refs } from './DOM';
 // import { makeGalleryMarkup } from './create-gallery/make-home-gallery';
 // import { cardMovieMarkup } from './create-gallery/cardMovieMarkup';
 
-if (document.querySelector('.button-watched')) {
-  document.querySelector('.button-watched').addEventListener('click', createWatched);
-  document.querySelector('.button-watched').classList.add('button-active');
-  document.querySelector('.button-queue').classList.remove('button-active');
+if (document.querySelector('.button-queue')) {
+  document.querySelector('.button-queue').addEventListener('click', getMoviesFromAPI);
+  document.querySelector('.button-queue').classList.add('button-active');
+  document.querySelector('.button-watched').classList.remove('button-active');
 }
 
-function createWatched() {
-  const markup = getMovies();
-
-  refs.filmGalleryLibraryEl.innerHTML = markup;
-}
-
-function getMovies() {
-  const saveMovie = localStorage.getItem('add-to-watch');
+function getMoviesFromAPI() {
+  const saveMovie = localStorage.getItem('add-to-queue');
   //   console.log(saveMovie);
   const parseMovie = JSON.parse(saveMovie);
   //   console.log(parseMovie);
@@ -46,6 +40,8 @@ function getMovies() {
   </li>`;
     // console.log(markup);
     markupForLibrary += markup;
-    return markupForLibrary;
   }
+
+  console.log('markupForLibrary===>>>', markupForLibrary);
+  refs.filmGalleryLibraryEl.innerHTML = markupForLibrary;
 }

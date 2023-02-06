@@ -1,13 +1,14 @@
 .header-home {
   background-color: #0000008f;
-  background-image: url("../images/header-home-mobile.svg");
+  background-image: url('../images/header-home-mobile.svg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
 }
 
 .header-library {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/header-library.svg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url('../images/header-library.svg');
   background-size: cover;
 }
 
@@ -66,7 +67,8 @@
   position: relative;
   justify-content: normal;
   margin-top: 90px;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-wrapper:hover,
@@ -145,6 +147,11 @@ input[data-autocompleted] {
   box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
   border: none;
 }
+.button-active {
+  background: #ff6b01;
+  box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+  border: none;
+}
 
 .logo {
   display: flex;
@@ -218,7 +225,7 @@ input[data-autocompleted] {
 
 @media screen and (min-width: 768px) {
   .header-home {
-    background-image: url("../images/header-home-tablet.svg");
+    background-image: url('../images/header-home-tablet.svg');
     height: 216px;
   }
   .form-wrapper {
@@ -248,7 +255,7 @@ input[data-autocompleted] {
 
 @media screen and (min-width: 1280px) {
   .header-home {
-    background-image: url("../images/header-home.svg");
+    background-image: url('../images/header-home.svg');
   }
   .header-home,
   .header-library {
