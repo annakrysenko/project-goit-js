@@ -32,6 +32,8 @@ function getMovies() {
     .map(film => {
       const { id, poster_path, title, genresArr, releaseDate, vote_average } =
         film;
+      const avarage = vote_average.toFixed(1);
+
       // console.log(genresArr);
       const BASE_URL = 'https://image.tmdb.org/t/p/w500';
       const markupCard = `
@@ -47,7 +49,7 @@ function getMovies() {
       <h2 class="movie-gallery__title">${title}</h2>
       <div class="movie-info">
         <p class="movie-info__genre">${genresArr} | ${releaseDate}</p>
-         <span class="movie-info__vote">IMDb: ${vote_average}</span>
+         <span class="movie-info__vote">IMDb: ${avarage}</span>
       </div>
     </div>
   </li>`;
