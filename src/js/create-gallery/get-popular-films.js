@@ -35,8 +35,8 @@ export async function getPopularFilms() {
   );
   containerPaginationPopularEl.innerHTML = markup;
   //================= ПАГІНАЦІЯ =======================
-  if (refs.pageBtns) {
-    refs.pageBtns.addEventListener('click', async e => {
+  if (containerPaginationPopularEl) {
+    containerPaginationPopularEl.addEventListener('click', async e => {
       if (e.target.nodeName !== 'BUTTON') {
         // return;
       }

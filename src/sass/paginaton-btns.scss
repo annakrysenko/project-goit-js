@@ -85,3 +85,23 @@
 //         margin: 0 auto;
 //     }
 // }
+
+html.dark .next,
+html.dark .previos {
+  fill: #ffffff;
+  background-color: #000000;
+}
+
+// html.dark .pgn-btn:hover,
+// html.dark .pgn-btn:focus,
+// html.dark .next:hover,
+// html.dark .previos:hover,
+// html.dark .next:focus,
+// html.dark .previos:focus {
+//   background-color: #ff6b08;
+//   color: rgb(255, 255, 255);
+//   fill: #ffffff;
+// }
+html.dark .pgn-btn {
+  color: white;
+}
