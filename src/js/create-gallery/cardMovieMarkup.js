@@ -19,7 +19,7 @@ export function cardMovieMarkup(
   //   }
 
   let genresNames = genre_ids.map(genre => genresAll[genre]).join(', ');
-  let releaseDate = release_date.slice(0, 4);
+  // let releaseDate = release_date.slice(0, 4);
   let markup = `
    <li class="movie-gallery__item" >
     <div class="movie-gallery__poster" data-id="${id}">
@@ -32,7 +32,7 @@ export function cardMovieMarkup(
     <div class="movie-gallery__wrap">
       <h2 class="movie-gallery__title">${title}</h2>
       <div class="movie-info">
-        <p class="movie-info__genre">${genresNames} | ${releaseDate}</p>
+        <p class="movie-info__genre">${genresNames} | ${release_date}</p>
          <span class="movie-info__vote">IMDb: ${vote_average}</span>
       </div>
     </div>
