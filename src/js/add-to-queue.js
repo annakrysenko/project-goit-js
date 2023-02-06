@@ -34,6 +34,9 @@ function getMoviesQueue() {
     .map(film => {
       const { id, poster_path, title, genresArr, releaseDate, vote_average } =
         film;
+      console.log('vote_average', vote_average);
+      const avarage = vote_average.toFixed(1);
+      console.log('avarage', avarage);
       // console.log(genresArr);
       console.log('poster_path', poster_path);
       const BASE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -50,7 +53,7 @@ function getMoviesQueue() {
       <h2 class="movie-gallery__title">${title}</h2>
       <div class="movie-info">
         <p class="movie-info__genre">${genresArr} | ${releaseDate}</p>
-         <span class="movie-info__vote">IMDb: ${vote_average}</span>
+         <span class="movie-info__vote">IMDb: ${avarage}</span>
       </div>
     </div>
   </li>`;

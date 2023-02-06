@@ -39,7 +39,6 @@ async function onFilmPosterClick(e) {
   } = moviePromise;
   const releaseDate = release_date.slice(0, 4);
   const genresArr = [...genres].map(genre => genre.name);
-
   movie = {
     poster_path,
     genresArr,
