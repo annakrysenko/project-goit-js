@@ -29,9 +29,9 @@ async function onFilmPosterClick(e) {
     popularity,
     original_title,
     title,
-     release_date,
+    release_date,
   } = moviePromise;
-
+  const releaseDate = release_date.slice(0, 4);
   const genresArr = [...genres].map(genre => genre.name);
   movie = {
     poster_path,
@@ -43,7 +43,7 @@ async function onFilmPosterClick(e) {
     popularity,
     original_title,
     title,
-     release_date,
+    releaseDate,
   };
   const markup = modalMarkup(movie);
   refs.containerEl.innerHTML = markup;
@@ -68,6 +68,7 @@ if (refs.modalEl) {
         const newArr = [movie];
         newArr.push;
         localStorage.setItem('add-to-watch', JSON.stringify(newArr));
+        console.log(newArr);
       }
     }
 if (e.target.innerText === 'ADD TO QUEUE') {
