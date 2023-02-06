@@ -13,6 +13,8 @@ let containerPaginationInputEl;
 export async function getFilmsFromInput(e) {
   e.preventDefault();
   if (document.querySelector('.pagination-list-popular')) {
+    refs.pageBtns.innerHTML = '';
+  }
   query = e.target.elements.input.value;
   console.log('query', query);
 
@@ -22,11 +24,13 @@ export async function getFilmsFromInput(e) {
   }
   refs.filmGalleryHomeEl.innerHTML = '';
   refs.loaderEl.classList.remove('hidden');
+  refs.pageBtns.classList.add('hidden');
 
   const searchFilms = await getAxiosSearchFilms(query);
   page = 1;
   currentPage = 1;
   refs.loaderEl.classList.add('hidden');
+  refs.pageBtns.classList.remove('hidden');
 
   if (searchFilms.total_results === 0) {
     makeErrorMassage();
@@ -58,14 +62,18 @@ export async function getFilmsFromInput(e) {
         console.log('page', page);
         //  console.log('currentPage', currentPage);
         //  console.log('searchFilms', searchFilms);
+        refs.loaderEl.classList.remove('hidden');
+        refs.pageBtns.classList.add('hidden');
         const searchPopularFilms = await getAxiosSearchFilms(page, query);
+        refs.loaderEl.classList.add('hidden');
+        refs.pageBtns.classList.remove('hidden');
         // totalPages = 99;
         const { results } = searchPopularFilms;
         const popularFilms = [...results];
 
         const popularFilmsMarkup = makeGalleryMarkup(popularFilms);
         currentPage = +e.target.innerText;
-        console.log('currentPage', currentPage);
+        // console.log('currentPage', currentPage);
 
         refs.filmGalleryHomeEl.innerHTML = popularFilmsMarkup;
 
@@ -74,13 +82,17 @@ export async function getFilmsFromInput(e) {
         containerPaginationInputEl.innerHTML = markup;
       }
       if (e.target.id === 'next') {
-        console.log('next', e.target.id);
-        console.log('page', page);
-        console.log('query', query);
+        // console.log('next', e.target.id);
+        // console.log('page', page);
+        // console.log('query', query);
 
         currentPage++;
         page++;
+        refs.loaderEl.classList.remove('hidden');
+        refs.pageBtns.classList.add('hidden');
         const searchPopularFilms = await getAxiosSearchFilms(page);
+        refs.loaderEl.classList.add('hidden');
+        refs.pageBtns.classList.remove('hidden');
         const { results } = searchPopularFilms;
         const popularFilms = [...results];
 
@@ -91,13 +103,17 @@ export async function getFilmsFromInput(e) {
         containerPaginationInputEl.innerHTML = markup;
       }
       if (e.target.id === 'previos') {
-        console.log('next', e.target.id);
-        console.log('page', page);
-        console.log('currentPage', currentPage);
+        // console.log('next', e.target.id);
+        // console.log('page', page);
+        // console.log('currentPage', currentPage);
 
         currentPage -= 1;
         page -= 1;
+        refs.loaderEl.classList.remove('hidden');
+        refs.pageBtns.classList.add('hidden');
         const searchPopularFilms = await getAxiosSearchFilms(page);
+        refs.loaderEl.classList.add('hidden');
+        refs.pageBtns.classList.remove('hidden');
         const { results } = searchPopularFilms;
         const popularFilms = [...results];
 

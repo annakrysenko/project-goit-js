@@ -12,11 +12,16 @@ let containerPaginationPopularEl;
 
 export async function getPopularFilms() {
   refs.filmGalleryHomeEl.innerHTML = '';
+  if (document.querySelector('.pagination-list-input')) {
+    refs.pageBtns.innerHTML = '';
+  }
   refs.loaderEl.classList.remove('hidden');
+  refs.pageBtns.classList.add('hidden');
 
   const searchPopularFilms = await getAxiosPopularFilms();
 
   refs.loaderEl.classList.add('hidden');
+  refs.pageBtns.classList.remove('hidden');
 
   const { results } = searchPopularFilms;
   // const currentPage = searchPopularFilms.page;
@@ -45,7 +50,11 @@ export async function getPopularFilms() {
         console.log('currentPage', currentPage);
 
         page = e.target.innerText;
+        refs.loaderEl.classList.remove('hidden');
+        refs.pageBtns.classList.add('hidden');
         const searchPopularFilms = await getAxiosPopularFilms(page);
+        refs.loaderEl.classList.add('hidden');
+        refs.pageBtns.classList.remove('hidden');
         // totalPages = 99;
         const { results } = searchPopularFilms;
         const popularFilms = [...results];
@@ -69,7 +78,11 @@ export async function getPopularFilms() {
 
         currentPage++;
         page++;
+        refs.loaderEl.classList.remove('hidden');
+        refs.pageBtns.classList.add('hidden');
         const searchPopularFilms = await getAxiosPopularFilms(page);
+        refs.loaderEl.classList.add('hidden');
+        refs.pageBtns.classList.remove('hidden');
         const { results } = searchPopularFilms;
         const popularFilms = [...results];
 
@@ -86,7 +99,11 @@ export async function getPopularFilms() {
 
         currentPage -= 1;
         page -= 1;
+        refs.loaderEl.classList.remove('hidden');
+        refs.pageBtns.classList.add('hidden');
         const searchPopularFilms = await getAxiosPopularFilms(page);
+        refs.loaderEl.classList.add('hidden');
+        refs.pageBtns.classList.remove('hidden');
         const { results } = searchPopularFilms;
         const popularFilms = [...results];
 
