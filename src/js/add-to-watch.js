@@ -28,7 +28,7 @@ function getMovies() {
   // let markupForLibrary = '';
   const markup = parseMovie
     .map(film => {
-      const { id, poster_path, title, genresArr, release_date, vote_average } =
+      const { id, poster_path, title, genresArr, releaseDate, vote_average } =
         film;
       // console.log(genresArr);
       const BASE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -44,7 +44,7 @@ function getMovies() {
     <div class="movie-gallery__wrap">
       <h2 class="movie-gallery__title">${title}</h2>
       <div class="movie-info">
-        <p class="movie-info__genre">${genresArr} | ${release_date}</p>
+        <p class="movie-info__genre">${genresArr} | ${releaseDate}</p>
          <span class="movie-info__vote">IMDb: ${vote_average}</span>
       </div>
     </div>
