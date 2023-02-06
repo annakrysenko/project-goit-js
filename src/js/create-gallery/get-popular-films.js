@@ -28,5 +28,10 @@ refs.pageBtns.innerHTML = ''
         refs.pageBtns.innerHTML = buttonsMurkup
 
 
-  refs.pageBtns.addEventListener('click', e => paginationPopular(e))
+  refs.pageBtns.addEventListener('click', e => {
+    if (e.target === e.currentTarget && e.target.nodeName === 'SPAN') {
+    return 
+    }
+    paginationPopular(e)
+  })
 }
