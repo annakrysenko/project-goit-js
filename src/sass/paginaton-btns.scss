@@ -1,5 +1,5 @@
 .pagination-list {
-  margin-top: 60;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,4 +104,7 @@ html.dark .previos {
 // }
 html.dark .pgn-btn {
   color: white;
+}
+.pagination-list.hidden {
+  display: none;
 }
