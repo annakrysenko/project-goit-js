@@ -177,14 +177,14 @@ html {
 }
 .header-home {
   background-color: rgba(0, 0, 0, 0.5607843137);
-  background-image: url("../images/header-home-mobile.svg");
+  background-image: url("./images/header-home-mobile.svg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
 }
 
 .header-library {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/header-library.svg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("./images/header-library.svg");
   background-size: cover;
 }
 
