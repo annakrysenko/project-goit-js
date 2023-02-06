@@ -1,202 +1,209 @@
 .backdrop {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.2);
-        opacity: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
 }
 
 .modal {
-        position: absolute;
-        background-color: #fff;
-        width: 90%;
-        height: 90%;
-        margin: 20px;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 45%;
-        &__close-btn {
-                position: absolute;
-                transform: translate(-50%, -50%);
-                right: -4%;
-                top: 4%;
-                background: transparent;
-                border: none;
-                font-size: 0;
-        }
+  position: absolute;
+  background-color: #fff;
+  width: 90%;
+  height: 90%;
+  margin: 20px;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 45%;
+  &__close-btn {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    right: -4%;
+    top: 4%;
+    background: transparent;
+    border: none;
+    font-size: 0;
+  }
 }
 
 .modal-container {
-        width: 100%;
-        height: 100%;
-        padding-top: 48px;
-        padding-bottom: 40px;
-        padding-left: 20px;
-        padding-right: 20px;
-        overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+  padding-top: 48px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow-y: scroll;
 
-        &__img {
-                object-fit: contain;
-                width: 100%;
-                border-radius: 5px;
-        }
-        &__title {
-                font-weight: 500;
-                font-size: 20px;
-                line-height: calc(23 / 20);
-                margin-top: 20px;
-                margin-bottom: 20px;
-        }
-        &__info {
-                display: flex;
-                gap: 20px;
-                margin-bottom: 20px;
+  &__img {
+    object-fit: contain;
+    width: 100%;
+    border-radius: 5px;
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: calc(23 / 20);
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  &__info {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
 
-                &--key {
-                        width: 120px;
-                }
+    &--key {
+      width: 120px;
+    }
 
-                &--keytext {
-                        color: #8c8c8c;
-                        font-size: 12px;
-                        font-weight: 500;
-                        line-height: calc(16 / 12);
-                        margin-bottom: 8px;
-                }
-                &--valuetext {
-                        font-size: 12px;
-                        font-weight: 500;
-                        line-height: calc(16 / 12);
-                        margin-bottom: 8px;
-                }
-        }
+    &--keytext {
+      color: #8c8c8c;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: calc(16 / 12);
+      margin-bottom: 8px;
+    }
+    &--valuetext {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: calc(16 / 12);
+      margin-bottom: 8px;
+    }
+  }
 
-        &__second-title {
-                font-weight: 500;
-                font-size: 12px;
-                line-height: calc(16 / 12);
-                margin-bottom: 8px;
-        }
+  &__second-title {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(16 / 12);
+    margin-bottom: 8px;
+  }
 
-        &__description {
-                font-weight: 500;
-                font-size: 12px;
-                line-height: calc(20 / 12);
-                margin-bottom: 20px;
-        }
+  &__description {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(20 / 12);
+    margin-bottom: 20px;
+  }
 }
 
 .trailers {
-        position: absolute;
-        bottom: 0%;
-        right: 0;
-        background: transparent;
-        border: none;
-        font-size: 0;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  font-weight: 700;
 }
-
+.icon-youtube {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
 .btn-container {
-        display: flex;
-        justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .watched {
-        width: 110px;
-        height: 44px;
-        background-color: #fff;
-        border: 1px solid #000000;
-        border-radius: 5px;
-        text-transform: uppercase;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: calc(16 / 12);
-        &:hover,
-        &:focus {
-                color: #fff;
-                background-color: #ff6b01;
-                border: none;
-        }
+  width: 110px;
+  height: 44px;
+  background-color: #fff;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  &:hover,
+  &:focus {
+    color: #fff;
+    background-color: #ff6b01;
+    border: none;
+  }
 }
 .queue {
-        width: 110px;
-        height: 44px;
-        background-color: #fff;
-        border: 1px solid #000000;
-        border-radius: 5px;
-        text-transform: uppercase;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: calc(16 / 12);
-        &:hover,
-        &:focus {
-                color: #fff;
-                background-color: #ff6b01;
-                border: none;
-        }
+  width: 110px;
+  height: 44px;
+  background-color: #fff;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  &:hover,
+  &:focus {
+    color: #fff;
+    background-color: #ff6b01;
+    border: none;
+  }
 }
 
 .avarage-effects {
-        display: inline-block;
-        background-color: #ff6b01;
-        border-radius: 5px;
-        width: 36px;
-        height: 16px;
-        text-align: center;
+  display: inline-block;
+  background-color: #ff6b01;
+  border-radius: 5px;
+  width: 36px;
+  height: 16px;
+  text-align: center;
 }
 .count-effect {
-        display: inline-block;
-        background-color: #f7f7f7;
-        border-radius: 5px;
-        width: 36px;
-        height: 16px;
+  display: inline-block;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  width: 36px;
+  height: 16px;
 }
 
 @media screen and (min-width: 768px) {
-        .modal {
-                left: 47%;
-                &__close-btn {
-                        right: -3%;
-                }
-        }
+  .modal {
+    left: 47%;
+    &__close-btn {
+      right: -3%;
+    }
+  }
 
-        .modal-container {
-                display: flex;
-                gap: 68;
-                padding-left: 36px;
-                padding-right: 72px;
+  .modal-container {
+    display: flex;
+    gap: 68;
+    padding-left: 36px;
+    padding-right: 72px;
 
-                &__img {
-                        height: 375px;
-                }
+    &__img {
+      height: 375px;
+    }
 
-                &__fullInfo {
-                        display: flex;
-                        flex-direction: column;
-                }
-                &__title {
-                        margin-top: 0;
-                }
-        }
+    &__fullInfo {
+      display: flex;
+      flex-direction: column;
+    }
+    &__title {
+      margin-top: 0;
+    }
+  }
 
-        .watched {
-                width: 125px;
-        }
+  .watched {
+    width: 125px;
+  }
 
-        .queue {
-                width: 125px;
-        }
+  .queue {
+    width: 125px;
+  }
 }
 .is-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        border: 0;
-        padding: 0;
-        white-space: nowrap;
-        clip-path: inset(100%);
-        clip: rect(0 0 0 0);
-        overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

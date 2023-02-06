@@ -26,18 +26,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  padding: 30px;
+  padding: 0;
   /* overflow: auto; */
 
   background-color: #ffffff;
-  border-radius: 22px;
+  border-radius: 5px;
 
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   @media screen and (min-width: 768px) {
-    padding: 40px;
+    padding: 0;
   }
   @media screen and (min-width: 1280px) {
-    padding: 50px;
+    padding: 30px;
   }
 }
 .trailer-btn__close {
@@ -46,25 +46,25 @@
   align-items: center;
   flex-direction: column;
   position: absolute;
-  top: 2px;
-  right: 2px;
-  width: 30px;
-  height: 30px;
+  top: 0;
+  right: 0;
+  width: 22px;
+  height: 22px;
   cursor: pointer;
   border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+  border: none;
+  background-color: rgba(212, 209, 206, 0.3);
   transition-property: background-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   @media screen and (min-width: 768px) {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
   @media screen and (min-width: 1280px) {
-
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
   }
 }
 .trailer-btn__close:hover,
@@ -73,8 +73,10 @@
 }
 .trailer-iframe {
   display: block;
-  width: 256px;
-  height: 144px;
+  width: 100%;
+  height: auto;
+  min-width: 256px;
+  min-height: 144px;
   @media screen and (min-width: 480px) {
     min-width: 320px;
     min-height: 180px;
