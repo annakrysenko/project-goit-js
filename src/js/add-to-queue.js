@@ -4,9 +4,7 @@ import { refs } from './DOM';
 // import { cardMovieMarkup } from './create-gallery/cardMovieMarkup';
 
 if (document.querySelector('.button-queue')) {
-  document
-    .querySelector('.button-queue')
-    .addEventListener('click', createQueue);
+  document.querySelector('.button-queue').addEventListener('click', createQueue);
 }
 
 function createQueue() {
@@ -28,8 +26,7 @@ function getMoviesQueue() {
   // let markupForLibrary = '';
   const markup = parseMovie
     .map(film => {
-      const { id, poster_path, title, genresArr, release_date, vote_average } =
-        film;
+      const { id, poster_path, title, genresArr, release_date, vote_average } = film;
       // console.log(genresArr);
       console.log('poster_path', poster_path);
       let URL;
