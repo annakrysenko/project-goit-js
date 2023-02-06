@@ -49,7 +49,13 @@ const query = e.target.elements.input.value;
   const buttonsMurkup = createPaginationBtns(currentPage, totalPages)
   refs.pageBtns.innerHTML = ''
   refs.pageBtnsInput.innerHTML = buttonsMurkup
-  refs.pageBtnsInput.addEventListener('click', ev => paginationInput(ev, query, totalPages))
+
+  refs.pageBtnsInput.addEventListener('click', ev => {
+    if (e.target === e.currentTarget && e.target.nodeName === 'SPAN') {
+    return 
+    }
+    paginationInput(ev, query, totalPages)
+  })
 }
 
 // потім

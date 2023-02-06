@@ -14,9 +14,7 @@ export async function paginationInput(ev, query ,totalPages) {
 
     request = query
     
-    if (ev.target.nodeName === 'UL' && ev.target.nodeName === 'SPAN') {
-        return
-    } if (ev.target.nodeName !== 'UL' && ev.target.nodeName !== 'SPAN') {
+    if (ev.target.nodeName !== 'DIV' && ev.target.nodeName !== 'SPAN') {
         refs.filmGalleryHomeEl.innerHTML = '';
         refs.loaderEl.classList.remove('hidden');
 

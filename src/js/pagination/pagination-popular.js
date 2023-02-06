@@ -7,17 +7,14 @@ import { createPaginationBtns } from "./pagination-buttons"
 let page = 1
 
 export async function paginationPopular(e) {
-    refs.pageBtns.innerHTML = ''
-        refs.pageBtnsInput.innerHTML = ''
     
     if (refs.inputAnswerParEl.textContent) {
         console.log(refs.inputAnswerParEl.textContent);
         return
     }
-    if (e.target.nodeName === 'UL' && e.target.nodeName === 'SPAN') {
-    return
-    } if (e.target.nodeName !== 'UL' && e.target.nodeName !== 'SPAN') {
-        refs.filmGalleryHomeEl.innerHTML = '';
+    if (e.target.nodeName !== 'DIV' && e.target.nodeName !== 'SPAN') {
+        refs.pageBtns.innerHTML = ''
+        refs.pageBtnsInput.innerHTML = ''
         refs.loaderEl.classList.remove('hidden');
 
         if (e.target.classList.contains('previos')) {
