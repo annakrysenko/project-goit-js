@@ -10,6 +10,8 @@ if (document.querySelector('.button-watched')) {
 }
 
 function createWatched() {
+  document.querySelector('.button-watched').classList.add('current');
+  document.querySelector('.button-queue').classList.remove('current');
   const markup = getMovies();
 
   refs.filmGalleryLibraryEl.innerHTML = markup;
@@ -28,8 +30,10 @@ function getMovies() {
   // let markupForLibrary = '';
   const markup = parseMovie
     .map(film => {
-      const { id, poster_path, title, genresArr, release_date, vote_average } =
+      const { id, poster_path, title, genresArr, releaseDate, vote_average } =
         film;
+      const avarage = vote_average.toFixed(1);
+
       // console.log(genresArr);
       const BASE_URL = 'https://image.tmdb.org/t/p/w500';
       const markupCard = `
@@ -44,8 +48,8 @@ function getMovies() {
     <div class="movie-gallery__wrap">
       <h2 class="movie-gallery__title">${title}</h2>
       <div class="movie-info">
-        <p class="movie-info__genre">${genresArr} | ${release_date}</p>
-         <span class="movie-info__vote">IMDb: ${vote_average}</span>
+        <p class="movie-info__genre">${genresArr} | ${releaseDate}</p>
+         <span class="movie-info__vote">IMDb: ${avarage}</span>
       </div>
     </div>
   </li>`;
