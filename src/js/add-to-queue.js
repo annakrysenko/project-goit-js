@@ -28,31 +28,24 @@ function getMoviesQueue() {
   // let markupForLibrary = '';
   const markup = parseMovie
     .map(film => {
-      const { id, poster_path, title, genresArr, release_date, vote_average } =
+      const { id, poster_path, title, genresArr, releaseDate, vote_average } =
         film;
       // console.log(genresArr);
       console.log('poster_path', poster_path);
-      let URL;
-      if (poster_path) {
-        URL = `https://image.tmdb.org/t/p/w500${poster_path}`;
-      } else if (!poster_path) {
-        URL =
-          'https://images.pexels.com/photos/65128/pexels-photo-65128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
-      }
-
+      const BASE_URL = 'https://image.tmdb.org/t/p/w500';
       const markupCard = `
    <li class="movie-gallery__item" >
     <div class="movie-gallery__poster" data-id="${id}">
       <img
         class="movie-gallery__photo"
-        src="${URL}"
+        src="${BASE_URL}${poster_path}"
         alt="${title}"
       />
     </div>
     <div class="movie-gallery__wrap">
       <h2 class="movie-gallery__title">${title}</h2>
       <div class="movie-info">
-        <p class="movie-info__genre">${genresArr} | ${release_date}</p>
+        <p class="movie-info__genre">${genresArr} | ${releaseDate}</p>
          <span class="movie-info__vote">IMDb: ${vote_average}</span>
       </div>
     </div>
