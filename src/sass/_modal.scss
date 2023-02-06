@@ -22,8 +22,8 @@
         &__close-btn {
                 position: absolute;
                 transform: translate(-50%, -50%);
-                right: -2%;
-                top: 3%;
+                right: 0%;
+                top: 5%;
                 background: transparent;
                 border: none;
                 font-size: 0;
@@ -38,6 +38,7 @@
         padding-left: 20px;
         padding-right: 20px;
         overflow-y: auto;
+        overflow-x: hidden;
         
 
         &__img {
@@ -165,8 +166,7 @@
 @media screen and (min-width: 768px) {
         .modal {
                 left: 47%;
-                height: fit-content;
-                max-height: 552px;
+               max-height: 500px;
                 
         }
 
