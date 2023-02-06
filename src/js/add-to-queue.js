@@ -60,3 +60,10 @@ function getMoviesQueue() {
     .join('');
   return markup;
 }
+refs.libRemoveBtn.addEventListener('click', removeFromQueue);
+
+function removeFromQueue(e) {
+  if (e.target === 'add-to-queue') {
+    localStorage.clear();
+  }
+}

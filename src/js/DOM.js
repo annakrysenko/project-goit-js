@@ -12,6 +12,7 @@ export const refs = {
   //galleries
   filmGalleryHomeEl: document.querySelector('.movie-gallery'),
   filmGalleryLibraryEl: document.querySelector('.movie-gallery-library'),
+  libRemoveBtn: document.querySelector('.button-remove'),
 
   //modal footer
   openModalBtn: document.querySelector('[data-action="open-modal"]'),

@@ -3,12 +3,10 @@ import { getMovieByID } from '../axios';
 import { modalMarkup } from './modal-markup';
 
 if (refs.filmGalleryHomeEl) {
-  refs.filmGalleryHomeEl.addEventListener('click', e => onFilmPosterClick(e)),
-    false;
+  refs.filmGalleryHomeEl.addEventListener('click', e => onFilmPosterClick(e)), false;
 }
 if (refs.filmGalleryLibraryEl) {
-  refs.filmGalleryLibraryEl.addEventListener('click', e => onFilmPosterClick(e)),
-    false;
+  refs.filmGalleryLibraryEl.addEventListener('click', e => onFilmPosterClick(e)), false;
 }
 
 let movie;
@@ -50,20 +48,15 @@ async function onFilmPosterClick(e) {
 }
 
 if (refs.modalEl) {
-   
   refs.modalEl.addEventListener('click', e => {
     if (e.target.innerText === 'ADD TO WATCHED') {
       e.stopPropagation;
-      const getArrayForWatched = JSON.parse(
-        localStorage.getItem('add-to-watch')
-      );
+      const getArrayForWatched = JSON.parse(localStorage.getItem('add-to-watch'));
       if (getArrayForWatched) {
         getArrayForWatched.push(movie);
-        const key = 'id'
+        const key = 'id';
         const unique = [...new Map(getArrayForWatched.map(obj => [obj[key], obj])).values()];
-        localStorage.setItem(
-          'add-to-watch',
-          JSON.stringify(unique));
+        localStorage.setItem('add-to-watch', JSON.stringify(unique));
       } else {
         const newArr = [movie];
         newArr.push;
@@ -71,19 +64,14 @@ if (refs.modalEl) {
         console.log(newArr);
       }
     }
-if (e.target.innerText === 'ADD TO QUEUE') {
+    if (e.target.innerText === 'ADD TO QUEUE') {
       e.stopPropagation;
-      const getArrayForWatched = JSON.parse(
-        localStorage.getItem('add-to-queue')
-      );
+      const getArrayForWatched = JSON.parse(localStorage.getItem('add-to-queue'));
       if (getArrayForWatched) {
-        getArrayForWatched.push(movie );
-        const key = 'id'
+        getArrayForWatched.push(movie);
+        const key = 'id';
         const unique = [...new Map(getArrayForWatched.map(obj => [obj[key], obj])).values()];
-        localStorage.setItem(
-          'add-to-queue',
-          JSON.stringify(unique)
-        );
+        localStorage.setItem('add-to-queue', JSON.stringify(unique));
       } else {
         const newArr = [movie];
         newArr.push;
@@ -93,13 +81,5 @@ if (e.target.innerText === 'ADD TO QUEUE') {
     if (e.target.classList.value === 'modal__close-btn') {
       refs.backdropEl.classList.add('is-hidden');
     }
-  })
+  });
 }
-
-   
-  
-
-
-
-
-
