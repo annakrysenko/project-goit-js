@@ -10,14 +10,14 @@ export function cardMovieMarkup(
   release_date,
   vote_average
 ) {
-  // console.log(poster_path);
-  //   let poster_url = `${BASE_URL}${poster_path}`;
-  //   if (!poster_path) {
-  //     console.log('no poster ', id, poster_path, 'poster_path');
-  //     poster_path =
-  //       'https://cdn.pixabay.com/photo/2017/06/02/22/01/dog-2367414_1280.png';
-  //   }
-
+  console.log(poster_path);
+  // let poster_url;
+  // if (!poster_path) {
+  //   console.log('no poster ', id, poster_path, 'poster_path');
+  //   poster_path =
+  //     'https://cdn.pixabay.com/photo/2017/06/02/22/01/dog-2367414_1280.png';
+  // }
+  const releaseDate = release_date.slice(0, 4);
   let genresNames = genre_ids.map(genre => genresAll[genre]).join(', ');
   // let releaseDate = release_date.slice(0, 4);
   let markup = `
@@ -32,7 +32,7 @@ export function cardMovieMarkup(
     <div class="movie-gallery__wrap">
       <h2 class="movie-gallery__title">${title}</h2>
       <div class="movie-info">
-        <p class="movie-info__genre">${genresNames} | ${release_date}</p>
+        <p class="movie-info__genre">${genresNames} | ${releaseDate}</p>
          <span class="movie-info__vote">IMDb: ${vote_average}</span>
       </div>
     </div>
