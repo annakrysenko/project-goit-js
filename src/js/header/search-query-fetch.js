@@ -6,11 +6,6 @@ import { paginationInput } from '../pagination/pagination-input';
 import { createPaginationBtns } from '../pagination/pagination-buttons';
 
 
-let page;
-let currentPage;
-let query;
-let totalPages;
-let containerPaginationInputEl;
 export async function getFilmsFromInput(e) {
 e.preventDefault();
   
@@ -27,8 +22,6 @@ const query = e.target.elements.input.value;
   refs.loaderEl.classList.remove('hidden');
 
   const searchFilms = await getAxiosSearchFilms(query);
-  page = 1;
-  currentPage = 1;
   refs.loaderEl.classList.add('hidden');
 
   if (searchFilms.total_results === 0) {

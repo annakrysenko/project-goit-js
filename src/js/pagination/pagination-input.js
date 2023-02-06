@@ -9,8 +9,8 @@ let page = 1
 let request;
 
 export async function paginationInput(ev, query ,totalPages) {
-     refs.pageBtns.innerHTML = ''
-        refs.pageBtnsInput.innerHTML = ''
+    refs.pageBtns.innerHTML = ''
+    refs.pageBtnsInput.innerHTML = ''
 
     request = query
     
