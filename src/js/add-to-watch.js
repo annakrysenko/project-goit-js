@@ -10,6 +10,8 @@ if (document.querySelector('.button-watched')) {
 }
 
 function createWatched() {
+  document.querySelector('.button-watched').classList.add('current');
+  document.querySelector('.button-queue').classList.remove('current');
   const markup = getMovies();
 
   refs.filmGalleryLibraryEl.innerHTML = markup;

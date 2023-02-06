@@ -7,9 +7,13 @@ if (document.querySelector('.button-queue')) {
   document
     .querySelector('.button-queue')
     .addEventListener('click', createQueue);
+  createQueue();
 }
 
 function createQueue() {
+  document.querySelector('.button-watched').classList.remove('current');
+  document.querySelector('.button-queue').classList.add('current');
+
   const markup = getMoviesQueue();
   refs.filmGalleryLibraryEl.innerHTML = markup;
 }
