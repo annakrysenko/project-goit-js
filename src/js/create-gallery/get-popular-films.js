@@ -1,10 +1,14 @@
 import { getAxiosPopularFilms } from '../axios';
 import { refs } from '../DOM';
 import { makeGalleryMarkup } from './make-home-gallery';
-import { createPaginationBtns } from '../pagination-buttons';
-import { paginationPopular } from '../pagination';
+import { createPaginationBtns } from '../pagination/pagination-buttons';
+import { paginationPopular } from '../pagination/pagination-popular';
+
 
 export async function getPopularFilms() {
+refs.pageBtns.innerHTML = ''
+        refs.pageBtnsInput.innerHTML = ''
+
   refs.filmGalleryHomeEl.innerHTML = '';
   refs.loaderEl.classList.remove('hidden');
 
@@ -14,11 +18,20 @@ export async function getPopularFilms() {
 
   const { results } = searchPopularFilms;
   const currentPage = searchPopularFilms.page;
-  const totalPages = 99
+  const totalPages = 99;
   const popularFilms = [...results];
   const popularFilmsMarkup = makeGalleryMarkup(popularFilms);
-  
+
   refs.filmGalleryHomeEl.innerHTML = popularFilmsMarkup;
-  createPaginationBtns(currentPage, totalPages)
-  refs.pageBtns.addEventListener('click', e => paginationPopular(e))
+  const buttonsMurkup = createPaginationBtns(currentPage, totalPages)
+        refs.pageBtnsInput.innerHTML = ''
+        refs.pageBtns.innerHTML = buttonsMurkup
+
+
+  refs.pageBtns.addEventListener('click', e => {
+    if (e.target === e.currentTarget && e.target.nodeName === 'SPAN') {
+    return 
+    }
+    paginationPopular(e)
+  })
 }

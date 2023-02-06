@@ -5,11 +5,13 @@ export const refs = {
   inputAnswerParEl: document.querySelector('.input-answer'),
 
   homeBTN: document.querySelector('.home'),
+  libraryCurrentBntEl: document.querySelector('.my-library .current'),
   pageBtns: document.querySelector('.pagination-list'),
+  pageBtnsInput: document.querySelector('.paginatio-input-list'),
 
   //galleries
   filmGalleryHomeEl: document.querySelector('.movie-gallery'),
-  filmGalleryLibraryEl: document.querySelector('movie-gallery-library'),
+  filmGalleryLibraryEl: document.querySelector('.movie-gallery-library'),
 
   //modal footer
   openModalBtn: document.querySelector('[data-action="open-modal"]'),
@@ -19,6 +21,8 @@ export const refs = {
   //Модалка Максима
   modalEl: document.querySelector('.modal'),
   backdropEl: document.querySelector('.backdrop'),
+  containerEl: document.querySelector('.modal-container'),
+  modalCloseBtn: document.querySelector('.modal__close-btn'),
 
   //loader spiner
   loaderEl: document.querySelector('.loader'),
@@ -37,4 +41,5 @@ export const refs = {
   trailerBox: document.querySelector('.trailer-box'),
   trailerBtnClose: document.querySelector('.trailer-btn__close'),
   trailerBtnOpen: document.querySelector('[data-modal-open]'),
+  boxIframe: document.querySelector('.box-iframe'),
 };

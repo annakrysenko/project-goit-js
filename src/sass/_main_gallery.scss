@@ -44,7 +44,6 @@
     }
 }
 
-
 .movie-gallery__poster {
     position: relative;
     margin-bottom: 10px;
@@ -93,7 +92,7 @@
 .movie-info {
     font-weight: 500;
     font-size: 12px;
-    line-height: calc(16/12);
+    line-height: calc(16 / 12);
     font-size: 14px;
     display: flex;
     gap: 5px;
@@ -101,7 +100,7 @@
 
     @media screen and (min-width: 1280px) {
         font-size: 16px;
-        line-height: calc(20/16);
+        line-height: calc(20 / 16);
     }
 }
 
@@ -119,5 +118,23 @@
     text-align: center;
     text-transform: uppercase;
     background-color: #ff6b01;
+    color: #ffffff;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 40px;
+    min-height: 20px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #ff6b01;
+
     color: #ffffff;
 }

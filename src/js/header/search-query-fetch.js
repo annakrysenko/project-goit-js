@@ -2,12 +2,17 @@ import { getAxiosSearchFilms } from '../axios';
 import { refs } from '../DOM';
 import { makeGalleryMarkup } from '../create-gallery/make-home-gallery';
 import { makeErrorMassage } from '../header/arror-mass-header';
-import { paginationInput } from '../pagination';
-import { createPaginationBtns } from '../pagination-buttons';
+import { paginationInput } from '../pagination/pagination-input';
+import { createPaginationBtns } from '../pagination/pagination-buttons';
+
 
 export async function getFilmsFromInput(e) {
-  e.preventDefault();
-  const query = e.target.elements.input.value;
+e.preventDefault();
+  
+refs.pageBtns.innerHTML = '';
+refs.pageBtnsInput.innerHTML = '';
+
+const query = e.target.elements.input.value;
 
   if (query.trim() === '') {
     makeErrorMassage();
@@ -17,7 +22,6 @@ export async function getFilmsFromInput(e) {
   refs.loaderEl.classList.remove('hidden');
 
   const searchFilms = await getAxiosSearchFilms(query);
-  console.log(searchFilms);
   refs.loaderEl.classList.add('hidden');
 
   if (searchFilms.total_results === 0) {
@@ -27,14 +31,31 @@ export async function getFilmsFromInput(e) {
   refs.inputAnswerParEl.innerHTML = '';
 
   const { results } = searchFilms;
+  console.log(searchFilms);
   const films = [...results];
   const currentPage = searchFilms.page;
-  const totalPages = 99;
+  let totalPages;
+
+  if (searchFilms.total_pages > 99) {
+            totalPages = 99
+        } else {
+            totalPages = searchFilms.total_pages
+        }
+
   const galleryMarkup = makeGalleryMarkup(films);
 
   refs.filmGalleryHomeEl.innerHTML = galleryMarkup;
-  createPaginationBtns(currentPage, totalPages);
-  refs.pageBtns.addEventListener('click', ev => paginationInput(ev, query));
+  
+  const buttonsMurkup = createPaginationBtns(currentPage, totalPages)
+  refs.pageBtns.innerHTML = ''
+  refs.pageBtnsInput.innerHTML = buttonsMurkup
+
+  refs.pageBtnsInput.addEventListener('click', ev => {
+    if (e.target === e.currentTarget && e.target.nodeName === 'SPAN') {
+    return 
+    }
+    paginationInput(ev, query, totalPages)
+  })
 }
 
 // потім
