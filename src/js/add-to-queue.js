@@ -4,24 +4,35 @@ import { refs } from './DOM';
 // import { cardMovieMarkup } from './create-gallery/cardMovieMarkup';
 
 if (document.querySelector('.button-queue')) {
-  document.querySelector('.button-queue').addEventListener('click', getMoviesFromAPI);
-  document.querySelector('.button-queue').classList.add('button-active');
-  document.querySelector('.button-watched').classList.remove('button-active');
+  document
+    .querySelector('.button-queue')
+    .addEventListener('click', createQueue);
 }
 
-function getMoviesFromAPI() {
+function createQueue() {
+  const markup = getMoviesQueue();
+  refs.filmGalleryLibraryEl.innerHTML = markup;
+}
+
+function getMoviesQueue() {
   const saveMovie = localStorage.getItem('add-to-queue');
-  //   console.log(saveMovie);
+  if (!saveMovie) {
+    console.log('nothing');
+    return '<p>Nothing here yet</p>';
+  }
+  console.log('saveMovie', saveMovie);
   const parseMovie = JSON.parse(saveMovie);
-  //   console.log(parseMovie);
+  console.log('parseMovie', parseMovie);
 
   //   console.log(typeof parseMovie);
-  let markupForLibrary = '';
-  for (let film of parseMovie) {
-    const { id, poster_path, title, genresArr, release_date, vote_average } = film;
-    // console.log(genresArr);
-    const BASE_URL = 'https://image.tmdb.org/t/p/w500';
-    const markup = `
+  // let markupForLibrary = '';
+  const markup = parseMovie
+    .map(film => {
+      const { id, poster_path, title, genresArr, release_date, vote_average } =
+        film;
+      // console.log(genresArr);
+      const BASE_URL = 'https://image.tmdb.org/t/p/w500';
+      const markupCard = `
    <li class="movie-gallery__item" >
     <div class="movie-gallery__poster" data-id="${id}">
       <img
@@ -38,10 +49,11 @@ function getMoviesFromAPI() {
       </div>
     </div>
   </li>`;
-    // console.log(markup);
-    markupForLibrary += markup;
-  }
-
-  console.log('markupForLibrary===>>>', markupForLibrary);
-  refs.filmGalleryLibraryEl.innerHTML = markupForLibrary;
+      // console.log(markup);
+      // markupForLibrary += markup;
+      // return markupForLibrary;
+      return markupCard;
+    })
+    .join('');
+  return markup;
 }

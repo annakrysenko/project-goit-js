@@ -1,18 +1,11 @@
-.is-hiden{
-        display: none;
-}
-
-
-.backdrop{
-    position: fixed;
+.backdrop {
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.2);
         opacity: 1;
-       
-       
 }
 
 .modal {
@@ -25,77 +18,74 @@
         top: 50%;
         left: 45%;
         &__close-btn {
-        position: absolute;
-        transform: translate(-50%, -50%);
-        right: -4%;
-        top: 4%;
-        background: transparent;
-        border: none;
-        font-size: 0;
-                }
-      
+                position: absolute;
+                transform: translate(-50%, -50%);
+                right: -4%;
+                top: 4%;
+                background: transparent;
+                border: none;
+                font-size: 0;
         }
-        
-.modal-container{
-                width: 100%;
-                height: 100%;
-                padding-top: 48px;
-                padding-bottom: 40px;
-                padding-left: 20px;
-                padding-right: 20px;
-                overflow-y: scroll;
-        
-        
-        
+}
+
+.modal-container {
+        width: 100%;
+        height: 100%;
+        padding-top: 48px;
+        padding-bottom: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        overflow-y: scroll;
+
         &__img {
                 object-fit: contain;
-                width: 100%; 
-                border-radius: 5px;           
+                width: 100%;
+                border-radius: 5px;
         }
-        &__title{
+        &__title {
                 font-weight: 500;
                 font-size: 20px;
-                line-height: calc(23/20);
+                line-height: calc(23 / 20);
                 margin-top: 20px;
                 margin-bottom: 20px;
         }
-       &__info{
-        display: flex;
-        gap: 20px;
-        margin-bottom: 20px;
-        
-       &--key{
-        width: 120px;}
+        &__info {
+                display: flex;
+                gap: 20px;
+                margin-bottom: 20px;
 
-        &--keytext{
-                color: #8C8C8C;
-                font-size: 12px;
-                font-weight: 500;
-                line-height: calc(16/12);
-                margin-bottom: 8px;}
-        &--valuetext{
-                font-size: 12px;
-                font-weight: 500;
-                line-height: calc(16/12);
-                margin-bottom: 8px;}
+                &--key {
+                        width: 120px;
+                }
+
+                &--keytext {
+                        color: #8c8c8c;
+                        font-size: 12px;
+                        font-weight: 500;
+                        line-height: calc(16 / 12);
+                        margin-bottom: 8px;
+                }
+                &--valuetext {
+                        font-size: 12px;
+                        font-weight: 500;
+                        line-height: calc(16 / 12);
+                        margin-bottom: 8px;
+                }
         }
-       
-       
-       &__second-title {
-               font-weight: 500;
-               font-size: 12px;
-               line-height: calc(16/12);
-               margin-bottom: 8px;
-       }
 
-       &__description {
-               font-weight: 500;
-               font-size: 12px;
-               line-height: calc(20/12);
-               margin-bottom: 20px;
-       }
-       
+        &__second-title {
+                font-weight: 500;
+                font-size: 12px;
+                line-height: calc(16 / 12);
+                margin-bottom: 8px;
+        }
 
+        &__description {
+                font-weight: 500;
+                font-size: 12px;
+                line-height: calc(20 / 12);
+                margin-bottom: 20px;
+        }
 }
 
 .trailers {
@@ -105,10 +95,9 @@
         background: transparent;
         border: none;
         font-size: 0;
-
 }
 
-.btn-container{
+.btn-container {
         display: flex;
         justify-content: space-between;
 }
@@ -122,12 +111,12 @@
         text-transform: uppercase;
         font-weight: 500;
         font-size: 12px;
-        line-height: calc(16/12);
+        line-height: calc(16 / 12);
         &:hover,
-        &:focus{
-           color: #fff;
-           background-color:#FF6B01;
-           border: none;
+        &:focus {
+                color: #fff;
+                background-color: #ff6b01;
+                border: none;
         }
 }
 .queue {
@@ -139,63 +128,75 @@
         text-transform: uppercase;
         font-weight: 500;
         font-size: 12px;
-        line-height: calc(16/12);
+        line-height: calc(16 / 12);
         &:hover,
         &:focus {
                 color: #fff;
-                background-color: #FF6B01;
+                background-color: #ff6b01;
                 border: none;
-                }
+        }
 }
 
-.avarage-effects{
+.avarage-effects {
         display: inline-block;
-        background-color: #FF6B01;
+        background-color: #ff6b01;
         border-radius: 5px;
         width: 36px;
-        height: 16px; 
+        height: 16px;
         text-align: center;
 }
-.count-effect{
+.count-effect {
         display: inline-block;
-        background-color: #F7F7F7;
+        background-color: #f7f7f7;
         border-radius: 5px;
         width: 36px;
         height: 16px;
 }
 
-  @media screen and (min-width: 768px) {
-          .modal {
+@media screen and (min-width: 768px) {
+        .modal {
                 left: 47%;
-                  &__close-btn {
-                          right: -3%
-                  }
-          }
+                &__close-btn {
+                        right: -3%;
+                }
+        }
 
-          .modal-container {
-                  display: flex;
-                  gap: 68;
-                  padding-left: 36px;
-                  padding-right: 72px;
+        .modal-container {
+                display: flex;
+                gap: 68;
+                padding-left: 36px;
+                padding-right: 72px;
 
-                  &__img {
-                          height: 375px;
-                  }
+                &__img {
+                        height: 375px;
+                }
 
-                  &__fullInfo {
-                          display: flex;
-                          flex-direction: column;
-                  }
-                  &__title{
+                &__fullInfo {
+                        display: flex;
+                        flex-direction: column;
+                }
+                &__title {
                         margin-top: 0;
-                  }
-          }
+                }
+        }
 
-          .watched {
-                  width: 125px;
-          }
+        .watched {
+                width: 125px;
+        }
 
-          .queue {
-                  width: 125px;
-          }
-  }
+        .queue {
+                width: 125px;
+        }
+}
+.is-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        border: 0;
+        padding: 0;
+        white-space: nowrap;
+        clip-path: inset(100%);
+        clip: rect(0 0 0 0);
+        overflow: hidden;
+}
