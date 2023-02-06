@@ -47,7 +47,7 @@ export async function getFilmsFromInput(e) {
   containerPaginationInputEl = document.querySelector('.pagination-list-input');
   containerPaginationInputEl.innerHTML = markup;
   // ================= ПАГІНАЦІЯ =================
-  if (refs.pageBtns) {
+  if (containerPaginationInputEl) {
     containerPaginationInputEl.addEventListener('click', async e => {
       if (e.target.nodeName !== 'BUTTON') {
         // return;
