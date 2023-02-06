@@ -62,8 +62,9 @@ function getMoviesQueue() {
 }
 refs.libRemoveBtn.addEventListener('click', removeFromQueue);
 
-function removeFromQueue(e) {
-  if (e.target === 'add-to-queue') {
-    localStorage.clear();
-  }
+function removeFromQueue() {
+  console.log('click');
+  // if (e.target === 'add-to-queue') {
+  //   localStorage.clear();
+  // }
 }
