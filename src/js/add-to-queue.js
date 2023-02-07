@@ -1,12 +1,7 @@
 import { refs } from './DOM';
-// import { getMovieByID } from './axios';
-// import { makeGalleryMarkup } from './create-gallery/make-home-gallery';
-// import { cardMovieMarkup } from './create-gallery/cardMovieMarkup';
 
 if (document.querySelector('.button-queue')) {
-  document
-    .querySelector('.button-queue')
-    .addEventListener('click', createQueue);
+  document.querySelector('.button-queue').addEventListener('click', createQueue);
   createQueue();
 }
 
@@ -21,6 +16,9 @@ function createQueue() {
 function getMoviesQueue() {
   const saveMovie = localStorage.getItem('add-to-queue');
   if (!saveMovie) {
+    if (document.querySelector('.button-remove')) {
+      document.querySelector('.button-remove').classList.add('vis-hidden');
+    }
     console.log('nothing');
     return '<p>Nothing here yet</p>';
   }
@@ -28,16 +26,12 @@ function getMoviesQueue() {
   const parseMovie = JSON.parse(saveMovie);
   console.log('parseMovie', parseMovie);
 
-  //   console.log(typeof parseMovie);
-  // let markupForLibrary = '';
   const markup = parseMovie
     .map(film => {
-      const { id, poster_path, title, genresArr, releaseDate, vote_average } =
-        film;
+      const { id, poster_path, title, genresArr, releaseDate, vote_average } = film;
       console.log('vote_average', vote_average);
       const avarage = vote_average.toFixed(1);
       console.log('avarage', avarage);
-      // console.log(genresArr);
       console.log('poster_path', poster_path);
       const BASE_URL = 'https://image.tmdb.org/t/p/w500';
       const markupCard = `
@@ -57,11 +51,30 @@ function getMoviesQueue() {
       </div>
     </div>
   </li>`;
-      // console.log(markup);
-      // markupForLibrary += markup;
-      // return markupForLibrary;
       return markupCard;
     })
     .join('');
   return markup;
+}
+
+if (document.querySelector('.button-remove')) {
+  document.querySelector('.button-remove').addEventListener('click', onClickRemove);
+}
+
+function onClickRemove() {
+  const btnQ = document.querySelector('.button-queue');
+  const btnW = document.querySelector('.button-wached');
+  if (btnQ.className === 'button-queue current') {
+    removeFromQueue();
+  } else if (btnW.className === 'button-wached current') {
+    removeFromWatched();
+  }
+}
+
+function removeFromQueue() {
+  localStorage.removeItem('add-to-queue');
+}
+
+function removeFromWatched() {
+  localStorage.removeItem('add-to-watch');
 }
