@@ -1,4 +1,3 @@
-
 import { getMovieTrailerByID } from './axios';
 import { refs } from './DOM';
 
@@ -6,7 +5,8 @@ refs.modalEl.addEventListener('click', createMovieIframe);
 async function createMovieIframe(e) {
   if (
     e.target.className !== 'trailers' &&
-    e.target.className !== 'icon-youtube'
+    e.target.className !== 'icon-youtube' &&
+    e.target.className !== 'trailers-text'
   ) {
     return;
   }
@@ -26,7 +26,7 @@ async function createMovieIframe(e) {
     <iframe class='trailer-iframe' width="auto" height="auto" src='https://www.youtube.com/embed/zwBpUdZ0lrQ' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       `;
     refs.boxIframe.innerHTML = error;
-    closeBackdrop();
+    closeMovieTrailer();
   }
 }
 if (refs.trailerBackdrop) {

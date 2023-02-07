@@ -31,6 +31,8 @@ export async function paginationInput(ev, query ,totalPages) {
         refs.loaderEl.classList.add('hidden');
 
         const { results } = searchFilms;
+
+
         
         const currentPage = searchFilms.page
         const popularFilms = [...results];

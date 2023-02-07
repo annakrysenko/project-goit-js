@@ -15,7 +15,10 @@ let movie;
 async function onFilmPosterClick(e) {
   // if e.target.offsetParent.dataset.id
   e.stopPropagation;
-  refs.backdropEl.classList.remove('is-hidden');
+  console.dir(e.target)
+  if (e.target.className === "movie-gallery__photo") {
+    refs.backdropEl.classList.remove('is-hidden');
+  }
   const filmId = e.target.offsetParent.dataset.id;
 
   const moviePromise = await getMovieByID(filmId);

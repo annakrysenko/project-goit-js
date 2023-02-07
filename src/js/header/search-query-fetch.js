@@ -38,10 +38,10 @@ const query = e.target.elements.input.value;
 
   if (searchFilms.total_pages > 99) {
             totalPages = 99
-        } else {
+        } else if (searchFilms.total_pages < 99) {
             totalPages = searchFilms.total_pages
         }
-
+  console.log(totalPages);
   const galleryMarkup = makeGalleryMarkup(films);
 
   refs.filmGalleryHomeEl.innerHTML = galleryMarkup;
@@ -51,13 +51,11 @@ const query = e.target.elements.input.value;
   refs.pageBtnsInput.innerHTML = buttonsMurkup
 
   refs.pageBtnsInput.addEventListener('click', ev => {
-    if (e.target === e.currentTarget && e.target.nodeName === 'SPAN') {
+    if (ev.target === ev.currentTarget || ev.target.nodeName === 'SPAN') {
+      console.log(e.target);
     return 
     }
+    console.log(e.target);
     paginationInput(ev, query, totalPages)
   })
 }
-
-// потім
-
-// localStorage.setItem('query', q)
