@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    background-color: rgba(73, 73, 73, 0.877);
 }
 
 .choice-genre {
@@ -13,6 +13,8 @@
     color: white;
     border-radius: 5px;
     border: 0.5px solid white;
+    margin: 0 auto;
+    margin-top: 10px;
 }
 
 .choice-genre:hover,
@@ -27,8 +29,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    column-gap: 10px;
-    row-gap: 5px;
+    // column-gap: 10px;
+    // row-gap: 5px;
+    padding: 0;
 }
 
 .genres-list__item {
@@ -40,6 +43,9 @@
     border: none;
     color: white;
     font-size: 12px;
+    padding: 5px;
+    letter-spacing: 0.5;
+    text-transform: uppercase;
 }
 .btn-genre:hover,
 .btn-genre:focus,
