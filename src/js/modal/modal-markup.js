@@ -44,7 +44,5 @@ export function modalMarkup(movie) {
   <button class="watched" id='watched-modal' type="button">add to Watched</button>
   <button class="queue" id='queue-modal' type="button">add to queue</button>
   </div>
-  
-
   `;
 }
