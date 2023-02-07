@@ -18,6 +18,7 @@ async function onFilmPosterClick(e) {
   if (e.target.className === "movie-gallery__photo") {
     refs.backdropEl.classList.remove('is-hidden');
     refs.backdropEl.addEventListener('click', onModalListeners);
+    document.addEventListener('click', closeModalByDocument)
     window.addEventListener('keydown', onCloseEsc);
     // зупиняє скрол коли відкрита модалка
     document.body.style = 'overflow-y: hidden';
@@ -101,26 +102,38 @@ if (e.target.innerText === 'ADD TO QUEUE') {
       }
     }
     // Закрити модалку
-    if (e.target.classList.value === 'modal__close-btn' || e.currentTarget) {
+    if (e.target.classList.value === 'modal__close-btn') {
       refs.backdropEl.classList.add('is-hidden');
-      refs.backdropEl.removeEventListener('click', onModalListeners)
+      refs.modalEl.removeEventListener('click', onModalListeners)
       window.removeEventListener('keydown', onCloseEsc)
-      const scrollY = document.body.style.top;
+      document.removeEventListener('click', closeModalByDocument);
       //відновлює скрол коли модалка закрита
       document.body.style.overflow = ''
     }
 }  
 
-// Закрити через Escape
+// Закрити модалку через Escape
 function onCloseEsc(e) {
   if (e.code === 'Escape') {
     refs.backdropEl.classList.add('is-hidden');
-    refs.backdropEl.removeEventListener('click', onModalListeners);
+    refs.modalEl.removeEventListener('click', onModalListeners);
     window.removeEventListener('keydown', onCloseEsc);
+    document.removeEventListener('click', closeModalByDocument);
     //відновлює скрол коли модалка закрита
     document.body.style.overflow = ''
   } 
+}
+  // Закриває модалку по кліку на бекдроп
+function closeModalByDocument(e) {
+  if (e.target.classList.value === 'backdrop') {
+    refs.backdropEl.classList.add('is-hidden');
+    refs.modalEl.removeEventListener('click', onModalListeners)
+    window.removeEventListener('keydown', onCloseEsc)
+    document.removeEventListener('click', closeModalByDocument);
+    //відновлює скрол коли модалка закрита
+    document.body.style.overflow = ''
   }
+}
 
 
 
