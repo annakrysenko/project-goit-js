@@ -6,6 +6,9 @@ export const refs = {
 
   homeBTN: document.querySelector('.home'),
   libraryCurrentBntEl: document.querySelector('.my-library .current'),
+  closeAnswerInputBtnEl: document.querySelector('close-input-answer'),
+  answerInputWrapEl: document.querySelector('.input-answer-wrap'),
+  // pagination
   pageBtns: document.querySelector('.pagination-list'),
   pageBtnsInput: document.querySelector('.paginatio-input-list'),
   pageBtnsGenres: document.querySelector('.paginatio-genres-list'),
@@ -24,7 +27,6 @@ export const refs = {
   backdropEl: document.querySelector('.backdrop'),
   containerEl: document.querySelector('.modal-container'),
   modalCloseBtn: document.querySelector('.modal__close-btn'),
- 
 
   //loader spiner
   loaderEl: document.querySelector('.loader'),

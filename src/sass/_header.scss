@@ -157,12 +157,20 @@ input[data-autocompleted] {
   color: white;
 }
 
+.input-answer-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .input-answer {
   color: #ff001b;
-  margin: 16px auto 0 auto;
+  margin: 16px 0 0 0;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.16;
+}
+.close-input-answer {
+  margin-left: 5px;
 }
 
 .submit-search-button {
@@ -344,4 +352,7 @@ input[data-autocompleted] {
   background: #ff6b01;
   box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
   border: none;
+}
+.input-answer-wrap.hidden {
+  display: none;
 }
