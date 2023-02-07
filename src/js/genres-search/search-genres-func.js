@@ -46,8 +46,10 @@ async function onClickGenre(event) {
   const ArrPages = [];
 
   const genre = event.target.textContent;
+  refs.pageBtns.innerHTML = '';
   refs.pageBtnsGenres.innerHTML = ''
-   refs.filmGalleryHomeEl.innerHTML = '';
+  refs.filmGalleryHomeEl.innerHTML = '';
+  
   refs.loaderEl.classList.remove('hidden');
   for (let page = 1; page < 100; page++) {
     const searchPopularFilms = await searchPopularFilmsFunc(page);
