@@ -5,13 +5,14 @@ import { makeErrorMassage } from '../header/arror-mass-header';
 import { paginationInput } from '../pagination/pagination-input';
 import { createPaginationBtns } from '../pagination/pagination-buttons';
 
-
 export async function getFilmsFromInput(e) {
+
 e.preventDefault();
 refs.pageBtns.innerHTML = '';
 refs.pageBtnsInput.innerHTML = '';
 
-const query = e.target.elements.input.value;
+
+  const query = e.target.elements.input.value;
 
   if (query.trim() === '') {
     makeErrorMassage();
@@ -36,25 +37,27 @@ const query = e.target.elements.input.value;
   let totalPages;
 
   if (searchFilms.total_pages > 99) {
-            totalPages = 99
-        } else if (searchFilms.total_pages < 99) {
-            totalPages = searchFilms.total_pages
-        }
+    totalPages = 99;
+  } else if (searchFilms.total_pages < 99) {
+    totalPages = searchFilms.total_pages;
+  }
   console.log(totalPages);
   const galleryMarkup = makeGalleryMarkup(films);
 
   refs.filmGalleryHomeEl.innerHTML = galleryMarkup;
-  
-  const buttonsMurkup = createPaginationBtns(currentPage, totalPages)
-  refs.pageBtns.innerHTML = ''
-  refs.pageBtnsInput.innerHTML = buttonsMurkup
+
+  const buttonsMurkup = createPaginationBtns(currentPage, totalPages);
+  refs.pageBtns.innerHTML = '';
+  refs.pageBtnsInput.innerHTML = buttonsMurkup;
 
   refs.pageBtnsInput.addEventListener('click', ev => {
     if (ev.target === ev.currentTarget || ev.target.nodeName === 'SPAN') {
       console.log(e.target);
-    return 
+      return;
     }
+
     console.log(ev.target.nodeName)
     paginationInput(ev, query, totalPages)
   })
+
 }
