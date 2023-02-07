@@ -6,7 +6,9 @@ import { createPaginationBtns } from '../pagination/pagination-buttons';
 import { createGenresMarkup } from './genres-markup';
 import { createPaginationBtns } from '../pagination/pagination-buttons';
 
-refs.genresListEl.classList.add('hidden');
+if (refs.genresListEl) {
+  refs.genresListEl.classList.add('hidden');
+}
 
 const genresForMarkUp = Object.values(genresAll);
 
@@ -47,9 +49,9 @@ async function onClickGenre(event) {
 
   const genre = event.target.textContent;
   refs.pageBtns.innerHTML = '';
-  refs.pageBtnsGenres.innerHTML = ''
+  refs.pageBtnsGenres.innerHTML = '';
   refs.filmGalleryHomeEl.innerHTML = '';
-  
+
   refs.loaderEl.classList.remove('hidden');
   for (let page = 1; page < 100; page++) {
     const searchPopularFilms = await searchPopularFilmsFunc(page);
