@@ -98,6 +98,7 @@
     word-spacing: 0.5;
     word-spacing: 0.5;
     margin-bottom: 35px;
+    overflow-y: auto;
   }
 }
 
@@ -259,6 +260,9 @@
       &__title {
         font-size: 30px;
         line-height: calc(35 / 30);
+      }
+      &__description{
+        overflow-y: none;
       }
     }
     .btn-container {
