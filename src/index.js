@@ -22,8 +22,6 @@ import './js/add-to-queue';
 import './js/firebase';
 
 import './js/main-anim';
-<<<<<<< HEAD
-import './js/genres-search/search-genres-func';
-=======
 
->>>>>>> main
+import './js/genres-search/search-genres-func';
+
