@@ -6,13 +6,13 @@ import { makeGalleryMarkup } from "../create-gallery/make-home-gallery"
 import { createPaginationBtns } from "./pagination-buttons"
 
 let page = 1
-let request;
+
 
 export async function paginationInput(ev, query ,totalPages) {
     refs.pageBtns.innerHTML = ''
     refs.pageBtnsInput.innerHTML = ''
 
-    request = query
+    
     
     if (ev.target.nodeName !== 'DIV' && ev.target.nodeName !== 'SPAN') {
         refs.filmGalleryHomeEl.innerHTML = '';
@@ -26,13 +26,17 @@ export async function paginationInput(ev, query ,totalPages) {
             page = Number(ev.target.textContent)
         }
         
-        const searchFilms = await getAxiosSearchFilms(request, page);
+        const searchFilms = await getAxiosSearchFilms(query, page);
 
         refs.loaderEl.classList.add('hidden');
 
         const { results } = searchFilms;
 
-
+        if (searchFilms.total_pages > 99) {
+            totalPages = 99
+        } else {
+            totalPages = searchFilms.total_pages
+        }
         
         const currentPage = searchFilms.page
         const popularFilms = [...results];
@@ -44,5 +48,4 @@ export async function paginationInput(ev, query ,totalPages) {
         refs.pageBtnsInput.innerHTML = buttonsMurkup
         
     }
-    
 }

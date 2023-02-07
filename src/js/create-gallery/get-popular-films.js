@@ -29,7 +29,9 @@ refs.pageBtns.innerHTML = ''
 
 
   refs.pageBtns.addEventListener('click', e => {
+    console.log(e.target.nodeName);
     if (e.target === e.currentTarget && e.target.nodeName === 'SPAN') {
+      console.log(e.target);
     return 
     }
     paginationPopular(e)
