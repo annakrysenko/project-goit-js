@@ -48,7 +48,7 @@ const colRef = collection(db, 'library');
 
 
 
-// // adding subject
+// adding subject
 // const addUserForm = document.querySelector('.add');
 // addUserForm.addEventListener('submit', (event) => {
 //   event.preventDefault()
@@ -62,7 +62,7 @@ const colRef = collection(db, 'library');
 //   })
 // })
 
-// //delete subject
+//delete subject
 // const deleteUserForm = document.querySelector('.delete')
 // deleteUserForm.addEventListener('submit', (event) => {
 //   event.preventDefault()
@@ -79,6 +79,31 @@ const colRef = collection(db, 'library');
 const regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const signupForm = document.querySelector('.signup');
+
+// if (signupForm.addEventListener) {
+//   signupForm.addEventListener('submit', (event) => {
+//   event.preventDefault()
+
+//   const email = signupForm.email.value;
+//   const password = signupForm.password.value;
+
+//   console.log(regex.test(email));
+
+//   createUserWithEmailAndPassword(auth, email, password)
+//     .then((cred) => {
+
+//       const user = cred.user;
+//       console.log('user created:', cred.user);
+//       signupForm.reset();
+
+//        return console.log('wrong email')
+//     })
+//     .catch((err) => {
+//       alert(err.message);
+//   })
+// }), false
+
+// }
 
 signupForm.addEventListener('submit', (event) => {
   event.preventDefault()
@@ -158,12 +183,21 @@ loginForm.addEventListener('submit', (event) => {
 // });
 
 
+//changed .modal-registration
 
-const modal = document.querySelector(".modal-login");
+const modal = document.querySelector(".modal-registration");
 const authScript = document.querySelector("div[data-section='auth']");
 const logout = document.querySelector("div[data-section='logout']");
 
-modal.style.display = 'none'
+const loginBtn = document.querySelector('.loginBtn');
+const registrationBtn = document.querySelector('.registrationBtn')
+
+
+const form1 = document.querySelector('.login-modal')
+const form2 = document.querySelector('.signup-modal')
+
+
+modal.style.display = 'none';
 
 const removeEventModal = (e) => {
   modal.removeEventListener('click', callback);
@@ -176,8 +210,10 @@ const openModal = (e) => {
   console.log(e)
   modal.style.display = '';
   form1.classList.remove('hidden')
-    form2.classList.add('hidden');
-
+  form2.classList.add('hidden');
+  loginBtn.classList.add('hidden')
+  registrationBtn.classList.remove('hidden');
+  bntModal.classList.add('hidden');
 }
 
 const closeModal = (e) => {
@@ -185,16 +221,9 @@ const closeModal = (e) => {
   console.log(modal);
   console.log(e)
   //  modal.style.display = '';
+  bntModal.classList.remove('hidden');
 }
 
-const bntModal = document.querySelector('.open-modal-bth');
-bntModal.addEventListener('click', (openModal));
-
-const closeModalForm = document.querySelector('.close-modal-bth');
-closeModalForm.addEventListener('click', (closeModal));
-
-const form1 = document.querySelector('.login-modal')
-const form2 = document.querySelector('.signup-modal')
 
 
 const callback = event => {
@@ -211,6 +240,8 @@ const callback = event => {
     console.log(form1);
     form1.classList.remove('hidden')
     form2.classList.add('hidden');
+    loginBtn.classList.add('hidden')
+    registrationBtn.classList.remove('hidden');
   }
 
   if (event.target.dataset.block === 'signup') {
@@ -218,6 +249,8 @@ const callback = event => {
   //  const form2 = event.currentTarget.elements[0].elements[2]
     form1.classList.add('hidden')
     form2.classList.remove('hidden')
+    loginBtn.classList.remove('hidden')
+    registrationBtn.classList.add('hidden');
   }
   if (event.target.dataset.action === 'signup') {
     signUpFirebase().then(() =>  console.log('your logic removeEventModal()') )
@@ -236,6 +269,14 @@ onAuthStateChanged(auth, (user) => {
     authScript.classList.remove('hidden'); logout.classList.add('hidden')
   }
 });
+
+
+const bntModal = document.querySelector('.open-modal-bth');
+bntModal.addEventListener('click', (openModal));
+
+const closeModalForm = document.querySelector('.close-modal-bth');
+closeModalForm.addEventListener('click', (closeModal));
+
 
 modal.addEventListener('click', callback);
 

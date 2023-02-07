@@ -33,10 +33,10 @@ li {
   position: relative;
 }
 
-.modal-registration {
-  position: fixed;
-  transform: translate(100%, 100%);
-}
+// .modal-registration {
+//   position: fixed;
+//   transform: translate(100%, 100%);
+// }
 
 .modal-signup-window {
   background-color: rgb(204, 255, 0);
@@ -92,7 +92,8 @@ li {
 }
 
 .bg-image {
-  /* display: flex; */
+  padding: 100px;
+  display: block;
   object-fit: cover;
   background-repeat: no-repeat;
   max-width: 1600px;
@@ -103,8 +104,107 @@ li {
     url(../images/wallpaper-big.jpg);
   // margin-right: auto;
   // margin-left: auto;
+  // position: fixed;
 }
 
 .hidden {
   display: none;
+  opacity: 0;
+}
+
+.window-fixed {
+  position: fixed;
+  z-index: 111;
+}
+
+.modal-login {
+  // position: fixed;
+  // left: 50%;
+  // top: 50%;
+  // transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // position: fixed;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  // pointer-events: none;
+  opacity: 1;
+  // visibility: hidden;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  // z-index: 99999;
+}
+
+.close-modal-bth {
+  position: absolute;
+}
+
+.auth {
+  width: 55vh;
+  height: 60vh;
+  background-color: #188ce8;
+}
+
+// #modal_cinw_ctnr {
+//   position: fixed;
+//   left: 0;
+//   top: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: rgba(0, 0, 0, 0.7);
+//   text-align: center;
+//   z-index: 9999;
+// }
+
+// #modal_cinw_ctnr::after {
+//   display: inline-block;
+//   vertical-align: middle;
+//   width: 0;
+//   height: 100%;
+//   content: '';
+// }
+
+// .modal_cinw {
+//   padding: 10px;
+//   display: inline-block;
+//   vertical-align: middle;
+//   position: relative;
+//   text-align: left;
+//   background: #fff;
+// }
+
+// .modal_close {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   cursor: pointer;
+// }
+// .modal_close:hover {
+//   background: #000;
+//   color: #fff;
+// }
+
+.signup-backdrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+
+  // pointer-events: none;
+  // opacity: 0;
+  // visibility: hidden;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
