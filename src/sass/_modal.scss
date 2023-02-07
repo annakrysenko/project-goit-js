@@ -123,12 +123,13 @@
   &:focus {
     background-color: #ff6b01;
     color: #ffffff;
+    border: none;
   }
-  &:hover .icon-youtube,
-  &:focus .icon-youtube {
-    width: 35px;
-    height: 35px;
-  }
+  // &:hover .icon-youtube,
+  // &:focus .icon-youtube {
+  //   width: 35px;
+  //   height: 35px;
+  // }
 }
 .icon-youtube {
   width: 30px;
