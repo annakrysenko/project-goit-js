@@ -24,6 +24,9 @@ export const refs = {
   backdropEl: document.querySelector('.backdrop'),
   containerEl: document.querySelector('.modal-container'),
   modalCloseBtn: document.querySelector('.modal__close-btn'),
+  watchedBtn: document.querySelector('.watched'),
+  queueBtn: document.querySelector('.queue'),
+
  
 
   //loader spiner
