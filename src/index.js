@@ -18,4 +18,8 @@ if (refs.formEl) {
 import './js/trailer';
 import './js/add-to-watch';
 import './js/add-to-queue';
+
+import './js/firebase';
+
 import './js/main-anim';
+
