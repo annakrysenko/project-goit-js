@@ -1,14 +1,14 @@
 import { refs } from './DOM';
 import { createWatched } from './add-to-watch';
 
-if (document.querySelector('.button-queue')) {
-  document.querySelector('.button-queue').addEventListener('click', createQueue);
+if (refs.queueBtn) {
+  refs.queueBtn.addEventListener('click', createQueue);
   createQueue();
 }
 
 function createQueue() {
-  document.querySelector('.button-watched').classList.remove('current');
-  document.querySelector('.button-queue').classList.add('current');
+  refs.watchedBtn.classList.remove('current');
+  refs.queueBtn.classList.add('current');
 
   const markup = getMoviesQueue();
   refs.filmGalleryLibraryEl.innerHTML = markup;
@@ -17,14 +17,14 @@ function createQueue() {
 function getMoviesQueue() {
   const saveMovie = localStorage.getItem('add-to-queue');
   if (!saveMovie) {
-    if (document.querySelector('.button-remove')) {
-      document.querySelector('.button-remove').classList.add('vis-hidden');
+    if (refs.removeBtn) {
+      refs.removeBtn.classList.add('vis-hidden');
     }
     console.log('nothing');
     return '<p>Nothing here yet</p>';
   }
-  if (document.querySelector('.button-remove')) {
-    document.querySelector('.button-remove').classList.remove('vis-hidden');
+  if (refs.removeBtn) {
+    refs.removeBtn.classList.remove('vis-hidden');
   }
   console.log('saveMovie', saveMovie);
   const parseMovie = JSON.parse(saveMovie);
@@ -61,16 +61,14 @@ function getMoviesQueue() {
   return markup;
 }
 
-if (document.querySelector('.button-remove')) {
-  document.querySelector('.button-remove').addEventListener('click', onClickRemove);
+if (refs.removeBtn) {
+  refs.removeBtn.addEventListener('click', onClickRemove);
 }
 
 function onClickRemove() {
-  const btnQ = document.querySelector('.button-queue');
-  const btnW = document.querySelector('.button-watched');
-  if (btnQ.className === 'button-queue current') {
+  if (refs.queueBtn.className === 'button-queue current') {
     removeFromQueue();
-  } else if (btnW.className === 'button-watched current') {
+  } else if (refs.watchedBtn.className === 'button-watched current') {
     removeFromWatched();
   }
 }

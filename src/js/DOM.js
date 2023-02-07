@@ -52,4 +52,9 @@ export const refs = {
   genresListEl: document.querySelector('.genres-list'),
   choiceBtnEl: document.querySelector('.choice-genre '),
   genresBtnsEl: document.querySelectorAll('.btn-genre'),
+
+  //библиотека
+  queueBtn: document.querySelector('.button-queue'),
+  watchedBtn: document.querySelector('.button-watched'),
+  removeBtn: document.querySelector('.button-remove'),
 };

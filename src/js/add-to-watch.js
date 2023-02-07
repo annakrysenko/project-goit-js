@@ -1,12 +1,12 @@
 import { refs } from './DOM';
 
-if (document.querySelector('.button-watched')) {
-  document.querySelector('.button-watched').addEventListener('click', createWatched);
+if (refs.watchedBtn) {
+  refs.watchedBtn.addEventListener('click', createWatched);
 }
 
 export function createWatched() {
-  document.querySelector('.button-watched').classList.add('current');
-  document.querySelector('.button-queue').classList.remove('current');
+  refs.watchedBtn.classList.add('current');
+  refs.queueBtn.classList.remove('current');
   const markup = getMovies();
 
   refs.filmGalleryLibraryEl.innerHTML = markup;
@@ -15,14 +15,14 @@ export function createWatched() {
 function getMovies() {
   const saveMovie = localStorage.getItem('add-to-watch');
   if (!saveMovie) {
-    if (document.querySelector('.button-remove')) {
-      document.querySelector('.button-remove').classList.add('vis-hidden');
+    if (refs.removeBtn) {
+      refs.removeBtn.classList.add('vis-hidden');
     }
     console.log('nothing');
     return '<p>Nothing here yet</p>';
   }
-  if (document.querySelector('.button-remove')) {
-    document.querySelector('.button-remove').classList.remove('vis-hidden');
+  if (refs.removeBtn) {
+    refs.removeBtn.classList.remove('vis-hidden');
   }
   const parseMovie = JSON.parse(saveMovie);
   console.log('parseMovie', parseMovie);
