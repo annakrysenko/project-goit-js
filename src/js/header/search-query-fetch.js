@@ -50,8 +50,8 @@ const query = e.target.elements.input.value;
   refs.pageBtnsInput.innerHTML = buttonsMurkup
 
   refs.pageBtnsInput.addEventListener('click', ev => {
-    ev.stopPropagation()
-    if (ev.target.nodeName !== 'BUTTON') {
+    if (ev.target === ev.currentTarget || ev.target.nodeName === 'SPAN') {
+      console.log(e.target);
     return 
     }
     console.log(ev.target.nodeName)
