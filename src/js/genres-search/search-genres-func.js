@@ -46,12 +46,11 @@ async function onClickGenre(event) {
   const ArrPages = [];
 
   const genre = event.target.textContent;
-
+  refs.loaderEl.classList.remove('hidden');
   for (let page = 1; page < 100; page++) {
     const searchPopularFilms = await searchPopularFilmsFunc(page);
     makeArrFilms(searchPopularFilms, genre);
   }
-
   for (let startFilm = 0; startFilm < includesGenre.length; startFilm += 20) {
     const page_pagination = [];
     for (let plus = 0; plus < 20; plus++) {
@@ -89,6 +88,7 @@ async function onClickGenre(event) {
 
       const markupGallery = makeGalleryMarkup(ArrPages[currentPage - 1]);
       refs.filmGalleryHomeEl.innerHTML = markupGallery;
+      refs.loaderEl.classList.add('hidden');
     }
     if (ev.target.classList.contains('next')) {
       refs.pageBtns.innerHTML = '';
