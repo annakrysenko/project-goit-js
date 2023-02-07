@@ -5,6 +5,8 @@ import { createPaginationBtns } from '../pagination/pagination-buttons';
 import { paginationPopular } from '../pagination/pagination-popular';
 
 export async function getPopularFilms() {
+  refs.choiceBtnEl.classList.remove('hidden');
+
   refs.pageBtns.innerHTML = '';
   refs.pageBtnsInput.innerHTML = '';
 
