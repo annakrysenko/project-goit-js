@@ -9,7 +9,9 @@ if (refs.formEl) {
   refs.formEl.addEventListener('submit', e => getFilmsFromInput(e));
 }
 
+if (refs.answerInputWrapEl){
 refs.answerInputWrapEl.classList.add('hidden');
+}
 
 if (refs.answerInputWrapEl) {
   refs.answerInputWrapEl.addEventListener('click', eve => {
