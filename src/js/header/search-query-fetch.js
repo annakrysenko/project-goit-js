@@ -7,6 +7,11 @@ import { createPaginationBtns } from '../pagination/pagination-buttons';
 
 export async function getFilmsFromInput(e) {
 
+  refs.choiceBtnEl.classList.add('hidden');
+
+  e.preventDefault();
+
+
 e.preventDefault();
 refs.pageBtns.innerHTML = '';
 refs.pageBtnsInput.innerHTML = '';

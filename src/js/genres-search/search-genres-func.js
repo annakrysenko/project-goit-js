@@ -78,14 +78,43 @@ async function onClickGenre(event) {
     if (ev.target === ev.currentTarget || ev.target.nodeName === 'SPAN') {
       return;
     }
-    refs.pageBtns.innerHTML = '';
-    refs.pageBtnsGenres.innerHTML = '';
-    currentPage = +ev.target.textContent;
-    const buttonsMarkup = createPaginationBtns(currentPage, totalPages);
-    refs.pageBtnsGenres.innerHTML = buttonsMarkup;
+    if (ev.target.classList.contains('previos')) {
+      refs.pageBtns.innerHTML = '';
+      refs.pageBtnsGenres.innerHTML = '';
+      // currentPage = +ev.target.textContent;
+      console.log(currentPage);
+      currentPage -= 1;
+      const buttonsMarkup = createPaginationBtns(currentPage, totalPages);
+      refs.pageBtnsGenres.innerHTML = buttonsMarkup;
 
-    const markupGallery = makeGalleryMarkup(ArrPages[currentPage - 1]);
-    refs.filmGalleryHomeEl.innerHTML = markupGallery;
+      const markupGallery = makeGalleryMarkup(ArrPages[currentPage - 1]);
+      refs.filmGalleryHomeEl.innerHTML = markupGallery;
+    }
+    if (ev.target.classList.contains('next')) {
+      refs.pageBtns.innerHTML = '';
+      refs.pageBtnsGenres.innerHTML = '';
+      // currentPage = +ev.target.textContent;
+      console.log(currentPage);
+      currentPage += 1;
+      const buttonsMarkup = createPaginationBtns(currentPage, totalPages);
+      refs.pageBtnsGenres.innerHTML = buttonsMarkup;
+
+      const markupGallery = makeGalleryMarkup(ArrPages[currentPage - 1]);
+      refs.filmGalleryHomeEl.innerHTML = markupGallery;
+    }
+    if (
+      !ev.target.classList.contains('previos') &&
+      !ev.target.classList.contains('next')
+    ) {
+      refs.pageBtns.innerHTML = '';
+      refs.pageBtnsGenres.innerHTML = '';
+      currentPage = +ev.target.textContent;
+      const buttonsMarkup = createPaginationBtns(currentPage, totalPages);
+      refs.pageBtnsGenres.innerHTML = buttonsMarkup;
+
+      const markupGallery = makeGalleryMarkup(ArrPages[currentPage - 1]);
+      refs.filmGalleryHomeEl.innerHTML = markupGallery;
+    }
   });
   //=======================================================================
   async function searchPopularFilmsFunc(page = 1) {

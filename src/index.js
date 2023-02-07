@@ -23,5 +23,7 @@ import './js/firebase';
 
 import './js/main-anim';
 
+
 import './js/genres-search/search-genres-func';
+
 
