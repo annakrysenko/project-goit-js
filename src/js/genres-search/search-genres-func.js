@@ -72,6 +72,7 @@ async function onClickGenre(event) {
   const totalPages = ArrPages.length;
   const buttonsMarkup = createPaginationBtns(currentPage, totalPages);
   refs.pageBtnsGenres.innerHTML = buttonsMarkup;
+  refs.loaderEl.classList.add('hidden');
 
   refs.pageBtnsGenres.addEventListener('click', ev => {
     if (ev.target === ev.currentTarget || ev.target.nodeName === 'SPAN') {
@@ -88,7 +89,6 @@ async function onClickGenre(event) {
 
       const markupGallery = makeGalleryMarkup(ArrPages[currentPage - 1]);
       refs.filmGalleryHomeEl.innerHTML = markupGallery;
-      refs.loaderEl.classList.add('hidden');
     }
     if (ev.target.classList.contains('next')) {
       refs.pageBtns.innerHTML = '';
