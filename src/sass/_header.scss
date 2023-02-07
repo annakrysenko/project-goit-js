@@ -12,7 +12,7 @@
   }
 
   @media screen and(min-width: 768px) {
-    min-height: 216px;
+    height: 216px;
     background-image: url("../images/home/home-768.png");
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -46,7 +46,7 @@
   }
 
   @media screen and(min-width: 768px) {
-    min-height: 216px;
+    height: 216px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/library/liba-768.png");
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -72,7 +72,7 @@
 
 .header-home,
 .header-library {
-  min-height: 230px;
+  height: 230px;
   display: flex;
   flex-direction: column;
   padding: 40px 0 15px 0;
@@ -281,7 +281,7 @@ input[data-autocompleted] {
   }
 
   .header-home {
-    min-height: 216px;
+    height: 216px;
   }
   .form-wrapper {
     margin-top: 40px;
@@ -314,7 +314,7 @@ input[data-autocompleted] {
     padding: 40px 0 60px 0;
   }
   .header-home {
-    min-height: 230px;
+    height: 230px;
   }
 
   .header-library {
