@@ -5,24 +5,36 @@ import { makeErrorMassage } from '../header/arror-mass-header';
 import { paginationInput } from '../pagination/pagination-input';
 import { createPaginationBtns } from '../pagination/pagination-buttons';
 
-export async function getFilmsFromInput(e) {
+if (refs.formEl) {
+  refs.formEl.addEventListener('submit', e => getFilmsFromInput(e));
+}
 
-  refs.choiceBtnEl.classList.add('hidden');
+refs.answerInputWrapEl.classList.add('hidden');
+
+if (refs.answerInputWrapEl) {
+  refs.answerInputWrapEl.addEventListener('click', eve => {
+    refs.answerInputWrapEl.classList.add('hidden');
+  });
+}
+
+export async function getFilmsFromInput(e) {
+  refs.genresListEl.classList.add('hidden');
 
   e.preventDefault();
 
-
-e.preventDefault();
-refs.pageBtns.innerHTML = '';
-refs.pageBtnsInput.innerHTML = '';
-
+  e.preventDefault();
+  refs.pageBtns.innerHTML = '';
+  refs.pageBtnsInput.innerHTML = '';
 
   const query = e.target.elements.input.value;
 
   if (query.trim() === '') {
+    refs.answerInputWrapEl.classList.remove('hidden');
+
     makeErrorMassage();
     return;
   }
+
   refs.filmGalleryHomeEl.innerHTML = '';
   refs.loaderEl.classList.remove('hidden');
 
@@ -30,9 +42,14 @@ refs.pageBtnsInput.innerHTML = '';
   refs.loaderEl.classList.add('hidden');
 
   if (searchFilms.total_results === 0) {
+    refs.answerInputWrapEl.classList.remove('hidden');
+
     makeErrorMassage();
     return;
   }
+
+  refs.choiceBtnEl.classList.add('hidden');
+
   refs.inputAnswerParEl.innerHTML = '';
 
   const { results } = searchFilms;
@@ -61,8 +78,7 @@ refs.pageBtnsInput.innerHTML = '';
       return;
     }
 
-    console.log(ev.target.nodeName)
-    paginationInput(ev, query, totalPages)
-  })
-
+    console.log(ev.target.nodeName);
+    paginationInput(ev, query, totalPages);
+  });
 }
