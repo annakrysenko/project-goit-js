@@ -29,8 +29,10 @@ export async function getPopularFilms() {
   refs.pageBtns.innerHTML = buttonsMurkup;
 
   refs.pageBtns.addEventListener('click', e => {
+    console.log(e.target.nodeName);
     if (e.target === e.currentTarget && e.target.nodeName === 'SPAN') {
       return;
+
     }
     paginationPopular(e);
   });

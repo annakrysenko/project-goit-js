@@ -6,12 +6,16 @@ import { paginationInput } from '../pagination/pagination-input';
 import { createPaginationBtns } from '../pagination/pagination-buttons';
 
 export async function getFilmsFromInput(e) {
+
   refs.choiceBtnEl.classList.add('hidden');
 
   e.preventDefault();
 
-  refs.pageBtns.innerHTML = '';
-  refs.pageBtnsInput.innerHTML = '';
+
+e.preventDefault();
+refs.pageBtns.innerHTML = '';
+refs.pageBtnsInput.innerHTML = '';
+
 
   const query = e.target.elements.input.value;
 
@@ -56,7 +60,9 @@ export async function getFilmsFromInput(e) {
       console.log(e.target);
       return;
     }
-    console.log(e.target);
-    // paginationInput(ev, query, totalPages)
-  });
+
+    console.log(ev.target.nodeName)
+    paginationInput(ev, query, totalPages)
+  })
+
 }
