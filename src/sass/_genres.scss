@@ -7,14 +7,26 @@
 }
 
 .choice-genre {
-    width: 150px;
+    width: 80px;
     padding: 10px;
     background-color: transparent;
     color: white;
     border-radius: 5px;
     border: 0.5px solid white;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 5px;
+    font-size: 10px;
+
+    @media screen and(min-width: 768px) {
+        margin-top: 10px;
+
+        width: 100px;
+    }
+    @media screen and(min-width: 1280px) {
+        width: 150px;
+        font-size: 12px;
+        padding: 10px;
+    }
 }
 
 .choice-genre:hover,
