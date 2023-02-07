@@ -12,8 +12,7 @@ function onOpenModal(e) {
   document.body.classList.add('show-modal');
 }
 
-function onCloseModal(e) {
-  e.preventDefault();
+function onCloseModal() {
   window.removeEventListener('keydown', onEscKeyPress);
   document.body.classList.remove('show-modal');
 }

@@ -1,34 +1,77 @@
 // Зміни відносно налаштувань компʼютера ====
 html.dark .theme__on {
-    background-image: url(../images/sun.svg);
-    background-size: contain;
+  background-image: url(../images/sun.svg);
+  background-size: contain;
 }
 
 html.light .theme__on {
-    background-image: url(../images/moon.svg);
-    background-size: contain;
+  background-image: url(../images/moon.svg);
+  background-size: contain;
 }
 
 html.dark body {
-    background-color: rgb(55, 54, 54);
-    color: white;
+  background-color: rgb(55, 54, 54);
+  color: white;
 }
 
 html.light body {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 html.dark .movie-gallery__title {
-    color: white;
+  color: white;
 }
 
 html.dark .footer {
-    color: white;
-    background-color: rgb(38, 38, 38);
+  color: white;
+  background-color: rgb(38, 38, 38);
 }
 
 html.dark .loader {
-    -webkit-filter: invert(1);
-    filter: invert(1);
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+
+// Dark modal-team
+
+html.dark .team-modal {
+  background-color: rgb(55, 54, 54);
+}
+
+html.dark .team-text {
+  animation: animaten 5s linear infinite;
+}
+
+html.dark .team-text:nth-child(even) {
+  animation-delay: 400ms;
+}
+
+@keyframes animaten {
+  0%,
+  18%,
+  20%,
+  50.1%,
+  60%,
+  65.1%,
+  80%,
+  90.1%,
+  92% {
+    color: rgb(55, 54, 54);
+    text-shadow: none;
+  }
+  18.1%,
+  20.1%,
+  30%,
+  50%,
+  60.1%,
+  65%,
+  80.1%,
+  90%,
+  92.1%,
+  100% {
+    color: rgb(55, 54, 54);
+    text-shadow: 0 0 10px #ff6b08, 0 0 20px #ff6b08, 0 0 40px #ff6b08,
+      0 0 80px #ff6b08, 0 0 160px #ff6b08, 0 0 400px #ff6b08;
+  }
 }
