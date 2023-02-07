@@ -19,7 +19,7 @@ function getMovies() {
       refs.removeBtn.classList.add('vis-hidden');
     }
     console.log('nothing');
-    return '<p>Nothing here yet</p>';
+    return '<div class="error-wrapp"><p class="error-tittle">Oooops...</p><p class="error-text">No movies have been added yet. Let&apos;s go pick something to your liking</p></div>';
   }
   if (refs.removeBtn) {
     refs.removeBtn.classList.remove('vis-hidden');
@@ -29,7 +29,8 @@ function getMovies() {
 
   const markup = parseMovie
     .map(film => {
-      const { id, poster_path, title, genresArr, releaseDate, vote_average } = film;
+      const { id, poster_path, title, genresArr, releaseDate, vote_average } =
+        film;
       const avarage = vote_average.toFixed(1);
 
       const BASE_URL = 'https://image.tmdb.org/t/p/w500';
