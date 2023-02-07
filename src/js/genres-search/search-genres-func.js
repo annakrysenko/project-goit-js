@@ -46,6 +46,7 @@ async function onClickGenre(event) {
   const ArrPages = [];
 
   const genre = event.target.textContent;
+  refs.pageBtnsGenres.innerHTML = ''
    refs.filmGalleryHomeEl.innerHTML = '';
   refs.loaderEl.classList.remove('hidden');
   for (let page = 1; page < 100; page++) {
