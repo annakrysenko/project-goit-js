@@ -4,9 +4,7 @@ import { refs } from './DOM';
 // import { cardMovieMarkup } from './create-gallery/cardMovieMarkup';
 
 if (document.querySelector('.button-watched')) {
-  document
-    .querySelector('.button-watched')
-    .addEventListener('click', createWatched);
+  document.querySelector('.button-watched').addEventListener('click', createWatched);
 }
 
 function createWatched() {
@@ -30,8 +28,7 @@ function getMovies() {
   // let markupForLibrary = '';
   const markup = parseMovie
     .map(film => {
-      const { id, poster_path, title, genresArr, releaseDate, vote_average } =
-        film;
+      const { id, poster_path, title, genresArr, releaseDate, vote_average } = film;
       const avarage = vote_average.toFixed(1);
 
       // console.log(genresArr);
@@ -60,4 +57,14 @@ function getMovies() {
     })
     .join('');
   return markup;
+}
+
+function removeFromWatched() {
+  const savedM = localStorage.getItem('add-to-watch');
+  if (savedM === '') {
+  } else {
+    localStorage.removeItem('add-to-watch');
+    refs.filmGalleryLibraryEl.innerHTML = '';
+    // document.querySelector('.button-remove').hidden = true;
+  }
 }

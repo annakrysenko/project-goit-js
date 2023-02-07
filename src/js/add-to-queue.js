@@ -4,9 +4,7 @@ import { refs } from './DOM';
 // import { cardMovieMarkup } from './create-gallery/cardMovieMarkup';
 
 if (document.querySelector('.button-queue')) {
-  document
-    .querySelector('.button-queue')
-    .addEventListener('click', createQueue);
+  document.querySelector('.button-queue').addEventListener('click', createQueue);
   createQueue();
 }
 
@@ -32,8 +30,7 @@ function getMoviesQueue() {
   // let markupForLibrary = '';
   const markup = parseMovie
     .map(film => {
-      const { id, poster_path, title, genresArr, releaseDate, vote_average } =
-        film;
+      const { id, poster_path, title, genresArr, releaseDate, vote_average } = film;
       console.log('vote_average', vote_average);
       const avarage = vote_average.toFixed(1);
       console.log('avarage', avarage);
@@ -64,4 +61,35 @@ function getMoviesQueue() {
     })
     .join('');
   return markup;
+}
+if (document.querySelector('.button-remove')) {
+  document.querySelector('.button-remove').addEventListener('click', onClickRemove);
+}
+
+function onClickRemove() {
+  const btnQ = document.querySelector('.button-queue');
+  const btnW = document.querySelector('.button-wached');
+  if (btnQ.className === 'button-queue current') {
+    removeFromQueue();
+  } else if (btnW.className === 'button-wached current') {
+    removeFromWatched();
+  }
+}
+
+function removeFromQueue() {
+  const savedM = localStorage.getItem('add-to-queue');
+  localStorage.removeItem('add-to-queue');
+}
+
+function removeFromWatched() {
+  const savedM = localStorage.getItem('add-to-watch');
+
+  localStorage.removeItem('add-to-watch');
+}
+
+if (document.querySelector('.button-remove')) {
+  // document.querySelector('.button-remove').style.display = 'none';
+  // document.querySelector('.button-remove').hidden = false;
+
+  document.querySelector('.button-remove').addEventListener('click', removeFromWatched);
 }
