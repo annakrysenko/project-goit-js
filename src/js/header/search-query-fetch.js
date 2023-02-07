@@ -8,7 +8,6 @@ import { createPaginationBtns } from '../pagination/pagination-buttons';
 
 export async function getFilmsFromInput(e) {
 e.preventDefault();
-  
 refs.pageBtns.innerHTML = '';
 refs.pageBtnsInput.innerHTML = '';
 
@@ -55,7 +54,7 @@ const query = e.target.elements.input.value;
       console.log(e.target);
     return 
     }
-    console.log(e.target);
+    console.log(ev.target.nodeName)
     paginationInput(ev, query, totalPages)
   })
 }
