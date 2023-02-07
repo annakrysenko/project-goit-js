@@ -109,43 +109,32 @@
 .trailers {
   display: flex;
   align-items: center;
-  position: absolute;
+  width: 110px;
   top: -35px;
   left: 10;
-  background: transparent;
-  border: none;
-  font-size: 24px;
-  font-weight: 700;
-  padding: 0;
+  background: #ffffff;
+  border: 1px solid #000000;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33333;
+  text-transform: uppercase;
   border-radius: 5px;
-  @media screen and (min-width: 1280px) {
-    top: 0;
-    left: 10px;
-    color: wheat;
-    text-shadow: 2px 0 2px #8c1b21, 0 2px 2px #8c1b21, -2px 0 2px #8c1b21,
-      0 -2px 2px #8c1b21;
-  }
   &:hover,
   &:focus {
     background-color: #ff6b01;
+    color: #ffffff;
+  }
+  &:hover .icon-youtube,
+  &:focus .icon-youtube {
+    width: 35px;
+    height: 35px;
   }
 }
 .icon-youtube {
   width: 30px;
   height: 30px;
-  margin-right: 10px;
-}
-.trailers-text {
-  margin-right: 10px;
-  @media screen and (min-width: 1280px) {
-    opacity: 0;
-  }
-}
-.trailers:hover .trailers-text,
-.trailers:focus .trailers-text {
-  @media screen and (min-width: 1280px) {
-    opacity: 1;
-  }
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 // container for buttons 'Add to watched' and 'queue'
@@ -246,11 +235,11 @@
   }
 
   .watched {
-    width: 125px;
+    max-width: 125px;
   }
 
   .queue {
-    width: 125px;
+    max-width: 125px;
   }
 
   // desktop styles
@@ -309,6 +298,10 @@ html.dark .count-effect {
 }
 
 html.dark .modal__close-btn {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+html.dark .trailers:hover .icon-youtube {
   -webkit-filter: invert(1);
   filter: invert(1);
 }

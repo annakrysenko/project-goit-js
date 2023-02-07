@@ -10,7 +10,7 @@ export function cardMovieMarkup(
   release_date,
   vote_average
 ) {
-
+  // console.log(poster_path);
   // let poster_url;
   // if (!poster_path) {
   //   console.log('no poster ', id, poster_path, 'poster_path');

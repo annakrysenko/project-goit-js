@@ -8,6 +8,7 @@ export const refs = {
   libraryCurrentBntEl: document.querySelector('.my-library .current'),
   pageBtns: document.querySelector('.pagination-list'),
   pageBtnsInput: document.querySelector('.paginatio-input-list'),
+  pageBtnsGenres: document.querySelector('.paginatio-genres-list'),
 
   //galleries
   filmGalleryHomeEl: document.querySelector('.movie-gallery'),
@@ -44,4 +45,9 @@ export const refs = {
   trailerBtnOpen: document.querySelector('[data-modal-open]'),
   boxIframe: document.querySelector('.box-iframe'),
   pop: document.querySelectorAll('.pop'),
+
+  // пошук по жанрам
+  genresListEl: document.querySelector('.genres-list'),
+  choiceBtnEl: document.querySelector('.choice-genre '),
+  genresBtnsEl: document.querySelectorAll('.btn-genre'),
 };
