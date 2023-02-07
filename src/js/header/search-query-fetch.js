@@ -35,7 +35,6 @@ export async function getFilmsFromInput(e) {
     return;
   }
 
-  refs.filmGalleryHomeEl.innerHTML = '';
   refs.loaderEl.classList.remove('hidden');
 
   const searchFilms = await getAxiosSearchFilms(query);
@@ -47,7 +46,7 @@ export async function getFilmsFromInput(e) {
     makeErrorMassage();
     return;
   }
-
+  refs.filmGalleryHomeEl.innerHTML = '';
   refs.choiceBtnEl.classList.add('hidden');
 
   refs.inputAnswerParEl.innerHTML = '';
