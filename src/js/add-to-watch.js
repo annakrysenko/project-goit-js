@@ -4,7 +4,7 @@ if (document.querySelector('.button-watched')) {
   document.querySelector('.button-watched').addEventListener('click', createWatched);
 }
 
-function createWatched() {
+export function createWatched() {
   document.querySelector('.button-watched').classList.add('current');
   document.querySelector('.button-queue').classList.remove('current');
   const markup = getMovies();
@@ -15,7 +15,14 @@ function createWatched() {
 function getMovies() {
   const saveMovie = localStorage.getItem('add-to-watch');
   if (!saveMovie) {
+    if (document.querySelector('.button-remove')) {
+      document.querySelector('.button-remove').classList.add('vis-hidden');
+    }
+    console.log('nothing');
     return '<p>Nothing here yet</p>';
+  }
+  if (document.querySelector('.button-remove')) {
+    document.querySelector('.button-remove').classList.remove('vis-hidden');
   }
   const parseMovie = JSON.parse(saveMovie);
   console.log('parseMovie', parseMovie);

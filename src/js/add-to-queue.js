@@ -1,4 +1,5 @@
 import { refs } from './DOM';
+import { createWatched } from './add-to-watch';
 
 if (document.querySelector('.button-queue')) {
   document.querySelector('.button-queue').addEventListener('click', createQueue);
@@ -21,6 +22,9 @@ function getMoviesQueue() {
     }
     console.log('nothing');
     return '<p>Nothing here yet</p>';
+  }
+  if (document.querySelector('.button-remove')) {
+    document.querySelector('.button-remove').classList.remove('vis-hidden');
   }
   console.log('saveMovie', saveMovie);
   const parseMovie = JSON.parse(saveMovie);
@@ -63,18 +67,20 @@ if (document.querySelector('.button-remove')) {
 
 function onClickRemove() {
   const btnQ = document.querySelector('.button-queue');
-  const btnW = document.querySelector('.button-wached');
+  const btnW = document.querySelector('.button-watched');
   if (btnQ.className === 'button-queue current') {
     removeFromQueue();
-  } else if (btnW.className === 'button-wached current') {
+  } else if (btnW.className === 'button-watched current') {
     removeFromWatched();
   }
 }
 
 function removeFromQueue() {
   localStorage.removeItem('add-to-queue');
+  createQueue();
 }
 
 function removeFromWatched() {
   localStorage.removeItem('add-to-watch');
+  createWatched();
 }

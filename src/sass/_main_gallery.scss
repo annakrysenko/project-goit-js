@@ -124,10 +124,13 @@
 }
 
 //test
+.main-gallery .container {
+  padding-top: 15px;
+}
 .button-remove {
   display: block;
   margin: auto;
-  margin-bottom: 40px;
+  margin-top: 15px;
   font-size: 70%;
   height: 35px;
   width: 90px;
