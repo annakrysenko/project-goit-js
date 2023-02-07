@@ -13,7 +13,6 @@ if (refs.filmGalleryLibraryEl) {
 
 let movie;
 async function onFilmPosterClick(e) {
- 
   e.stopPropagation;
   if (e.target.className === "movie-gallery__photo") {
     refs.backdropEl.classList.remove('is-hidden');
@@ -26,7 +25,8 @@ async function onFilmPosterClick(e) {
 
   refs.containerEl.innerHTML = ''
   const filmId = e.target.offsetParent.dataset.id;
-
+ 
+  
   const moviePromise = await getMovieByID(filmId);
   const {
     poster_path,
@@ -56,12 +56,15 @@ async function onFilmPosterClick(e) {
   };
   const markup = modalMarkup(movie);
   refs.containerEl.innerHTML = markup;
+  checkAddToWatch(filmId)
+  checkqueue(filmId)
 }
 
 
   
 function onModalListeners(e) {
     // Додати до переглянутих
+  
     if (e.target.innerText === 'ADD TO WATCHED') {
       e.stopPropagation;
       const getArrayForWatched = JSON.parse(
@@ -136,8 +139,26 @@ function closeModalByDocument(e) {
 }
 
 
+function checkAddToWatch(movieId) {
+  const getArrayForWatched = JSON.parse(localStorage.getItem('add-to-watch'))
+  const checkArray = getArrayForWatched.find(movie => {return Number(movieId) === movie.id})
+  if (checkArray) {
+    const watched = document.querySelector('#watched-modal')
+    watched.classList.replace ('watched', 'disabled')
+    watched.textContent = 'already added'.toUpperCase()
+  }
+}
 
-
+function checkqueue(movieId) {
+  const getArrayForWatched = JSON.parse(localStorage.getItem('add-to-queue'))
+  const checkArray = getArrayForWatched.find(movie => {return Number(movieId) === movie.id})
+  if (checkArray) {
+    const watched = document.querySelector('.queue')
+    watched.classList.replace ('queue', 'disabled')
+    watched.textContent = 'already added'.toUpperCase()
+  }
+}
+ 
 
 
 

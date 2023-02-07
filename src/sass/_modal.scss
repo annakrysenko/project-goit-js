@@ -163,6 +163,19 @@
     border: transparent;
   }
 }
+.disabled{
+  width: 110px;
+  height: 44px;
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  
+}
 .queue {
   width: 110px;
   height: 44px;

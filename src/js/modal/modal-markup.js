@@ -41,7 +41,7 @@ export function modalMarkup(movie) {
     />
     <span data-id="${movie.id}" class="trailers-text">Trailer</span>
   </button>
-  <button class="watched" id='watched-modal' type="button">add to Watched</button>
+  <button class="watched" id="watched-modal" type="button">add to Watched</button>
   <button class="queue" id='queue-modal' type="button">add to queue</button>
   </div>
   `;
