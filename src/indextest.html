@@ -24,15 +24,27 @@
     <link rel="stylesheet" href="./sass/_modal-registration.scss" />
   </head>
   <body>
-    <include src="./signup.html"></include>
+    <!-- <a href="./signup.html">signup</a> -->
     <include src="./partials/header.html"></include>
     <include src="./partials/main.html"></include>
     <include src="./partials/btn-to-top.html"></include>
     <include src="./partials/footer.html"></include>
     <include src="./partials/modal-team-info.html"></include>
-    <include src="./partials/trailer-backdrop.html"></include>
-
+    <include src="./signup.html"></include>
     <script type="module" src="./index.js"></script>
     <script src="./js/modal/signin.js"></script>
   </body>
 </html>
+
+@import './common'; @import './container'; @import './header'; @import
+'./main_gallery'; @import './paginaton-btns.scss'; @import './footer'; @import
+'./team-info'; @import './modal'; @import './btn_to_top'; @import './loader';
+@import './theme-btn'; @import './dark-theme'; @import './modal-registration';
+------------------------------------------------------------------------------
+import './js/team-modal'; import './js/scroll'; import './js/header/theme-btn';
+import './js/modal/modal'; import './js/firebase' import { refs } from
+'./js/DOM'; import { getFilmsFromInput } from './js/header/search-query-fetch';
+import { getPopularFilms } from './js/create-gallery/get-popular-films'; if
+(refs.homeBTN.classList.contains('current')) { getPopularFilms(); } if
+(refs.formEl) { refs.formEl.addEventListener('submit', e =>
+getFilmsFromInput(e)); } import './js/trailer'
