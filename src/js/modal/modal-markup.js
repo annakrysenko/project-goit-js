@@ -7,15 +7,6 @@ export function modalMarkup(movie) {
   const movieTitle = movie.title.toUpperCase();
   return `
   <div class="image-btn-wrapper">
-  <button data-id="${movie.id}" class="trailers" type="button" data-modal-open>
-    <img
-      data-id="${movie.id}"
-      class="icon-youtube"
-      src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
-      alt="logo"
-    />
-    <span data-id="${movie.id}" class="trailers-text">Watch trailer</span>
-  </button>
   <img
     class="modal-container__img"
     src="${BASE_URL}${movie.poster_path}"
@@ -41,6 +32,15 @@ export function modalMarkup(movie) {
   <h3 class = 'modal-container__second-title'>ABOUT</h3>
   <p class = 'modal-container__description'>${movie.overview}</p>
   <div class = 'btn-container'>
+      <button data-id="${movie.id}" class="trailers" type="button" data-modal-open>
+    <img
+      data-id="${movie.id}"
+      class="icon-youtube"
+      src="https://cdn-icons-png.flaticon.com/512/49/49084.png"
+      alt="logo"
+    />
+    <span data-id="${movie.id}" class="trailers-text">Trailer</span>
+  </button>
   <button class="watched" id='watched-modal' type="button">add to Watched</button>
   <button class="queue" id='queue-modal' type="button">add to queue</button>
   </div>
