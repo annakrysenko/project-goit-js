@@ -8,7 +8,6 @@ import { createPaginationBtns } from '../pagination/pagination-buttons';
 
 export async function getFilmsFromInput(e) {
 e.preventDefault();
-  
 refs.pageBtns.innerHTML = '';
 refs.pageBtnsInput.innerHTML = '';
 
@@ -51,11 +50,11 @@ const query = e.target.elements.input.value;
   refs.pageBtnsInput.innerHTML = buttonsMurkup
 
   refs.pageBtnsInput.addEventListener('click', ev => {
-    if (e.target === e.currentTarget || e.target.nodeName === 'SPAN' || e.target.nodeName === 'FORM') {
-      console.log(e.target);
+    ev.stopPropagation()
+    if (ev.target.nodeName !== 'BUTTON') {
     return 
     }
-    console.log(e.target);
+    console.log(ev.target.nodeName)
     paginationInput(ev, query, totalPages)
   })
 }
