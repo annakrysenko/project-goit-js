@@ -41,7 +41,6 @@ function closeBackdrop() {
 }
 function closeMovieTrailer(e) {
   if (e.key === 'Escape') {
-    console.log(e.key);
     refs.trailerBackdrop.classList.add('is-hidden');
     refs.boxIframe.innerHTML = '';
     refs.trailerBtnClose.removeEventListener('click', closeBackdrop);
