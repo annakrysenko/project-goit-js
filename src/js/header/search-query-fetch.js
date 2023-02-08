@@ -25,6 +25,7 @@ export async function getFilmsFromInput(e) {
   e.preventDefault();
   refs.pageBtns.innerHTML = '';
   refs.pageBtnsInput.innerHTML = '';
+  refs.pageBtnsGenres.innerHTML = '';
 
   const query = e.target.elements.input.value;
 

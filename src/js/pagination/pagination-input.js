@@ -11,6 +11,7 @@ let page = 1
 export async function paginationInput(ev, query ,totalPages) {
     refs.pageBtns.innerHTML = ''
     refs.pageBtnsInput.innerHTML = ''
+    refs.pageBtnsGenres.innerHTML = ''
 
     
     
