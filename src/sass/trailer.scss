@@ -75,11 +75,11 @@
   display: block;
   width: 100%;
   height: auto;
-  min-width: 256px;
-  min-height: 144px;
+  min-width: 320px;
+  min-height: 180px;
   @media screen and (min-width: 480px) {
-    min-width: 320px;
-    min-height: 180px;
+    min-width: 426px;
+    min-height: 240px;
   }
   @media screen and (min-width: 768px) {
     min-width: 640px;
@@ -89,4 +89,7 @@
     min-width: 854px;
     min-height: 480px;
   }
+}
+html.dark .trailer-box {
+  background-color: rgb(83, 83, 83);
 }

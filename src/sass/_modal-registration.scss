@@ -1,0 +1,122 @@
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.modal-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  opacity: 1;
+}
+
+.close-modal-bth {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.auth {
+  padding: 30px;
+  border-radius: 5px;
+  position: relative;
+  width: 400px;
+  height: 330px;
+  background-color: #188ce8;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: linear-gradient(
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url(../images/wallpaper-big.jpg);
+}
+
+.login-modal,
+.signup-modal {
+  padding-bottom: 20px;
+}
+
+.signup-list__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-list__item:not(:last-child) {
+  margin-top: 35px;
+}
+
+.signup-list__label {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: white;
+  font-size: 12px;
+}
+
+.signup-list__input {
+  margin-bottom: 25px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  outline: none;
+  background-color: white;
+  color: black;
+}
+
+html.dark .signup-list__input {
+  background-color: #545454;
+  color: white;
+}
+
+.actionLog {
+  min-width: 80px;
+  padding: 10px;
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+  border: 0.5px solid white;
+  margin: 0 auto;
+  margin-top: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.actionLog:hover,
+.actionLog:focus {
+  background-color: #ff6b01;
+  color: white;
+  border: 0.5px solid #ff6b01;
+  box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+}
+
+.loginBtn,
+.registrationBtn {
+  position: absolute;
+  bottom: 30px;
+  right: 140px;
+}
+
+.signBtn,
+.logoutBtn {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+}

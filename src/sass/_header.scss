@@ -12,7 +12,7 @@
   }
 
   @media screen and(min-width: 768px) {
-    min-height: 216px;
+    height: 216px;
     background-image: url("../images/home/home-768.png");
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -46,7 +46,7 @@
   }
 
   @media screen and(min-width: 768px) {
-    min-height: 216px;
+    height: 216px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/library/liba-768.png");
 
     @media screen and (min-device-pixel-ratio: 2),
@@ -157,12 +157,20 @@ input[data-autocompleted] {
   color: white;
 }
 
+.input-answer-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .input-answer {
   color: #ff001b;
-  margin: 16px auto 0 auto;
+  margin: 16px 0 0 0;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.16;
+}
+.close-input-answer {
+  margin-left: 5px;
 }
 
 .submit-search-button {
@@ -313,6 +321,9 @@ input[data-autocompleted] {
   .header-library {
     padding: 40px 0 60px 0;
   }
+  .header-home {
+    height: 230px;
+  }
 
   .header-library {
     height: 216px;
@@ -341,4 +352,13 @@ input[data-autocompleted] {
   background: #ff6b01;
   box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
   border: none;
+}
+.input-answer-wrap.hidden {
+  display: none;
+}
+
+.stylies-reg {
+  border: none;
+  background: transparent;
+  color: white;
 }

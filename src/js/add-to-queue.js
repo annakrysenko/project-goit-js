@@ -1,18 +1,14 @@
 import { refs } from './DOM';
-// import { getMovieByID } from './axios';
-// import { makeGalleryMarkup } from './create-gallery/make-home-gallery';
-// import { cardMovieMarkup } from './create-gallery/cardMovieMarkup';
+import { createWatched } from './add-to-watch';
 
-if (document.querySelector('.button-queue')) {
-  document
-    .querySelector('.button-queue')
-    .addEventListener('click', createQueue);
+if (refs.queueBtn) {
+  refs.queueBtn.addEventListener('click', createQueue);
   createQueue();
 }
 
 function createQueue() {
-  document.querySelector('.button-watched').classList.remove('current');
-  document.querySelector('.button-queue').classList.add('current');
+  refs.watchedBtn.classList.remove('current');
+  refs.queueBtn.classList.add('current');
 
   const markup = getMoviesQueue();
   refs.filmGalleryLibraryEl.innerHTML = markup;
@@ -21,15 +17,19 @@ function createQueue() {
 function getMoviesQueue() {
   const saveMovie = localStorage.getItem('add-to-queue');
   if (!saveMovie) {
+    if (refs.removeBtn) {
+      refs.removeBtn.classList.add('vis-hidden');
+    }
     console.log('nothing');
-    return '<p>Nothing here yet</p>';
+    return '<div class="error-wrapp"><p class="error-tittle">Oooops...</p><p class="error-text">No movies have been added yet. Let&apos;s go pick something to your liking</p></div>';
+  }
+  if (refs.removeBtn) {
+    refs.removeBtn.classList.remove('vis-hidden');
   }
   console.log('saveMovie', saveMovie);
   const parseMovie = JSON.parse(saveMovie);
   console.log('parseMovie', parseMovie);
 
-  //   console.log(typeof parseMovie);
-  // let markupForLibrary = '';
   const markup = parseMovie
     .map(film => {
       const { id, poster_path, title, genresArr, releaseDate, vote_average } =
@@ -37,7 +37,6 @@ function getMoviesQueue() {
       console.log('vote_average', vote_average);
       const avarage = vote_average.toFixed(1);
       console.log('avarage', avarage);
-      // console.log(genresArr);
       console.log('poster_path', poster_path);
       const BASE_URL = 'https://image.tmdb.org/t/p/w500';
       const markupCard = `
@@ -57,11 +56,30 @@ function getMoviesQueue() {
       </div>
     </div>
   </li>`;
-      // console.log(markup);
-      // markupForLibrary += markup;
-      // return markupForLibrary;
       return markupCard;
     })
     .join('');
   return markup;
+}
+
+if (refs.removeBtn) {
+  refs.removeBtn.addEventListener('click', onClickRemove);
+}
+
+function onClickRemove() {
+  if (refs.queueBtn.className === 'button-queue current') {
+    removeFromQueue();
+  } else if (refs.watchedBtn.className === 'button-watched current') {
+    removeFromWatched();
+  }
+}
+
+function removeFromQueue() {
+  localStorage.removeItem('add-to-queue');
+  createQueue();
+}
+
+function removeFromWatched() {
+  localStorage.removeItem('add-to-watch');
+  createWatched();
 }

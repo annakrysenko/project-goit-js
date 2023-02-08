@@ -75,3 +75,11 @@ html.dark .team-text:nth-child(even) {
       0 0 80px #ff6b08, 0 0 160px #ff6b08, 0 0 400px #ff6b08;
   }
 }
+
+html.dark .team-info {
+  background: rgba(0, 0, 0, 0.473);
+}
+
+html.dark .team-name {
+  color: #fff;
+}

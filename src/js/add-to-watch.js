@@ -1,17 +1,12 @@
 import { refs } from './DOM';
-// import { getMovieByID } from './axios';
-// import { makeGalleryMarkup } from './create-gallery/make-home-gallery';
-// import { cardMovieMarkup } from './create-gallery/cardMovieMarkup';
 
-if (document.querySelector('.button-watched')) {
-  document
-    .querySelector('.button-watched')
-    .addEventListener('click', createWatched);
+if (refs.watchedBtn) {
+  refs.watchedBtn.addEventListener('click', createWatched);
 }
 
-function createWatched() {
-  document.querySelector('.button-watched').classList.add('current');
-  document.querySelector('.button-queue').classList.remove('current');
+export function createWatched() {
+  refs.watchedBtn.classList.add('current');
+  refs.queueBtn.classList.remove('current');
   const markup = getMovies();
 
   refs.filmGalleryLibraryEl.innerHTML = markup;
@@ -20,21 +15,24 @@ function createWatched() {
 function getMovies() {
   const saveMovie = localStorage.getItem('add-to-watch');
   if (!saveMovie) {
-    return '<p>Nothing here yet</p>';
+    if (refs.removeBtn) {
+      refs.removeBtn.classList.add('vis-hidden');
+    }
+    console.log('nothing');
+    return '<div class="error-wrapp"><p class="error-tittle">Oooops...</p><p class="error-text">No movies have been added yet. Let&apos;s go pick something to your liking</p></div>';
   }
-  //   console.log(saveMovie);
+  if (refs.removeBtn) {
+    refs.removeBtn.classList.remove('vis-hidden');
+  }
   const parseMovie = JSON.parse(saveMovie);
   console.log('parseMovie', parseMovie);
 
-  //   console.log(typeof parseMovie);
-  // let markupForLibrary = '';
   const markup = parseMovie
     .map(film => {
       const { id, poster_path, title, genresArr, releaseDate, vote_average } =
         film;
       const avarage = vote_average.toFixed(1);
 
-      // console.log(genresArr);
       const BASE_URL = 'https://image.tmdb.org/t/p/w500';
       const markupCard = `
    <li class="movie-gallery__item" >
@@ -53,9 +51,6 @@ function getMovies() {
       </div>
     </div>
   </li>`;
-      // console.log(markup);
-      // markupForLibrary += markup;
-      // return markupForLibrary;
       return markupCard;
     })
     .join('');

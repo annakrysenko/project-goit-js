@@ -1,0 +1,54 @@
+<div class="modal-registration">
+  <div class="modal-login hidden" id="modal">
+    <div class="auth" data-section="auth">
+      <button class="close-modal-bth"">
+        <img
+          src="./images/modal-auth.svg"
+          class="auth-img"
+          width="30"
+          height="30"
+          alt=""
+        />
+      </button>
+      <div>
+        <button class="actionLog loginBtn" data-block="login">Login</button>
+        <button class="actionLog registrationBtn" data-block="signup">
+          Registaration
+        </button>
+      </div>
+      <form action="" class="signup signup-modal" name="signup">
+        <ul class="signup-list">
+          <li class="signup-list__item">
+            <label class="signup-list__label" for="email">email</label>
+            <input class="signup-list__input" type="email" name="email" />
+          </li>
+          <li class="signup-list__item">
+            <label class="signup-list__label" for="password">password</label>
+            <input class="signup-list__input" type="password" name="password" />
+          </li>
+        </ul>
+        <button type="submit" class="actionLog signBtn" data-action="login">
+          signin
+        </button>
+      </form>
+      <form action="" class="login login-modal hidden" name="signup">
+        <ul class="login-list">
+          <li class="signup-list__item">
+            <label class="signup-list__label" for="email">email</label>
+            <input class="signup-list__input" type="email" name="email" />
+          </li>
+          <li class="signup-list__item">
+            <label class="signup-list__label" for="password">password</label>
+            <input class="signup-list__input" type="password" name="password" />
+          </li>
+        </ul>
+        <button type="submit" class="actionLog signBtn" data-action="signout">
+          Login
+        </button>
+      </form>
+    </div>
+    <div class="logout hidden" data-section="logout">
+      <button class="logout" data-action="logout">Logout</button>
+    </div>
+  </div>
+</div>
