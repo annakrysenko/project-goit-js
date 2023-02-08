@@ -124,10 +124,13 @@
 }
 
 //test
+.main-gallery .container {
+  padding-top: 15px;
+}
 .button-remove {
   display: block;
   margin: auto;
-  margin-bottom: 40px;
+  margin-top: 15px;
   font-size: 70%;
   height: 35px;
   width: 90px;
@@ -145,6 +148,11 @@
   box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
   border: none;
 }
+html.dark .button-remove:hover,
+html.dark .button-remove:focus {
+  border: 1px solid #ff6b01;
+  color: white;
+}
 html.dark .button-remove {
   border: 1px solid white;
   color: white;
@@ -160,4 +168,31 @@ html.dark .button-remove {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   margin: -1px;
+}
+
+.error-wrapp {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-tittle {
+  padding: 20px;
+  text-align: center;
+  color: #ff6b01;
+  font-size: 32px;
+}
+
+.error-text {
+  padding: 10px;
+  text-align: center;
+  color: black;
+  font-size: 18px;
+}
+
+html.dark .error-text {
+  color: white;
 }

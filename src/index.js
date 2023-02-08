@@ -2,6 +2,7 @@ import './js/team-modal';
 import './js/scroll';
 import './js/header/theme-btn';
 import './js/modal/modal';
+import './js/modal/signin.js';
 
 import { refs } from './js/DOM';
 import { getFilmsFromInput } from './js/header/search-query-fetch';

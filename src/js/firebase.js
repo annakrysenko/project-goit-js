@@ -2,8 +2,8 @@
 import { initializeApp } from 'firebase/app';
 // library
 import {
-  getFirestore, collection, getDocs,
-  addDoc, deleteDoc, doc
+  getFirestore, collection, getDocs, onSnapshot,
+  addDoc, deleteDoc, doc, query, where, orderBy
 } from 'firebase/firestore';
 // signup
 import {
@@ -32,23 +32,41 @@ const auth = getAuth(app);
 // collection ref
 const colRef = collection(db, 'library');
 
-// console.log(colRef);
+// testing! do not touch this part! --------------------------------------
+
+//queries
+
+// const q = query(colRef, where("author", "==", "king"))
 
 // getDocs(colRef)
 //   .then((snapshot) => {
 //     let library = [];
-//     snapshot.docs.forEach((doc) => library.push({ ...doc.data(), id: doc.id }))
+//     snapshot.docs.forEach((doc) =>
+//       library.push({ ...doc.data(), id: doc.id }))
 //     console.log(library);
 //   })
 //   .catch(err => {
 //     console.log(err.message);
 //   });
 
+  // onSnapshot(q, (snapshot) => {
+  // let library = [];
+  //   snapshot.docs.forEach((doc) =>
+  //     library.push({ ...doc.data(), id: doc.id }))
+  // console.log(library);
+  //   })
+
+// ------------------------------------------
+// onSnapshot(colRef, (snapshot) => {
+//   let library = [];
+//     snapshot.docs.forEach((doc) =>
+//       library.push({ ...doc.data(), id: doc.id }))
+//   console.log(library);
+//     })
+// -------------------------------------------
 
 
-
-
-// // adding subject
+// //adding subject
 // const addUserForm = document.querySelector('.add');
 // addUserForm.addEventListener('submit', (event) => {
 //   event.preventDefault()
@@ -62,7 +80,7 @@ const colRef = collection(db, 'library');
 //   })
 // })
 
-// //delete subject
+//delete subject
 // const deleteUserForm = document.querySelector('.delete')
 // deleteUserForm.addEventListener('submit', (event) => {
 //   event.preventDefault()
@@ -75,10 +93,46 @@ const colRef = collection(db, 'library');
 //   })
 // })
 
-//signing users up
+// ----------------------------------------------------------
+
+
+//signing users up checking
 const regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const signupForm = document.querySelector('.signup');
+
+
+
+// if`ки
+
+// if (signupForm.addEventListener) {
+//   signupForm.addEventListener('submit', (event) => {
+//   event.preventDefault()
+
+//   const email = signupForm.email.value;
+//   const password = signupForm.password.value;
+
+//   console.log(regex.test(email));
+
+//   createUserWithEmailAndPassword(auth, email, password)
+//     .then((cred) => {
+
+//       const user = cred.user;
+//       console.log('user created:', cred.user);
+//       signupForm.reset();
+
+//        return console.log('wrong email')
+//     })
+//     .catch((err) => {
+//       alert(err.message);
+//   })
+// }), false
+
+// }
+
+
+
+// form for singup(registration)
 
 signupForm.addEventListener('submit', (event) => {
   event.preventDefault()
@@ -114,6 +168,8 @@ signupForm.addEventListener('submit', (event) => {
 // }
 
 
+
+//logout button
 const logoutButton = document.querySelector('.logout')
 
 logoutButton.addEventListener('click', () => {
@@ -127,6 +183,7 @@ logoutButton.addEventListener('click', () => {
 });
 
 
+//login form
 
 const loginForm = document.querySelector('.login')
 loginForm.addEventListener('submit', (event) => {
@@ -144,26 +201,24 @@ loginForm.addEventListener('submit', (event) => {
   })
 });
 
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     // User is signed in, see docs for a list of available properties
-//     // https://firebase.google.com/docs/reference/js/firebase.User
-//     const uid = user.uid;
-//     console.log('u are inside')
-//     // ...
-//   } else {
-//     // User is signed out
-//     // ...
-//   }
-// });
+// modal its modal-registration
+// authScript its forms (check the "div[data-section='auth']" in html)
 
-
-
-const modal = document.querySelector(".modal-login");
+const modal = document.querySelector(".modal-registration");
 const authScript = document.querySelector("div[data-section='auth']");
 const logout = document.querySelector("div[data-section='logout']");
 
-modal.style.display = 'none'
+const loginBtn = document.querySelector('.loginBtn');
+const registrationBtn = document.querySelector('.registrationBtn')
+
+// form 1 is for login, it starts default
+// form 2 is for registration, press registration button to switch
+
+const form1 = document.querySelector('.login-modal')
+const form2 = document.querySelector('.signup-modal')
+
+
+modal.style.display = 'none';
 
 const removeEventModal = (e) => {
   modal.removeEventListener('click', callback);
@@ -176,25 +231,18 @@ const openModal = (e) => {
   console.log(e)
   modal.style.display = '';
   form1.classList.remove('hidden')
-    form2.classList.add('hidden');
-
+  form2.classList.add('hidden');
+  loginBtn.classList.add('hidden')
+  registrationBtn.classList.remove('hidden');
+  bntModal.classList.add('hidden');
 }
 
 const closeModal = (e) => {
   modal.classList.add('hidden');
   console.log(modal);
   console.log(e)
-  //  modal.style.display = '';
+  bntModal.classList.remove('hidden');
 }
-
-const bntModal = document.querySelector('.open-modal-bth');
-bntModal.addEventListener('click', (openModal));
-
-const closeModalForm = document.querySelector('.close-modal-bth');
-closeModalForm.addEventListener('click', (closeModal));
-
-const form1 = document.querySelector('.login-modal')
-const form2 = document.querySelector('.signup-modal')
 
 
 const callback = event => {
@@ -204,26 +252,26 @@ const callback = event => {
    // console.log(event.currentTarget.elements[0].elements[1]);
    // console.log(event.currentTarget.elements[0].elements[2]);
 
-
-
-   // const form1 = event.currentTarget.elements[0].elements[1];
-   // const form2 = event.currentTarget.elements[0].elements[2];
     console.log(form1);
     form1.classList.remove('hidden')
     form2.classList.add('hidden');
+    loginBtn.classList.add('hidden')
+    registrationBtn.classList.remove('hidden');
   }
 
   if (event.target.dataset.block === 'signup') {
-   // const form1 = event.currentTarget.elements[0].elements[1]
-  //  const form2 = event.currentTarget.elements[0].elements[2]
     form1.classList.add('hidden')
     form2.classList.remove('hidden')
+    loginBtn.classList.remove('hidden')
+    registrationBtn.classList.add('hidden');
   }
   if (event.target.dataset.action === 'signup') {
     signUpFirebase().then(() =>  console.log('your logic removeEventModal()') )
   }
 }
 
+
+// need to chech your status. Are you loged in or not
 onAuthStateChanged(auth, (user) => {
   if (user) {
    // authScript.classList.add('hidden');
@@ -236,6 +284,16 @@ onAuthStateChanged(auth, (user) => {
     authScript.classList.remove('hidden'); logout.classList.add('hidden')
   }
 });
+
+
+// open/close main modal registration window
+
+const bntModal = document.querySelector('.open-modal-bth');
+bntModal.addEventListener('click', (openModal));
+
+const closeModalForm = document.querySelector('.close-modal-bth');
+closeModalForm.addEventListener('click', (closeModal));
+
 
 modal.addEventListener('click', callback);
 
