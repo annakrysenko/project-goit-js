@@ -4,10 +4,11 @@ import { makeGalleryMarkup } from './make-home-gallery';
 import { createPaginationBtns } from '../pagination/pagination-buttons';
 import { paginationPopular } from '../pagination/pagination-popular';
 
-
 export async function getPopularFilms() {
-refs.pageBtns.innerHTML = ''
-        refs.pageBtnsInput.innerHTML = ''
+  refs.choiceBtnEl.classList.remove('hidden');
+
+  refs.pageBtns.innerHTML = '';
+  refs.pageBtnsInput.innerHTML = '';
 
   refs.filmGalleryHomeEl.innerHTML = '';
   refs.loaderEl.classList.remove('hidden');
@@ -23,15 +24,16 @@ refs.pageBtns.innerHTML = ''
   const popularFilmsMarkup = makeGalleryMarkup(popularFilms);
 
   refs.filmGalleryHomeEl.innerHTML = popularFilmsMarkup;
-  const buttonsMurkup = createPaginationBtns(currentPage, totalPages)
-        refs.pageBtnsInput.innerHTML = ''
-        refs.pageBtns.innerHTML = buttonsMurkup
-
+  const buttonsMurkup = createPaginationBtns(currentPage, totalPages);
+  refs.pageBtnsInput.innerHTML = '';
+  refs.pageBtns.innerHTML = buttonsMurkup;
 
   refs.pageBtns.addEventListener('click', e => {
+    console.log(e.target.nodeName);
     if (e.target === e.currentTarget && e.target.nodeName === 'SPAN') {
-    return 
+      return;
+
     }
-    paginationPopular(e)
-  })
+    paginationPopular(e);
+  });
 }

@@ -3,19 +3,27 @@ import { getMovieByID } from '../axios';
 import { modalMarkup } from './modal-markup';
 
 if (refs.filmGalleryHomeEl) {
-  refs.filmGalleryHomeEl.addEventListener('click', e => onFilmPosterClick(e)),
-    false;
+  refs.filmGalleryHomeEl.addEventListener('click', onFilmPosterClick)   
 }
 if (refs.filmGalleryLibraryEl) {
-  refs.filmGalleryLibraryEl.addEventListener('click', e => onFilmPosterClick(e)),
-    false;
+  refs.filmGalleryLibraryEl.addEventListener('click', onFilmPosterClick)
 }
+
+
 
 let movie;
 async function onFilmPosterClick(e) {
-  // if e.target.offsetParent.dataset.id
+ 
   e.stopPropagation;
-  refs.backdropEl.classList.remove('is-hidden');
+  if (e.target.className === "movie-gallery__photo") {
+    refs.backdropEl.classList.remove('is-hidden');
+    refs.backdropEl.addEventListener('click', onModalListeners);
+    window.addEventListener('keydown', onCloseEsc);
+    // зупиняє скрол коли відкрита модалка
+    document.body.style = 'overflow-y: hidden';
+  }
+
+  refs.containerEl.innerHTML = ''
   const filmId = e.target.offsetParent.dataset.id;
 
   const moviePromise = await getMovieByID(filmId);
@@ -49,9 +57,10 @@ async function onFilmPosterClick(e) {
   refs.containerEl.innerHTML = markup;
 }
 
-if (refs.modalEl) {
-   
-  refs.modalEl.addEventListener('click', e => {
+
+  
+function onModalListeners(e) {
+    // Додати до переглянутих
     if (e.target.innerText === 'ADD TO WATCHED') {
       e.stopPropagation;
       const getArrayForWatched = JSON.parse(
@@ -68,9 +77,10 @@ if (refs.modalEl) {
         const newArr = [movie];
         newArr.push;
         localStorage.setItem('add-to-watch', JSON.stringify(newArr));
-        console.log(newArr);
       }
     }
+
+    // Додати до черги
 if (e.target.innerText === 'ADD TO QUEUE') {
       e.stopPropagation;
       const getArrayForWatched = JSON.parse(
@@ -90,14 +100,29 @@ if (e.target.innerText === 'ADD TO QUEUE') {
         localStorage.setItem('add-to-queue', JSON.stringify(newArr));
       }
     }
-    if (e.target.classList.value === 'modal__close-btn') {
+    // Закрити модалку
+    if (e.target.classList.value === 'modal__close-btn' || e.currentTarget) {
       refs.backdropEl.classList.add('is-hidden');
+      refs.backdropEl.removeEventListener('click', onModalListeners)
+      window.removeEventListener('keydown', onCloseEsc)
+      const scrollY = document.body.style.top;
+      //відновлює скрол коли модалка закрита
+      document.body.style.overflow = ''
     }
-  })
-}
+}  
 
-   
-  
+// Закрити через Escape
+function onCloseEsc(e) {
+  if (e.code === 'Escape') {
+    refs.backdropEl.classList.add('is-hidden');
+    refs.backdropEl.removeEventListener('click', onModalListeners);
+    window.removeEventListener('keydown', onCloseEsc);
+    //відновлює скрол коли модалка закрита
+    document.body.style.overflow = ''
+  } 
+  }
+
+
 
 
 

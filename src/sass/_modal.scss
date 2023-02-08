@@ -98,25 +98,43 @@
     word-spacing: 0.5;
     word-spacing: 0.5;
     margin-bottom: 35px;
+    overflow-y: auto;
   }
 }
 
 // trailers btn in modal
+.image-btn-wrapper {
+  position: relative;
+}
 .trailers {
   display: flex;
   align-items: center;
-  position: absolute;
-  top: 0;
-  left: 20px;
-  background: transparent;
-  border: none;
-  font-size: 22px;
-  font-weight: 700;
+  width: 110px;
+  top: -35px;
+  left: 10;
+  background: #ffffff;
+  border: 1px solid #000000;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33333;
+  text-transform: uppercase;
+  border-radius: 5px;
+  &:hover,
+  &:focus {
+    background-color: #ff6b01;
+    color: #ffffff;
+  }
+  &:hover .icon-youtube,
+  &:focus .icon-youtube {
+    width: 35px;
+    height: 35px;
+  }
 }
 .icon-youtube {
   width: 30px;
   height: 30px;
-  margin-right: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 // container for buttons 'Add to watched' and 'queue'
@@ -198,7 +216,8 @@
     padding-right: 36px;
 
     &__img {
-      height: 375px;
+      height: 100%;
+      width: auto;
       margin: auto 0;
     }
 
@@ -216,11 +235,11 @@
   }
 
   .watched {
-    width: 125px;
+    max-width: 125px;
   }
 
   .queue {
-    width: 125px;
+    max-width: 125px;
   }
 
   // desktop styles
@@ -237,13 +256,13 @@
       padding-left: 20px;
       padding-right: 20px;
       gap: 16;
-      &__img {
-        width: 375px;
-        height: 415px;
-      }
+
       &__title {
         font-size: 30px;
         line-height: calc(35 / 30);
+      }
+      &__description{
+        overflow-y: none;
       }
     }
     .btn-container {
@@ -279,6 +298,10 @@ html.dark .count-effect {
 }
 
 html.dark .modal__close-btn {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+html.dark .trailers:hover .icon-youtube {
   -webkit-filter: invert(1);
   filter: invert(1);
 }

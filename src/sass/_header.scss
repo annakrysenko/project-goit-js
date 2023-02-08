@@ -72,7 +72,7 @@
 
 .header-home,
 .header-library {
-  height: 230px;
+  min-height: 230px;
   display: flex;
   flex-direction: column;
   padding: 40px 0 15px 0;
@@ -281,7 +281,7 @@ input[data-autocompleted] {
   }
 
   .header-home {
-    height: 216px;
+    min-height: 216px;
   }
   .form-wrapper {
     margin-top: 40px;
@@ -312,6 +312,9 @@ input[data-autocompleted] {
   .header-home,
   .header-library {
     padding: 40px 0 60px 0;
+  }
+  .header-home {
+    min-height: 230px;
   }
 
   .header-library {
