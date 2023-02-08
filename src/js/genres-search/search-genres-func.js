@@ -10,6 +10,8 @@ if (refs.genresListEl) {
   refs.genresListEl.classList.add('hidden');
 }
 
+
+
 const genresForMarkUp = Object.values(genresAll);
 
 if (refs.homeBTN.classList.contains('current')) {
@@ -38,6 +40,11 @@ if (refs.homeBTN.classList.contains('current')) {
 
 async function onClickGenre(event) {
   // refs.choiceBtnEl.classList.toggle('hidden');
+  refs.pageBtns.innerHTML = ''
+  refs.pageBtns.classList.add('hidden')
+  refs.pageBtnsInput.innerHTML = ''
+refs.pageBtnsInput.classList.add('hidden')
+refs.pageBtnsGenres.classList.remove('hidden');
 
   event.currentTarget.childNodes.forEach(el =>
     el.children[0].classList.remove('active')
