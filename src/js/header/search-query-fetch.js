@@ -8,8 +8,10 @@ import { createPaginationBtns } from '../pagination/pagination-buttons';
 
 export async function getFilmsFromInput(e) {
 e.preventDefault();
-refs.pageBtns.innerHTML = '';
-refs.pageBtnsInput.innerHTML = '';
+  refs.pageBtns.innerHTML = '';
+  refs.pageBtns.classList.add('hidden')
+  refs.pageBtnsInput.innerHTML = '';
+  refs.pageBtnsInput.classList.remove("hidden")
 
 const query = e.target.elements.input.value;
 
