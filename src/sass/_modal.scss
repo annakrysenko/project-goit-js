@@ -64,6 +64,16 @@
 
     &--key {
       width: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 8;
+    }
+    &--value{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      gap: 8;
     }
 
     &--keytext {
@@ -71,12 +81,10 @@
       font-size: 12px;
       font-weight: 500;
       line-height: calc(16 / 12);
-      margin-bottom: 8px;
     }
     &--valuetext {
       font-size: 12px;
       font-weight: 500;
-      margin-bottom: 8px;
       vertical-align: middle;
     }
   }
