@@ -5,11 +5,10 @@ import { createPaginationBtns } from '../pagination/pagination-buttons';
 import { paginationPopular } from '../pagination/pagination-popular';
 
 export async function getPopularFilms() {
-  refs.pageBtns.innerHTML = ''
-  refs.pageBtns.classList.remove('hidden')
-  refs.pageBtnsInput.innerHTML = ''
-  refs.pageBtnsInput.classList.add('hidden')
-  refs.pageBtnsGenres.classList.add('hidden');
+  refs.choiceBtnEl.classList.remove('hidden');
+
+  refs.pageBtns.innerHTML = '';
+  refs.pageBtnsInput.innerHTML = '';
 
   refs.filmGalleryHomeEl.innerHTML = '';
   refs.loaderEl.classList.remove('hidden');
