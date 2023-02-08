@@ -61,7 +61,10 @@ async function onFilmPosterClick(e) {
 }
 
 
-  
+
+
+
+
 function onModalListeners(e) {
     // Додати до переглянутих
   
@@ -82,6 +85,9 @@ function onModalListeners(e) {
         newArr.push;
         localStorage.setItem('add-to-watch', JSON.stringify(newArr));
       }
+      const watched = document.querySelector('.watched');
+      watched.textContent = 'added to watched'.toUpperCase();
+      watched.classList.replace('watched', 'disabled');
     }
 
     // Додати до черги
@@ -102,7 +108,10 @@ if (e.target.innerText === 'ADD TO QUEUE') {
         const newArr = [movie];
         newArr.push;
         localStorage.setItem('add-to-queue', JSON.stringify(newArr));
-      }
+  }
+    const queue = document.querySelector('.queue'); 
+    queue.classList.replace ('queue', 'disabled')
+    queue.innerHTML = 'added to queue'.toUpperCase()
     }
     // Закрити модалку
     if (e.target.classList.value === 'modal__close-btn') {
@@ -141,21 +150,24 @@ function closeModalByDocument(e) {
 
 function checkAddToWatch(movieId) {
   const getArrayForWatched = JSON.parse(localStorage.getItem('add-to-watch'))
-  const checkArray = getArrayForWatched.find(movie => {return Number(movieId) === movie.id})
-  if (checkArray) {
-    const watched = document.querySelector('#watched-modal')
+  if (getArrayForWatched === null) {
+    return
+  } else if (getArrayForWatched.find(movie => { return Number(movieId) === movie.id })) {
+    const watched = document.querySelector('.watched');
     watched.classList.replace ('watched', 'disabled')
-    watched.textContent = 'already added'.toUpperCase()
+    watched.innerHTML = 'added to watched'.toUpperCase()
   }
 }
 
 function checkqueue(movieId) {
-  const getArrayForWatched = JSON.parse(localStorage.getItem('add-to-queue'))
-  const checkArray = getArrayForWatched.find(movie => {return Number(movieId) === movie.id})
-  if (checkArray) {
-    const watched = document.querySelector('.queue')
-    watched.classList.replace ('queue', 'disabled')
-    watched.textContent = 'already added'.toUpperCase()
+  const getArrayForWatched = JSON.parse(localStorage.getItem('add-to-queue'));
+  if (getArrayForWatched === null) {
+  return
+}
+  else if (getArrayForWatched.find(movie => { return Number(movieId) === movie.id })) {
+    const queue = document.querySelector('.queue'); 
+    queue.classList.replace ('queue', 'disabled')
+    queue.innerHTML = 'added to queue'.toUpperCase()
   }
 }
  

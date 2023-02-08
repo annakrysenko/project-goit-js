@@ -22,7 +22,7 @@ export function modalMarkup(movie) {
   <p  class = 'modal-container__info--keytext'>Original Title</p>
   <p  class = 'modal-container__info--keytext'>Genre</p>
   </div>
-  <div >
+  <div class = 'modal-container__info--value'>
   <p class = 'modal-container__info--valuetext'><span class = 'avarage-effects'>${avarage}</span> / <span class = 'count-effect'>${movie.vote_count}</span></p>
   <p class = 'modal-container__info--valuetext'>${popularity}</p>
   <p class = 'modal-container__info--valuetext'>${movieTitle}</p>
