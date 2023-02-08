@@ -1,11 +1,15 @@
 <div class="modal-registration">
   <div class="modal-login hidden" id="modal">
-    <button class="close-modal-bth" style="color: red">
-      <svg class="close-button-icon">
-        <use href="./images/symbols-firebase.svg#icon-close-button"></use>
-      </svg>
-    </button>
     <div class="auth" data-section="auth">
+      <button class="close-modal-bth"">
+        <img
+          src="./images/modal-auth.svg"
+          class="auth-img"
+          width="30"
+          height="30"
+          alt=""
+        />
+      </button>
       <div>
         <button class="actionLog loginBtn" data-block="login">Login</button>
         <button class="actionLog registrationBtn" data-block="signup">
@@ -14,31 +18,31 @@
       </div>
       <form action="" class="signup signup-modal" name="signup">
         <ul class="signup-list">
-          <li>
-            <label for="email">email:</label>
-            <input type="email" name="email" />
+          <li class="signup-list__item">
+            <label class="signup-list__label" for="email">email</label>
+            <input class="signup-list__input" type="email" name="email" />
           </li>
-          <li>
-            <label for="password">password:</label>
-            <input type="password" name="password" />
+          <li class="signup-list__item">
+            <label class="signup-list__label" for="password">password</label>
+            <input class="signup-list__input" type="password" name="password" />
           </li>
         </ul>
-        <button type="submit" class="actionLog" data-action="login">
+        <button type="submit" class="actionLog signBtn" data-action="login">
           signin
         </button>
       </form>
       <form action="" class="login login-modal hidden" name="signup">
         <ul class="login-list">
-          <li>
-            <label for="email">email:</label>
-            <input type="email" name="email" />
+          <li class="signup-list__item">
+            <label class="signup-list__label" for="email">email</label>
+            <input class="signup-list__input" type="email" name="email" />
           </li>
-          <li>
-            <label for="password">password:</label>
-            <input type="password" name="password" />
+          <li class="signup-list__item">
+            <label class="signup-list__label" for="password">password</label>
+            <input class="signup-list__input" type="password" name="password" />
           </li>
         </ul>
-        <button type="submit" class="actionLog" data-action="signout">
+        <button type="submit" class="actionLog signBtn" data-action="signout">
           Login
         </button>
       </form>

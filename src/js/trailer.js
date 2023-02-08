@@ -11,6 +11,9 @@ async function createMovieIframe(e) {
     return;
   }
   refs.trailerBackdrop.classList.remove('is-hidden');
+  refs.trailerBtnClose.addEventListener('click', closeBackdrop);
+  window.addEventListener('keydown', closeMovieTrailer);
+  refs.trailerBackdrop.addEventListener('click', closeBackdropOnClick);
   const movieId = e.target.dataset.id;
   try {
     const resp = await getMovieTrailerByID(movieId);
@@ -26,32 +29,32 @@ async function createMovieIframe(e) {
     <iframe class='trailer-iframe' width="auto" height="auto" src='https://www.youtube.com/embed/zwBpUdZ0lrQ' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       `;
     refs.boxIframe.innerHTML = error;
-    closeMovieTrailer();
   }
-}
-if (refs.trailerBackdrop) {
-  refs.trailerBtnClose.addEventListener('click', closeBackdrop);
 }
 
 function closeBackdrop() {
   refs.trailerBackdrop.classList.add('is-hidden');
   refs.boxIframe.innerHTML = '';
+  refs.trailerBtnClose.removeEventListener('click', closeBackdrop);
+  window.removeEventListener('keydown', closeMovieTrailer);
+  refs.trailerBackdrop.removeEventListener('click', closeBackdropOnClick);
 }
-window.addEventListener('keydown', closeMovieTrailer);
 function closeMovieTrailer(e) {
   if (e.key === 'Escape') {
     refs.trailerBackdrop.classList.add('is-hidden');
     refs.boxIframe.innerHTML = '';
+    refs.trailerBtnClose.removeEventListener('click', closeBackdrop);
+    window.removeEventListener('keydown', closeMovieTrailer);
+    refs.trailerBackdrop.removeEventListener('click', closeBackdropOnClick);
   }
 }
-if (refs.trailerBackdrop) {
-  refs.trailerBackdrop.addEventListener('click', closeBackdropOnClick);
-}
-
 function closeBackdropOnClick(e) {
   if (e.target.className !== 'trailer-backdrop') {
     return;
   }
   refs.trailerBackdrop.classList.add('is-hidden');
   refs.boxIframe.innerHTML = '';
+  refs.trailerBtnClose.removeEventListener('click', closeBackdrop);
+  window.removeEventListener('keydown', closeMovieTrailer);
+  refs.trailerBackdrop.removeEventListener('click', closeBackdropOnClick);
 }

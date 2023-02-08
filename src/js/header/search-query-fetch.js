@@ -20,6 +20,12 @@ if (refs.answerInputWrapEl) {
 }
 
 export async function getFilmsFromInput(e) {
+e.preventDefault();
+  refs.pageBtns.innerHTML = '';
+  refs.pageBtns.classList.add('hidden')
+  refs.pageBtnsInput.innerHTML = '';
+  refs.pageBtnsInput.classList.remove("hidden")
+  refs.pageBtnsGenres.classList.add('hidden');
   refs.genresListEl.classList.add('hidden');
 
   e.preventDefault();
